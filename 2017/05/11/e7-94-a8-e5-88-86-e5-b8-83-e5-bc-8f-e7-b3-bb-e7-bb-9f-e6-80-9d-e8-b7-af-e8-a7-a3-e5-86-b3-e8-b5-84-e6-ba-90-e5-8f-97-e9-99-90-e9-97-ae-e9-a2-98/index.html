@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="通过最近的一个小示例，介绍一下分布式系统的特点，和简单实现方式,目的在于使用高级的思路解决实际的问题。 背景：有个任务，将csv格式的数据读入，加工处理，最后输出一个或者多个excel文件。 问题：为了方便使用，将系统迁移至VPS，由于VPS新能问题(配置1核，1G，别问我为啥不升级配置)，处理时大文件时，占用内存过多，程序会崩溃 目标：在资源受限的情况下，让程序正常使用 分析： 发现程序崩溃">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用分布式系统思路解决资源受限问题">
+<meta property="og:url" content="http://blog.lixiaofei.cn/2017/05/11/e7-94-a8-e5-88-86-e5-b8-83-e5-bc-8f-e7-b3-bb-e7-bb-9f-e6-80-9d-e8-b7-af-e8-a7-a3-e5-86-b3-e8-b5-84-e6-ba-90-e5-8f-97-e9-99-90-e9-97-ae-e9-a2-98/index.html">
+<meta property="og:site_name" content="管窥程序">
+<meta property="og:description" content="通过最近的一个小示例，介绍一下分布式系统的特点，和简单实现方式,目的在于使用高级的思路解决实际的问题。 背景：有个任务，将csv格式的数据读入，加工处理，最后输出一个或者多个excel文件。 问题：为了方便使用，将系统迁移至VPS，由于VPS新能问题(配置1核，1G，别问我为啥不升级配置)，处理时大文件时，占用内存过多，程序会崩溃 目标：在资源受限的情况下，让程序正常使用 分析： 发现程序崩溃">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.lixiaofei.cn/wp-content/uploads/2017/05/Image.png">
+<meta property="og:image" content="http://blog.lixiaofei.cn/wp-content/uploads/2017/05/Image2.png">
+<meta property="article:published_time" content="2017-05-11T15:02:45.000Z">
+<meta property="article:modified_time" content="2018-05-08T05:24:13.726Z">
+<meta property="article:author" content="太阳雪">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.lixiaofei.cn/wp-content/uploads/2017/05/Image.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://blog.lixiaofei.cn/2017/05/11/e7-94-a8-e5-88-86-e5-b8-83-e5-bc-8f-e7-b3-bb-e7-bb-9f-e6-80-9d-e8-b7-af-e8-a7-a3-e5-86-b3-e8-b5-84-e6-ba-90-e5-8f-97-e9-99-90-e9-97-ae-e9-a2-98/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>用分布式系统思路解决资源受限问题 | 管窥程序</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">管窥程序</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Every Day is a gift</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.lixiaofei.cn/2017/05/11/e7-94-a8-e5-88-86-e5-b8-83-e5-bc-8f-e7-b3-bb-e7-bb-9f-e6-80-9d-e8-b7-af-e8-a7-a3-e5-86-b3-e8-b5-84-e6-ba-90-e5-8f-97-e9-99-90-e9-97-ae-e9-a2-98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="太阳雪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="管窥程序">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">用分布式系统思路解决资源受限问题
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-05-11 23:02:45" itemprop="dateCreated datePublished" datetime="2017-05-11T23:02:45+08:00">2017-05-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-08 13:24:13" itemprop="dateModified" datetime="2018-05-08T13:24:13+08:00">2018-05-08</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">未分类</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/11/e7-94-a8-e5-88-86-e5-b8-83-e5-bc-8f-e7-b3-bb-e7-bb-9f-e6-80-9d-e8-b7-af-e8-a7-a3-e5-86-b3-e8-b5-84-e6-ba-90-e5-8f-97-e9-99-90-e9-97-ae-e9-a2-98/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/05/11/e7-94-a8-e5-88-86-e5-b8-83-e5-bc-8f-e7-b3-bb-e7-bb-9f-e6-80-9d-e8-b7-af-e8-a7-a3-e5-86-b3-e8-b5-84-e6-ba-90-e5-8f-97-e9-99-90-e9-97-ae-e9-a2-98/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div class="markdown-body editormd-preview-container editormd-preview-active" style="padding: 20px;">
+
+<p>通过最近的一个小示例，介绍一下分布式系统的特点，和简单实现方式,目的在于使用高级的思路解决实际的问题。</p>
+<h2 id="背景："><a href="#背景：" class="headerlink" title="背景："></a><a class="reference-link" name="&lt;strong&gt;背景&lt;/strong&gt;："></a><strong>背景</strong>：</h2><p>有个任务，将csv格式的数据读入，加工处理，最后输出一个或者多个excel文件。</p>
+<h2 id="问题："><a href="#问题：" class="headerlink" title="问题："></a><a class="reference-link" name="&lt;strong&gt;问题&lt;/strong&gt;："></a><strong>问题</strong>：</h2><p>为了方便使用，将系统迁移至VPS，由于VPS新能问题(配置1核，1G，别问我为啥不升级配置)，处理时大文件时，占用内存过多，程序会崩溃</p>
+<h2 id="目标："><a href="#目标：" class="headerlink" title="目标："></a><a class="reference-link" name="&lt;strong&gt;目标&lt;/strong&gt;："></a><strong>目标</strong>：</h2><p>在资源受限的情况下，让程序正常使用</p>
+<h2 id="分析："><a href="#分析：" class="headerlink" title="分析："></a><a class="reference-link" name="&lt;strong&gt;分析&lt;/strong&gt;："></a><strong>分析</strong>：</h2><ol>
+<li>发现程序崩溃是由于生成大的Excel文件引起的</li>
+<li>单独生成一个大文件不会出现崩溃，但连续生成3个以上的文件会崩溃</li>
+<li>发现系统崩溃时，程序内存占比达到37%，小于37%可以正常运行</li>
+<li>单独执行有大概2~4分钟，内存占比才会下降</li>
+<li>处理此类任务每月不超过2次</li>
+<li>用户对任务的结果的期待不能超过24小时</li>
+</ol>
+<h2 id="方案："><a href="#方案：" class="headerlink" title="方案："></a><a class="reference-link" name="&lt;strong&gt;方案&lt;/strong&gt;："></a><strong>方案</strong>：</h2><p>根据分析，可以采用时间换新能的方式，另外还可以主动释放内存。<br>具体方案是：将生成多个大Excel文件的过程分解为多个一次只生成一个Excel文件的过程，即子过程，没执行一个子过程，主动调用垃圾回收方法，而要执行一个子过程时，先看内存占比是否小于37%，是执行，否放弃执行，等待下次执行。<br>于是打算采用异步、分布式处理的方式。</p>
+<h2 id="过程："><a href="#过程：" class="headerlink" title="过程："></a><a class="reference-link" name="&lt;strong&gt;过程&lt;/strong&gt;："></a><strong>过程</strong>：</h2><ul>
+<li><p>基本功能：</p>
+<ol>
+<li>主任务拆分(生产者)<br>主任务要具<strong><em>有可拆分性</em></strong>，就是可以拆分成简单子任务，子任务之间的关联度要尽量小，否则就不能并行执行了，比如任务A，拆分成a，b，c三个子任务，b依赖于a的结果，c依赖于b的结果，那么子任务只能按a、b、c的顺来执行，无法并行，分布式反而会让处理更复杂更慢；还有后续任务需要明确知道前序任务以及前序任务的结果，所以后续任务执行前需要更多的时间和资源创建执行环境。对于只想让拆分任务，分步执行的，子任务间的关联度大小影响不大。<br>处理中，使用了循环，生成多个Excel文件，所以很容易拆分成子任务，且子任务之间没有关联。</li>
+<li>子任务队列(产品和篮子)<br>队列是分布式方案中很常用的数据结构，方便先进先出，同时方便调度算法的实现。队列的实现方式很多，其实很简单，这里用库表作为存储，每次获取id最小的记录，实现先进先出的效果。 队列中存放什么是关键，需要充分考虑子任务执行中用到的数据，执行方法，尤其是环境变量，很容易遗漏。程序中，处理完所有的子任务，需要将结果打包成zip文件，zip文件名是个环境变量，也需要保存在记录中，见4结果合成。</li>
+<li>队列调度(消费者)<br>简单说就是从队列中获取记录的方法，比如一次获取几个，要不要考虑优先级，怎样才能避免一个任务分配给多个执行者等等，就简单的就是每次只取一条。调度算法将拿到的记录分配给执行者。一般对于队列来说，除了队列就从队列中删除了，我采用了库表做存储，并且想作为执行日志来用，所以采用标记的方式，即获取到的记录打上已分配的标签，表示这个记录已经被取走，调度程序就不会再分配它了。</li>
+<li>结果组合<br>分布式执行必须要有这一步，1为表示主任务完成了，2 将子任务执行的结果组合起来作为主任务的结果。<br>由于分布式异步执行的原因，不能预测主任务的完成时间，也无法预知最后一个子任务是谁，执行者执行完一个子任务后，需要看一下自己是否是最后一个完成的，如果是就调用结果组合方法。<br>程序中，合成方法会将所有子任务产生的文件，打成zip包，最后一个子任务负责打包，由于不知道谁是最后一个，所以每个子任务都会zip包的名字。好傻哈哈，如果任务分配后还需要变更某些变量时，就得更新每个子任务记录了，更优雅的做法是设计一个主任务记录，将zip包文件名，以及和主任务相关的数据记录在这里，当子任务需要时从这里拿就行，不过为了方便实现，没有过多优雅。</li>
+</ol>
+</li>
+<li><p>还需考虑：</p>
+<ol>
+<li>持久化 —— <strong>断点续传</strong><br>断点续传的概念来自于迅雷下载，下载一个大文件，到一半，电脑关机了，下次打开，还可以从关机时下载到的地方继续下载，不必重新开始。分布式处理可能时间长，环境复杂，服务器宕机、重启，服务崩溃等情况不可避免，所以需要记录执行的位置，以便系统恢复后不必重新开始。<br>在恢复执行中，有个有意思的地方，先看子任务处理状态图：<br><img src="http://blog.lixiaofei.cn/wp-content/uploads/2017/05/Image.png" alt=""><br>当状态是已分配，系统崩溃了，在执行时，调度程序就会认为这个记录正在被执行，但实际上执行者早随系统死了。于是这个主任务就永远执行不完。其实解决方法很简单：当系统启动时，确认没有任务被执行了，需要对状态为已分配的记录设置状态为未分配，即<img src="http://blog.lixiaofei.cn/wp-content/uploads/2017/05/Image2.png" alt=""></li>
+<li>进度反馈<br>这个其实挺有个必要的，因为不知道任务什么时候能结束，有个进度提示会人性化很多，当然实现很简单，已完成的子任务数/子任务总数就可以，这里要注意什么叫已完成的子任务数，应该是状态不是未分配的任务个数，这个好处在于不用区分已分配，已完成和存在错误者三个状态了，即将他们归于一类，这样方便些，可能有些不精确的地方，但这里只是显示个大概，所以越简单越好。</li>
+<li>执行中出了问题<br>不能保证所有的任务都按预想的那样执行，所以问题总会有的，出了问题需要记录下原因，以便查看和修正，至于是否终止掉整个任务，就看具体场景来定，在我的例子中，子任务之间没有关联，所以就没必要终止任务的执行。无论才有什么策略，都需要在主任务上有所返回，这样就能让使用者及时发现问题。当然更好的做法是有个运维接口，出现问题及时报告给运维人员。<br>我的实现中，会见错误信息记录在子任务记录上，并且设置记录的状态为出错，相当于同时充当了日志记录。</li>
+</ol>
+</li>
+</ul>
+<h2 id="概括下要点"><a href="#概括下要点" class="headerlink" title="概括下要点:"></a><a class="reference-link" name="概括下要点:"></a>概括下要点:</h2><ol>
+<li>任务可拆分</li>
+<li>队列调度</li>
+<li>断点恢复</li>
+<li>结果组合</li>
+<li>进度反馈</li>
+<li>错误处理</div></li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/27/e8-af-bb-e3-80-8a-e4-b8-80-e5-8f-a5-e9-a1-b6-e4-b8-80-e4-b8-87-e5-8f-a5-e3-80-8b-e6-9c-89-e6-84-9f/" rel="next" title="读一句顶一万句有感">
+                <i class="fa fa-chevron-left"></i> 读一句顶一万句有感
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/10/markdown/" rel="prev" title="Hexo Markdown 语法说明">
+                Hexo Markdown 语法说明 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">太阳雪</p>
+              <p class="site-description motion-element" itemprop="description">总结 技术 思考 想法</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/%20%7C%7C%20archive">
+                
+                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景："><span class="nav-number">1.</span> <span class="nav-text">背景：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题："><span class="nav-number">2.</span> <span class="nav-text">问题：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目标："><span class="nav-number">3.</span> <span class="nav-text">目标：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析："><span class="nav-number">4.</span> <span class="nav-text">分析：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案："><span class="nav-number">5.</span> <span class="nav-text">方案：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过程："><span class="nav-number">6.</span> <span class="nav-text">过程：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概括下要点"><span class="nav-number">7.</span> <span class="nav-text">概括下要点:</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">太阳雪</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.2.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'teRj7yeJj0xpfGKLJ5uFdbIu-gzGzoHsz',
+        appKey: '3uie0p1nxouCCnkjiXTEBeLd',
+        placeholder: '您的关注是我的动力',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
