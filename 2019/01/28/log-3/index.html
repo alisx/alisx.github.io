@@ -110,7 +110,7 @@
 <meta property="og:description" content="问题&amp;emsp;&amp;emsp;业务系统中，有个需求，需要根据一个主记录下的列表来产生一些数据，并且，一旦列表发生变化，需要重新生成数据。简单，做个把列表看成一个对象，重写hashCode和equals方法，又方便又优雅。写好后，问题来了，总是误判，认为变了，开启杀虫模式…… 终于世界安静了，想象黑客帝国3片尾场景。 分析&amp;emsp;&amp;emsp;这个需求是典型的对象比较问题，一般是将对象序列化，做编码">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-01-28T10:05:22.000Z">
-<meta property="article:modified_time" content="2019-01-28T11:04:25.494Z">
+<meta property="article:modified_time" content="2020-07-23T10:24:10.058Z">
 <meta property="article:author" content="太阳雪">
 <meta property="article:tag" content="总结">
 <meta property="article:tag" content="日志">
@@ -338,12 +338,24 @@
                 
               
 
-              <time title="创建时间：2019-01-28 18:05:22 / 修改时间：19:04:25" itemprop="dateCreated datePublished" datetime="2019-01-28T18:05:22+08:00">2019-01-28</time>
+              <time title="创建时间：2019-01-28 18:05:22" itemprop="dateCreated datePublished" datetime="2019-01-28T18:05:22+08:00">2019-01-28</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-07-23 18:24:10" itemprop="dateModified" datetime="2020-07-23T18:24:10+08:00">2020-07-23</time>
               
             
           </span>
@@ -410,7 +422,7 @@
 <ol>
 <li><strong>选特征</strong>：选取哪些列或者特征作为计算key的依据，主要根据业务要求，那些是关键特征，即，哪些特征发生变化就会影响其他结果，或者能唯一确定一条记录的元素，但要注意，这是库表主键不适合做指标，因为主键是数据层面做区分的，也业务层面有很大差异，很可能不同的库表存放的列表数据要做比较，这时主键的存在可能造成永不一致的情况。然后选取一个特征指的排序方式，可以将方式固定在算法中，也可以按照特征值属性名的ASCii编码顺序来排列，只要保证每次运算特征值顺序是一致的</li>
 </ol>
-<ol start="2">
+<ol>
 <li><strong>看排序</strong>：列表的排序是否对key有影响，顺序是业务中至关重要却往往被忽视的一个因素，存在于数据产生的时间、判断条件的先后、加载数据的流程、业务动作的执行顺序等等，所以，对于列表来说，必须认真考虑一下顺序问题，如果顺序是必须考虑的，获取key之前先要将数据进行排序处理，其中要注意排序算法是否稳定，不稳定排序算法，会对关键特征不在排序范围内的，列表的key生成有很大的风险，很可能业务上相同的数据，被误判为不同，</li>
 <li><strong>序列化</strong>：一般会将对象转换为字节码，或者json，xml这样的字符串格式，这里需要对JSON特别注意，由于JS语言的数据类型转换随意性，例如 <code>1.00</code>、<code>1</code>、<code>&quot;1&quot;</code>、<code>&quot;1.0&quot;</code> 这样的数值被认为是相等的，例如有来自于数据库的，有来自与用户提交的，有RPC过来的，就得用一个转化方法将相同特征的数据转换为相同类型，例如都转换为带两位小数的数字（更多的应该考虑转换为字符串），再做特征提取（实际代码中这里的问题费了好大劲），然后序列化时特征值之间以及行之间需要用特殊的字符分隔，以免不同的数据合成的特征序列相同（例如 1和11 以及11和1不加分隔符合成的结果相同），例如用<code>#</code>、<code>@</code>等分隔，这也可以让人在获取key前有机会观察一下数据序列，以便发现潜在问题。</li>
 <li><strong>编码</strong>：对于此场景，选用md5等不可逆算法较好，效率会高。在对象产生时，可以先算出key，对比时，可以少算一次key  </li>
