@@ -1,106 +1,24 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="zh-CN">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=6.2.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=6.2.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=6.2.0">
-
-
-  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=6.2.0" color="#222">
-
-
-
-
-
-
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '6.2.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-  
-
-
-
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.lixiaofei.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":true,"storage":true,"lazyload":true,"nav":{"valine":{"order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta name="description" content="总结 技术 思考 想法">
 <meta property="og:type" content="website">
@@ -112,18 +30,16 @@
 <meta property="article:author" content="太阳雪">
 <meta name="twitter:card" content="summary">
 
+<link rel="canonical" href="http://blog.lixiaofei.cn/page/3/">
 
 
-
-
-
-  <link rel="canonical" href="http://blog.lixiaofei.cn/page/3/"/>
-
-
-
-<script type="text/javascript" id="page.configurations">
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -135,72 +51,58 @@
 
 
 
-
-
-
   <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
 </noscript>
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+</head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left 
-  page-home">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">管窥程序</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
-      
-        <h1 class="site-subtitle" itemprop="description">Every Day is a gift</h1>
-      
   </div>
 
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">管窥程序</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Every Day is a gift</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
   </div>
 </div>
 
@@ -208,55 +110,35 @@
 
 
 <nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-    <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-    <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-    <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
-  </li>
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
 
-      
-      
-    </ul>
-  
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
-  
+  </li>
+        <li class="menu-item menu-item-about">
 
-  
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
 </nav>
 
-
-
-  
 
 
 
@@ -264,148 +146,87 @@
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/alisx" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
           
-            
 
-          
-          <div id="content" class="content">
+          <div class="content index posts-expand">
             
-  <section id="posts" class="posts-expand">
-    
       
-
-  
-
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.lixiaofei.cn/2016/11/15/1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="太阳雪">
-      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="太阳雪">
+      <meta itemprop="description" content="总结 技术 思考 想法">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="管窥程序">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/11/15/1/" itemprop="url">
-                  第一篇
-                </a>
-              
-            
-          </h2>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/11/15/1/" class="post-title-link" itemprop="url">第一篇</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2016-11-15 23:25:44" itemprop="dateCreated datePublished" datetime="2016-11-15T23:25:44+08:00">2016-11-15</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-07-23 18:24:10" itemprop="dateModified" datetime="2020-07-23T18:24:10+08:00">2020-07-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">每日一记</span></a></span>
-
-                
-                
-              
             </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
-                <a href="/2016/11/15/1/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/11/15/1/" itemprop="commentCount"></span>
-                </a>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-23 18:24:10" itemprop="dateModified" datetime="2020-07-23T18:24:10+08:00">2020-07-23</time>
               </span>
-            
-          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%AF%8F%E6%97%A5%E4%B8%80%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">每日一记</span></a>
+                </span>
+            </span>
 
           
-          
-
-          
-
-          
-
-          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2016/11/15/1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/11/15/1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
-    
 
     
     
@@ -413,186 +234,97 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          
-          应该开始记录了，不能再等了，我知道这是让我成长的最好方式，是时间的朋友，那么开始吧
-我不想记录流水账，我会记录这一天当中对我最有影响的事情，或者是我想到的感悟到的东西，我愿意拿出来和大家分享，说是分享，其实并没有刻意去做分享的事情，也就是我会以我的主观感受写东西，并不想刻意的迎合什么人，我相信每个人
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/11/15/1/#更多" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+          <div>应该开始记录了，不能再等了，我知道这是让我成长的最好方式，是时间的朋友，那么开始吧</div>
+<div>我不想记录流水账，我会记录这一天当中对我最有影响的事情，或者是我想到的感悟到的东西，我愿意拿出来和大家分享，说是分享，其实并没有刻意去做分享的事情，也就是我会以我的主观感受写东西，并不想刻意的迎合什么人，我相信每个人都是这个世界上独一无二的，他面对世界的方式和角度不会有任何一个人与其相同，就像每片叶子是不同的一样，那么做好自己，将自己的思想认识观点打磨到最好，也完全是自己的事情，或许别人可以用来借鉴或者欣赏看热闹，如果能对别人产生一点启发或者帮助，我都很欣慰。</div>
+<div></div>
+<div>今天说两件感悟</div>
+<div>第一，和妻子的相处方式。我和妻子的性格差异很大，认识认知差异也很大，反正差异远大于相同。很多时候我们会吵起来，事后想想总会懊悔，明明当时想让事情向好的方向发展，最有却成了争吵和生气，今天我突然意识到，真正的原因是什么。每次当妻子给我说一些事时，我总会就事论事，想对事情弄明白，我认为只要将事情的起因过程结果对错弄明白才能将事情解决，才能处理好她的情绪，但往往走进事情里就没完了，会牵扯到很多事情，最后变成了对对方的人身攻击（比如价值观的判断）。今天明白了，妻子很多时候说的事情，强调的并不是事情本身，而是借着事情表达一种情绪。比如她心情不好，就会说我做什么事不积极(不一定都是这样，变现形式五花八门)等，我就会说怎么不积极，于是开始了辩论，最后，我成了彻底的做事不积极的人，从我们相遇那会儿起就是了……</div>
+<div>她真的在说她说的事吗？往往不是，她只是想借这个事情表达自己的感受，心情不好了，压力大了，或者遇到什么高兴的事了，我应该回应的方式是肯定她说的，然后继续听，并且鼓励她说，目的在于了解她真正的问题，如果心情不好，可以和她一起找找原因，当找到原因后，再就事论事就可以完美解决了。</div>
+<div>我的结论：很多事情并非表面的那样，需要找寻真正的原因，寻找方法很简单，首先不要慌或者大意，第二收集信息，最后解决问题。</div>
+<div>第二个感悟，对于重要的事情应该尽早做</div>
+<div>昨天，我有个工作要做，但是昨天一直到下午4点，有各种事情，闲不下来，下午4点，有点空了，但精神不佳，很累，睡了会儿，没睡太熟，起来随便翻翻手机，然后又想看看电影，难得有空闲的时间，工作的事等等再弄吧，睡觉前一定会有时间，我当时这么想。但最终还是强忍了一股劲，打开电脑工作，大概2个小时后，做完了。然后，做饭，吃饭，给小孩洗澡，给小猫洗澡，整理东西……一直到晚上11点多。然后我想如果现在让我再工作会怎么样。根据以往 的经历，大概是这样的，下午4点没心情工作，就看会儿电影，无论看与不看都至少需要1个小时(找电影是及其费时费力的)，之后做饭，吃饭，我的潜意识中会说快点，还有工作要做呢，于是我会在焦急与不耐烦的状态的下做这些事情，而且往往做不好，会花更多的时间，最后到11点多，也没有了精力工作了，于是会抱怨我的时间都去哪儿了，我的命为什么这么苦，一点自由的时间都没有。其实我只是将时间浪费了。</div>
+<div>同样的道理也可以用在经济上：尽早购买那些必须要切价格高的东西。</div>
+<div>为什么这样，心理学研究表明，人往往对未来会高估自己的能力，认为未来的自己会更有钱，时间更多，现在即使浪费些时间和钱也无所谓，事实上这么想的人，到未来会比现在更差，留给未来只是伪现在不努力的自己找个开脱和借口。</div>
+<div>明白了这个道理，赶紧把重要的事先做了，之后再轻松享受，原来这个与棉花糖测试一样的道理。还等什么呢？</div>
       
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.lixiaofei.cn/2016/06/28/whatincollege/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="太阳雪">
-      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="太阳雪">
+      <meta itemprop="description" content="总结 技术 思考 想法">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="管窥程序">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/06/28/whatincollege/" itemprop="url">
-                  大学，给了你什么
-                </a>
-              
-            
-          </h2>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/06/28/whatincollege/" class="post-title-link" itemprop="url">大学，给了你什么</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2016-06-28 18:36:38" itemprop="dateCreated datePublished" datetime="2016-06-28T18:36:38+08:00">2016-06-28</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-07-23 18:24:10" itemprop="dateModified" datetime="2020-07-23T18:24:10+08:00">2020-07-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%BC%80%E5%90%AF%E5%BF%83%E6%99%BA/" itemprop="url" rel="index"><span itemprop="name">开启心智</span></a></span>
-
-                
-                
-              
             </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
-                <a href="/2016/06/28/whatincollege/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/06/28/whatincollege/" itemprop="commentCount"></span>
-                </a>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-23 18:24:10" itemprop="dateModified" datetime="2020-07-23T18:24:10+08:00">2020-07-23</time>
               </span>
-            
-          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%BC%80%E5%90%AF%E5%BF%83%E6%99%BA/" itemprop="url" rel="index"><span itemprop="name">开启心智</span></a>
+                </span>
+            </span>
 
           
-          
-
-          
-
-          
-
-          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2016/06/28/whatincollege/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/06/28/whatincollege/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
-    
 
     
     
@@ -600,187 +332,100 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          
-          
-        大学毕业将近十年了，回想起当初为了能上大学可是大费周折，认为上大学是人生的最大理想，上了大学就什么都有了，为了衣食无忧，挑选学习最热门的专业，以为考入好大学就会进入人生的圣殿，光宗耀祖，一路辉煌。耳边还回响着高中老师的名言:高考差一分，人生路不同……
-等进了大学，傻了。这里除了空虚
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/06/28/whatincollege/#更多" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+          <!--StartFragment -->
+<div>        大学毕业将近十年了，回想起当初为了能上大学可是大费周折，认为上大学是人生的最大理想，上了大学就什么都有了，为了衣食无忧，挑选学习最热门的专业，以为考入好大学就会进入人生的圣殿，光宗耀祖，一路辉煌。耳边还回响着高中老师的名言:高考差一分，人生路不同……
+等进了大学，傻了。这里除了空虚还是空虚，不知道要干什么，偏离实际的专业，混乱的宿舍，繁杂的人际关系，挂科，逃课，泡妞，哭泣，疯狂与稳重，理想与现实，如炼狱一般。不禁会问，来这里到底为什么？4年呼啸而过，进入社会，求得工作。再回想，实际工作中到底运用了那些大学里学的知识，只皱眉头，说不出来。
+10年间，有好多弟弟妹妹也相继上了大学，也给过建议，但大学意味着什么，给我带来了什么一直是我心头的疑惑，也从来没有认真地正面的思考过。
+昨天和妻子去中国农大散步，在小花园的凳子上坐着休息，几个学生边走边聊从我们身边走过。我听到一个姑娘说，“这可能是心理问题的吧”。虽然其他的一概没听清，但就这句话让我心头一动:她，一个大学生，不仅在思考问题本身还在思考问题的根源——跨学科的思考问题的根源。 突然间，我对所迷惑的问题似乎有了某种豁然开朗的感觉。
+大学其实就是用金钱、青春、社会资源换来的一段无所事事，矛盾困惑的人生经历。这段时间就是让你呆着，想着，体验着。大把的时间，无数的问题，多种头绪，同时出现在你面前。你可以发呆，可以放纵，可以读书，可以泡网吧，可以做你想做的任何事情。没有逃课的人可以逃课；没有谈过恋爱的人可以谈恋爱；要读书的人，有巨大的图书馆；之前被管束没钱没自由的人，有了自由的时间和可支配的现钱……可以摆脱束缚，获得自由，激情奔放，挥霍青春……
+这些，都是我们的神体(参考上篇文章《你真的会读书吗》)成长的摇篮。这里没有答案，只有对答案的探索，这里没有约束，只有对人生的思考，这里没有戒律，只有让我们的想法更独立的自由。在这里，我们思考人生，探究可能永远不会遇到的问题，思考不切实际的明天，在校外小酒馆里和朋友开怀畅谈，在校园长椅上和恋人畅想未来虚幻的生活，为不认识的人提供帮助，组建没有用处的社群，为没有结论的问题争得面红耳赤；在寝室里哭笑在教室睡觉，对楼管阿姨的责骂不闻不顾，躺在垃圾成堆的床上酣然入梦，不惜早起为心爱的人买她想要的早餐，冒着自己进不了宿舍的风险执意送她先回…… 没错，这些都是探索和实践。因为有时间，有精力有机会，我们才得到了锻炼和成长，学会了如何与别人相处，学会了如何得到别人的信任，学会了对自己的控制以及对问题更深入的思考。
+人与动物的最大区别在于思想和精神。对动物来说，具有应激反应就能生存，但对人，还远远不够。我们有更多的问题，更复杂的社会关系以及对自身更深刻的理解和认识，需要知道现象背后的原因。像农大那个小姑娘，如果只关注现象，无非就是错与对，真与假，但她没有停留于此，她在思考和探索。
+大学给她提供了这样的机会，可以接触更多的知识和更多与自己观点不同的人，有时间反复追问，深入思考，在这个过程中我们的神体不断成长，变得更加强健。
+无论你在大学做什么，都是一种体验，一种神体的成长过程，没有对与错，没有优与劣。相比之下，我之前将大学理解成职业教育，技能培训，入职训练，挣钱手段等等，就太片面了。
+其实对于神体的成长，不仅限于大学。大学如果是一个理想的环境，那么远离自己熟悉的环境进入新的环境是促进神体成长更简单的方法。因为在自己熟悉的环境中，思维方式会受这个环境的影响，而趋于和环境相一致，虽然感觉很顺利，也看不出有什么问题，但代价是自己的思维固化和片面，一旦离开这个熟悉的环境，以前很顺利的想法或做法将面临被否定的考验。比如在之前熟悉的环境中，不管是否公平总是长者说了算，而在另一个环境中比较开明，尊重事实，可以让每个人平等交流，当你用之前的经验阻止他人发表自己看法时，将遭受到强烈的反击。于是，你就会想：这是为什么？这个问题将带着你到达新的境界，让你能从更多的角度思考问题以适应新的环境，也就是让你变得更聪明，更客观，更随和，更强大。
+新的环境如同一面镜子，能快速的给你反馈自身的问题，使你不断反思，从而获得更多考虑问题的方式和方法，促使神体进一步成长。
+如果你觉得去远方不同的环境只是为了获得更多的物质资源，那就太狭隘了。现在的社会，不会像走西口、闯关东那样迫于生计，冒着极大的风险去寻找生存的机会，而是为了获得更多的看法和思考问题的方式，得到更多的思想，实现更大的人生价值，活得更加明白和通透。
+有句老话叫，读万卷书行万里路，说到底，就是不断的思考、汲取，让自己的神体更健康的成长。具体的方式就是上大学，或者背井离乡。
+如果再有人或者我的孩子让我推荐该上什么大学，我所看重的是这个大学的自由，开明的个性，以及是否有足够让精神身体成长的土壤——图书馆够不够大，实验室够不够多，社团够不够丰富，言论够不够自由……</div>
       
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.lixiaofei.cn/2016/05/30/canread/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="太阳雪">
-      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="太阳雪">
+      <meta itemprop="description" content="总结 技术 思考 想法">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="管窥程序">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/05/30/canread/" itemprop="url">
-                  你真的会读书吗
-                </a>
-              
-            
-          </h2>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/05/30/canread/" class="post-title-link" itemprop="url">你真的会读书吗</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2016-05-30 19:49:57" itemprop="dateCreated datePublished" datetime="2016-05-30T19:49:57+08:00">2016-05-30</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-07-23 18:24:10" itemprop="dateModified" datetime="2020-07-23T18:24:10+08:00">2020-07-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%BC%80%E5%90%AF%E5%BF%83%E6%99%BA/" itemprop="url" rel="index"><span itemprop="name">开启心智</span></a></span>
-
-                
-                
-              
             </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
-                <a href="/2016/05/30/canread/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/05/30/canread/" itemprop="commentCount"></span>
-                </a>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-23 18:24:10" itemprop="dateModified" datetime="2020-07-23T18:24:10+08:00">2020-07-23</time>
               </span>
-            
-          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%BC%80%E5%90%AF%E5%BF%83%E6%99%BA/" itemprop="url" rel="index"><span itemprop="name">开启心智</span></a>
+                </span>
+            </span>
 
           
-          
-
-          
-
-          
-
-          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2016/05/30/canread/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/05/30/canread/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
-    
 
     
     
@@ -788,186 +433,96 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <p>你真的会读书吗？好傻的问题。我们从小学，甚至从胎教开始，到现在不知读过多少书了，只要识字，谁还不会读书？</p>
+<p>但是，你有没有这样的体验：拿到一本书读了半天，才觉得这个之前读过；明明记得读过的一本书却想不起来读的是什么；确实读过很多书，可用处不大，跟没有读也差不多；如果一段时间不读书，就觉得浑身不舒服，只好为读而读……凡此种种。如果你有过这种体验，那就不客气的说，你还不会读书或者读得不好。</p>
+<p>人有两体:一为肉体，即躯体；一为神体，即精神。两者合而为一，都离不开营养供给。“书是精神食粮”说的就是这个道理。关键是，食物要转化成营养才能被吸收，而转化精神食粮的“消化系统”还远远没有进化到如肠胃那样的自动化程度。所以，读书就一定存在选择、摄入、消化、吸收、利用的问题即会不会读的问题。如果不能消化吸收，哪怕是山珍海味，普世宝典又有什么用处呢？</p>
+<p>正如《奇葩说》的马东谈到读书体验时说的那样，读书就像吃饭，不读会死。当然死的不是身体，而是精神。人需要精神生活，需要思考，否则与动物无异。而相对于肉体的机能，人类对书面语言的吸收能力不过几千年的演变，而且又不会遗传，所以唯有通过接受教育，读书学习和不断实践这一漫长而艰辛的过程才能逐步形成精神之体的机能。有的人可能从来就没有形成这种机能，或者有所形成却是残缺而不完善的。</p>
+<p>不同的食物对身体有不同的作用，全面摄入有助于提高身体机能。书也一样，其种类甚至比食物还要多得多。为了避免神体营养不良，需要摄入各种不同的精神食物，使认识更客观，观点更正确、更全面、更深刻。进而帮助我们形成日渐强大的精神之躯，而具有强大精神之躯的人是无法摧毁的。</p>
+<p>既然我们没有能够自动处理精神食粮的消化系统，那就得通过细读，思考，分析；分类，加工，筛选；写读书笔记等方法，从中提炼出对提高思想、心智、修养有用的营养，并溶于自己的精神之躯，同时去除糟粕。这个过程需要我们长期的反复练习和培养，以形成神体的消化吸收机能。饭要一口口吃，人要一点点长，没有其他途径。所以会读书的第一个重要表现是:每天坚持，从不间断。</p>
+<p>《罗辑思维》是个很火的微信公众号，创始人罗振宇在此创造了很多传奇。他做的其实就是借助新媒体对知识的传播，更确切的说是提供知识服务。他将从多种渠道了解的知识用简练的、准确的、更容易理解的语言和更便捷有效的方式表达出来，提供给需要知识的用户。之所以这么火是因为现在有很多人没空看书，没空在书海里慢慢寻觅，所以需要知识快餐。《罗辑思维》就是提供知识快餐或者说知识胶囊(许知远对罗辑思维的抽象)服务的，能让你快速吸收本该还要你精挑细选的知识，就像注射葡萄糖一样。最近他们推出的《得到》app，更是将大量的知识封装起来，还有各种书籍的解读版等，琳琅满目。用罗振宇的话说你没时间读书我替你读。即便如此方便食用，如果没有建立起自己良好的精神食粮消化系统，就算将知识提炼到再直接再有效的程度，也不能让你长出自己的精神肌肉来。想想被高度提炼的名言警句，想想那些成功学标语，就能体会得到。</p>
+<p>所以会读书的第二个重要表现是:善于加工，精于吸收。要形成自己在长期坚持过程中逐步建立起来的知识加工机制和精神之躯的吸收机能。这样，才会有饥饿提醒，也会有更好的读书体验，从而通过这种与生理机能类似的自动化处理过程，吸收更丰富的营养支撑我们向更高远更美好的目标前行。而不至于因精神营养不良而变得固执愚昧，思想僵化；不会因无知短视看不清事物本质而烦躁困惑，日渐退化。</p>
+<p>会读书第三个也是最重要的表现是:用于实践，有所创新。之所以说最重要，是因为读书的目的在于运用，虽读而不用、不会用或者只有小用没有大用都等于徒劳。因此会读书还必须有坚强而持久的执行力、行动力。口号谁都能会喊，只是“梦里走了许多路，醒来还是在床上。”因为运用和创新最重要，而最重要的往往也是最难做到的，所以，这也是世上读书的人多而创造巨大价值者少的根源所在。</p>
+<p>由此看来，会读书的人还真的不是很多——我等皆需努力。</p>
 
-      
-        
-          
-          你真的会读书吗？好傻的问题。我们从小学，甚至从胎教开始，到现在不知读过多少书了，只要识字，谁还不会读书？
-但是，你有没有这样的体验：拿到一本书读了半天，才觉得这个之前读过；明明记得读过的一本书却想不起来读的是什么；确实读过很多书，可用处不大，跟没有读也差不多；如果一段时间不读书，就觉得浑身不舒服，只
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/05/30/canread/#更多" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.lixiaofei.cn/2016/05/23/inspiration/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="太阳雪">
-      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="太阳雪">
+      <meta itemprop="description" content="总结 技术 思考 想法">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="管窥程序">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/05/23/inspiration/" itemprop="url">
-                  灵感可以制造
-                </a>
-              
-            
-          </h2>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/05/23/inspiration/" class="post-title-link" itemprop="url">灵感可以制造</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2016-05-23 20:52:13" itemprop="dateCreated datePublished" datetime="2016-05-23T20:52:13+08:00">2016-05-23</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-07-23 18:24:10" itemprop="dateModified" datetime="2020-07-23T18:24:10+08:00">2020-07-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%BC%80%E5%90%AF%E5%BF%83%E6%99%BA/" itemprop="url" rel="index"><span itemprop="name">开启心智</span></a></span>
-
-                
-                
-              
             </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
-                <a href="/2016/05/23/inspiration/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/05/23/inspiration/" itemprop="commentCount"></span>
-                </a>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-23 18:24:10" itemprop="dateModified" datetime="2020-07-23T18:24:10+08:00">2020-07-23</time>
               </span>
-            
-          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%BC%80%E5%90%AF%E5%BF%83%E6%99%BA/" itemprop="url" rel="index"><span itemprop="name">开启心智</span></a>
+                </span>
+            </span>
 
           
-          
-
-          
-
-          
-
-          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2016/05/23/inspiration/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/05/23/inspiration/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
-    
 
     
     
@@ -975,185 +530,102 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <div>        灵感是个奇妙的东西，她能帮助我们解决思考了很久的问题，能给我们带来好运，如果你是从创作者，灵感简直就是天神，她赋予我们超乎正常了能力的水平，让我们做出一个个神作。不过人们普遍认为灵感可遇不可求，所有才有江郎才尽的感叹。其实**灵感并非乍现，是有规律可循的**，而且我们能学会如何更好的利用她。</div>
+<div></div>
+<div>         **灵感是怎么形成的**？灵感的产生和大脑的工作方式有关，大脑可以分为有意识和无意识两部分， 有意识部分，比如思考，演讲，学习等，是我们有意识的。无意识部分又可以分为身体机能协调部分和未知部分，身体机能协调部分主要用来控制内脏器官和内分泌等。而未知部分占据了大脑的很大一部分，就像我们对海洋的了解一样，这部分在不断的活动，比如做梦，走神，胡思乱想等，灵感也是这么来的，这部分的大脑不断的将一些独立的神经元连接起来，形成新的信息，就像个调皮的孩子，将东西不停的胡乱的摆放，突然发现有种摆放法很好，就像灵感产生一样。所有灵感也被我们称作闪念。</div>
+<div>       为什么说神经元关联起来有用呢？最近科学界有项研究结果，说人类大脑和大猩猩的并没有太大差别，但人类的大脑中有种叫髓磷脂的物质比大猩猩多很多，它可以像橡皮管一样将神经元间的链接包裹起来，使神经元之间的信息传递速度提高3000倍，而且爱因斯坦的大脑中的髓磷脂的含量高于普通人。所以让神经元之间建立更多的连接，我们就会更聪明，想法更灵活，也就是智商更高。</div>
+<div>       如何让灵感产生呢？只要不断的将不同的神经元连接就行，但我们除了学习和反复练习之外几乎没有办法实现神经元之间的连接，只能寄希望于灵感了。我们知道灵感是由于大脑的未知部分制造的，那么如果大脑是台电脑，想让他它更快的完成某个任务，最简单的做法是关掉其他无关的任务。所以要做的是**让大脑休息**。你可能有这样的体验，有个问题百思不得其解，决定放弃了，出去放松了一下，突然有了解决思路，这就是让大脑从高度费脑力的事情上解脱出来，形成的灵感。</div>
+<div>       除了让大脑休息，还需要做一件事，就是让大脑中的神经元有足够的信息，如果被链接的神经元中并没有信息的话什么都不会产生。相对于让神经元连接让其装入信息更容易，做法就是**多看多读多听多想**，不要计较收集到的东西是否对当前有用，因为当他们联系起来是是知道谁产生什么神奇的东西，这样将不同的东西联系起来产出新的东西的例子太多了，所有我们只管收集，也不要担心忘掉，忘掉只是你主意识找不到了，但我们的神经元会将信息保存很久(电影《头脑特工队》里有很形象的描述)。</div>
+<div>        所有让灵感产生很容易，收集各种信息，然后去休息就好了。</div>
+<div>        有了灵感产生的条件，我们该如何更有效的利用她呢？有人会说，都是灵感了还能放过吗，一定会好好利用的。其实不然，拿破仑希尔有次和朋友 出行， 途中看到他的朋友不时的在小本上写些东西，等到了目的地他问朋友，您还记得刚才在本子上写 了什么？他的朋友一脸茫然的说不记得。灵感之所以被叫做闪念，就是说明她会一闪而过，几乎抓不住。</div>
+<div>         利用灵感的做法是：</div>
 
-      
-        
-          
-                  灵感是个奇妙的东西，她能帮助我们解决思考了很久的问题，能给我们带来好运，如果你是从创作者，灵感简直就是天神，她赋予我们超乎正常了能力的水平，让我们做出一个个神作。不过人们普遍认为灵感可遇不可求，所有才有江郎才尽的感叹。其实**灵感并非乍现，是有规律可循的**，而且我们能学会如何更好的
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/05/23/inspiration/#更多" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<ol>
+<li>记录灵感，可以随身带个小本子，有了想法立即记下来，或者做个录音记录，一般手机上都有录用功能（别找借口噢）。</li>
+<li>寻求外部刺激，比如和朋友聊天，看看电影什么的，很多时候想的太深可能陷入死角，百思不得其解，这时别人的一句话或者一个动作可能会提醒你，让你就想到解决的办法；还有别人可以能站在和你完全不同的角度上思考，能给你带来其他维度的视角</li>
+<li>记录聊天内容，现在的通信工具很多，聊天时最好使用文字，这样不但可以锻炼自己的描述能力，重要的是可以将聊天的内容记录下来，一旦哪天想起曾经说过的东西，可以方便的翻看；</li>
+<li>将记录的东西定期翻看，将平日里点点滴滴的想法汇聚起来，不断的强化，不断的再思考，建立新的链接，形成更好的思想或方法，帮助我们做出更好的创作。唐代诗人李贺就是这么干的，他每次出行时就将看到的想到的记录在小纸条上，（当时没有圆珠笔可想多么痛苦），回到家中将这些纸条翻看、梳理，写成一首首流传千古的诗句。</li>
+</ol>
+
       
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.lixiaofei.cn/2016/05/16/fityourself/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="太阳雪">
-      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="太阳雪">
+      <meta itemprop="description" content="总结 技术 思考 想法">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="管窥程序">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/05/16/fityourself/" itemprop="url">
-                  适合自己的
-                </a>
-              
-            
-          </h2>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/05/16/fityourself/" class="post-title-link" itemprop="url">适合自己的</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2016-05-16 15:49:56" itemprop="dateCreated datePublished" datetime="2016-05-16T15:49:56+08:00">2016-05-16</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-07-23 18:24:10" itemprop="dateModified" datetime="2020-07-23T18:24:10+08:00">2020-07-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%BC%80%E5%90%AF%E5%BF%83%E6%99%BA/" itemprop="url" rel="index"><span itemprop="name">开启心智</span></a></span>
-
-                
-                
-              
             </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
-                <a href="/2016/05/16/fityourself/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/05/16/fityourself/" itemprop="commentCount"></span>
-                </a>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-23 18:24:10" itemprop="dateModified" datetime="2020-07-23T18:24:10+08:00">2020-07-23</time>
               </span>
-            
-          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%BC%80%E5%90%AF%E5%BF%83%E6%99%BA/" itemprop="url" rel="index"><span itemprop="name">开启心智</span></a>
+                </span>
+            </span>
 
           
-          
-
-          
-
-          
-
-          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2016/05/16/fityourself/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/05/16/fityourself/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
-    
 
     
     
@@ -1161,186 +633,90 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <p>世界上没有现成的适合自己的东西，也就是说没有人可以替我们过完这一生，他们既没有这个权力，也没有这个能力。</p>
+<p>什么是适合自己的，一般实践了就知道，比如水果很适合自己，因为吃过，电影很适合自己，因为看过，睡觉很适合自己，因为体验过(每天都在体验呵呵)，如果这些例子显而易见，那么对于学习方法，对于未来规划，又或者对于成功，什么是适合自己的？就不那么好确定了，对于这些精神类的需求，要找到合适的，想起来都特别费劲，最简单莫过于看别人怎么做就跟在怎么做，成功学大师就是利用这一点，大肆鼓吹只要一直坚持怎么样就一定能成功，听上去很美，实际上就……</p>
+<p>怎样才能找到适合自己的呢？我的建议是先了解自己，再努力尝试那些可能适合自己的方式方法，最关键的是尝试过程中不断地给自己反馈，想想哪些不适合自己，应该怎样改善，然后再去检验效果，此过程类似于品质管理中的<a href="https://zh.wikipedia.org/wiki/PDCA" target="_blank" rel="noopener">戴明环</a>，经过反复循环，我们就有可能找到真正适合自己的东西。举个例子，我要记日记，怎么做呢，方法很多，最简单的是每天固定时间写在记事本上，尝试之后，发现并不适合我，首先很难有固定的整块时间，其次每天要在好几个地方奔波，必须身携带记事本，经过反省，我想到用活页纸上记录，携带方便，随时可写，加上日期，然后每周拿出1个小时整理，感觉不错，后来又发现，写在纸的两面不方便归类等问题，最后我的方法是，外出时用手机写，上班时用活页纸记，每周拿出一个小时整块时间是将它们汇总起来，感想写在背面。如非如此，我很难找到这种例子，即使找到，由于没有实践和思考过，未必相信适合自己。</p>
+<p>总之，不要死搬硬套现成的方法，也不要因为一时找不到而气馁，勤于思考，勇于实践，就一定能找到适合自己的东西。</p>
 
-      
-        
-          
-          世界上没有现成的适合自己的东西，也就是说没有人可以替我们过完这一生，他们既没有这个权力，也没有这个能力。
-什么是适合自己的，一般实践了就知道，比如水果很适合自己，因为吃过，电影很适合自己，因为看过，睡觉很适合自己，因为体验过(每天都在体验呵呵)，如果这些例子显而易见，那么对于学习方法，对于未来规划，
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/05/16/fityourself/#更多" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.lixiaofei.cn/2016/04/27/fightbrain/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="太阳雪">
-      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="太阳雪">
+      <meta itemprop="description" content="总结 技术 思考 想法">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="管窥程序">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/04/27/fightbrain/" itemprop="url">
-                  恶斗大脑记
-                </a>
-              
-            
-          </h2>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/04/27/fightbrain/" class="post-title-link" itemprop="url">恶斗大脑记</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2016-04-27 18:17:09" itemprop="dateCreated datePublished" datetime="2016-04-27T18:17:09+08:00">2016-04-27</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-07-23 18:24:10" itemprop="dateModified" datetime="2020-07-23T18:24:10+08:00">2020-07-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E5%BC%80%E5%90%AF%E5%BF%83%E6%99%BA/" itemprop="url" rel="index"><span itemprop="name">开启心智</span></a></span>
-
-                
-                
-              
             </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
-                <a href="/2016/04/27/fightbrain/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/04/27/fightbrain/" itemprop="commentCount"></span>
-                </a>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-23 18:24:10" itemprop="dateModified" datetime="2020-07-23T18:24:10+08:00">2020-07-23</time>
               </span>
-            
-          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%BC%80%E5%90%AF%E5%BF%83%E6%99%BA/" itemprop="url" rel="index"><span itemprop="name">开启心智</span></a>
+                </span>
+            </span>
 
           
-          
-
-          
-
-          
-
-          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2016/04/27/fightbrain/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/04/27/fightbrain/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
-    
 
     
     
@@ -1348,193 +724,120 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          
-          Why：我一直以来很难集中注意力干些事，总是半途而废，有头无尾，让我很困惑很苦恼，这段时间读了李笑来的《把时间当作朋友》，渐渐的对时间有个重新的认识，于是隐约感到大脑中总是有些声音，如果听他的就和新的时间观冲突，所以我将大脑中出现的，有悖于正确时间观的声音或者过程记录下来，备忘，免得让大脑所骗。
-前
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/04/27/fightbrain/#更多" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+          <p><strong>Why</strong>：我一直以来很难集中注意力干些事，总是半途而废，有头无尾，让我很困惑很苦恼，这段时间读了李笑来的《把时间当作朋友》，渐渐的对时间有个重新的认识，于是隐约感到大脑中总是有些声音，如果听他的就和新的时间观冲突，所以我将大脑中出现的，有悖于正确时间观的声音或者过程记录下来，备忘，免得让大脑所骗。</p>
+<p><strong>前言</strong>：前言非前言，我想先说点我的大脑的工作方式，以便更好的理解后面记录的声音。<br>我想到的一个大脑的工作原理：大脑是趋于惰性的。大脑善于总结和抽象，当一个复杂的东西用抽象的方式“理解”之后，大脑会产生一个奖励，给本体(身体)带来一种快感。长此以往，本体就对依赖和渴望这样的快感，于是大脑会更快的用结论和抽象的方法，给本体更快的提供奖励，慢慢的大脑只会提供给本体快感，而本体也忘了获得这种快感的原因，最终大脑以最快的方式处理我遇到的问题，他自己就可以不用费劲的思考，取证，研究了。这种情况的实际表现就是，我不善思考，固执己见，偏见，不见思索，不耐烦。比如看到一个概念，很快说不就是那个什么吗，于是不再细看了。那么我的目标就是将大脑对我的控制权夺回来，然后让大脑发挥它应有的作用，帮我去分析，研究，从而获取事实真相，得到真理，不被现象迷惑。<br>想起电影《勇敢的心》中主人翁的叔父对他说，我得想让你学会使用大脑，再让你学习使用剑。大脑需要开发，需要控制和管理。</p>
+<p><strong>正文</strong>：大脑之罪<br>1 在你会想之前学到的东西时，他会让你觉得学习的东西模糊了，记不清了，让你感到困惑，然后告诉你：你看学那些有什么用，你根本就记不住，还不如想想清楚再说。再说就是回到大脑懒惰的状态，什么也不做</p>
+<p>2 他会调动一切身体机能来压迫你，让你觉得哪里都不舒服，只有不让他活动才舒服。比如做事时大脑老是提醒累了累了，先休息一下吧，要不然身体就累坏了，其实只是大脑不愿意动而已</p>
+<div>3 他最讨厌反复和重复。处理问题时他也在活动，也在高效的运转，但是他拒绝重复和枯燥，他会让你觉得你必须摆脱枯燥只做新鲜的、刺激的。他善于在变化中寻求安宁，总让你不停的做做这做做那</div>
+<div></div>
+<div>4 他总是急于下结论，而且非常容易程序化，对一件反复出现的事情，他总是迫不及待的说交个我吧，你不用管了，然后让你变的一概而论、不求甚解，我真不知道我的大脑是不是自己的。 他难以专注</div>
+<div></div>
+<div>5 他会总让你觉得已经足够了解了清楚了，不用研究了，可以休息了，让你自信满满，然后编造一些谎言来欺骗你。我真不知道他这么做对他有什么好，是想让世界回归原始吗？它让你得到一些后，着急的给你奖励，说这个做的很好，你很强大，然后让你沉浸在快乐当中，而放弃继续努力，这种奖励就是会让你觉得自信满满。</div>
+<div></div>
+<div>6 你打算整理和归纳一下，大脑总说先等等，以后有时间，先放在，不会忘记的。但听了他的，等于前面什么都没做，因为很快就忘记了，俗话说趁热打铁。大脑会继续骗你，让你感到比较舒服，从而不让他做他不喜欢的重复，定期的事情，他要么歇着，要么玩新的。他视时间为敌人，而你恰恰要做时间的朋友</div>
+<div></div>
+<div>7 当听到别人很厉害的人或者事时，大脑的反应是，我一定不行，内心中总有个声音说你选的是错的，一定有更好的，放下这个吧，我们再等等。我会羞愧于直视对方，然后藏起来，不去作为。</div>
+<div></div>
+<div>8 大脑会说做这些有什么用，还不如好好休息，坚持做一些后就会说，行了可以休息一下了，应该放松一下，其实并不是你的身体有问题，而是大脑自己要休息，不想思考了。大脑会吓唬你，做事时他总会说 你不如别人，别人一定比你更快更好，你要快点，然后说，你现在的状态不好，不如先别做了，等状态好了再做，或者直接说你不如其他人，你还是算了吧，你不是这块料，不如休息休息再说</div>
+<div></div>
+<div>9 大脑只接受短期利息，只要不在乎长期利益，所以他遇到困难和挫折就放弃，这背后还有和面子问题，就是担心表现的不好，也很容易放弃，而反大脑的行动是进取型，应该看的是整体利益</div>
+<div></div>
+<div></div>
+<div>10 大脑变化多端，他很会伪装，当他不能抗拒你时就会好好工作，让你麻痹，然后他们会慢慢的让你觉得他们工作良好，渐渐的他们开始给你造一个弥天大谎，叫你困在其中，当你有所察觉时已经为时很晚</div>
+<div></div>
+<div>11 大脑造的虚景虽然不真实存在，到如果你要撕开他却要付出巨大的代价，甚至颠覆自己毁灭过去，重塑自己，如若没有很大的勇气，就只能听从大脑的指使，而惶惶一生</div>
+<div></div>
+<div>12 当自己经过努力达到一定目的之后，会感到很好，从而大脑会使自己放松，这不比之前的小放松而是自己作为大脑的帮凶</div>
+<div></div>
+<div>13 很多时候，大脑在催你，比如说明书在手头，大脑却让你丢掉说明书，并着急的让你弄明白那玩儿怎么用，而不是让你心平气和的阅读说明书</div>
+<div></div>
+<div>14 我一直以为我的大脑是个十恶不赦的坏蛋，原来我错怪他了，我有种注意力缺乏综合症，导致我的大脑在注意力方面有问题，以致其他方面做了很多补偿，使我在蹉跎中打转，我明才之后，我就没有必要自责，可以有信心的解决我的问题，不用担心反弹，真得感谢罗永浩</div>
+<div></div>
+<div>**后记：**</div>
+<div>这些声音从哪里来，怎么形成的，我觉得应该从我们的动物属性来，如果一个人不学会利用它的大脑，就和动物的区别不大，比较愚昧，不智慧。而成长过程中可以通过教育，自我反省、阅读等方法将大脑脱离原始的状态。最近得知一个气质型疾病注意力缺失综合症，从科学和生理的角度上解释了大脑的一些行为，并且可以加以外部治疗，那么我相信我可以管理我的大脑，并让他发挥作用，因为我也相信大脑是可塑的。</div>
       
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.lixiaofei.cn/2016/04/21/pai/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="太阳雪">
-      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="太阳雪">
+      <meta itemprop="description" content="总结 技术 思考 想法">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="管窥程序">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/04/21/pai/" itemprop="url">
-                  拜县
-                </a>
-              
-            
-          </h2>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/04/21/pai/" class="post-title-link" itemprop="url">拜县</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2016-04-21 23:08:58" itemprop="dateCreated datePublished" datetime="2016-04-21T23:08:58+08:00">2016-04-21</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-07-23 18:24:10" itemprop="dateModified" datetime="2020-07-23T18:24:10+08:00">2020-07-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%B8%85%E8%BF%88%E4%B9%8B%E8%A1%8C/" itemprop="url" rel="index"><span itemprop="name">清迈之行</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%B8%85%E8%BF%88%E4%B9%8B%E8%A1%8C/%E6%B8%B8%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">游记</span></a></span>
-
-                
-                
-              
             </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
-                <a href="/2016/04/21/pai/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/04/21/pai/" itemprop="commentCount"></span>
-                </a>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-23 18:24:10" itemprop="dateModified" datetime="2020-07-23T18:24:10+08:00">2020-07-23</time>
               </span>
-            
-          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B8%85%E8%BF%88%E4%B9%8B%E8%A1%8C/" itemprop="url" rel="index"><span itemprop="name">清迈之行</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B8%85%E8%BF%88%E4%B9%8B%E8%A1%8C/%E6%B8%B8%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">游记</span></a>
+                </span>
+            </span>
 
           
-          
-
-          
-
-          
-
-          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2016/04/21/pai/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/04/21/pai/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
-    
 
     
     
@@ -1542,194 +845,102 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          
-                  县城距离酒店有5公里，有车就5分钟左右，有名的地方是步行街，和酒吧街。
-到的下午，在酒店泳池旁吃了晚饭，开始挺有期待，等上了菜，实在是难以下口，和之前在清迈吃的不可比，很像问他们的厨师是否是外国人，面条没有味道，所有菜都一个味道，感觉很不好。期待早餐是否好些。
-         第二
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/04/21/pai/#更多" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+          <div>        县城距离酒店有5公里，有车就5分钟左右，有名的地方是步行街，和酒吧街。</div>
+<div>到的下午，在酒店泳池旁吃了晚饭，开始挺有期待，等上了菜，实在是难以下口，和之前在清迈吃的不可比，很像问他们的厨师是否是外国人，面条没有味道，所有菜都一个味道，感觉很不好。期待早餐是否好些。</div>
+<div>         第二天早上，起来先吃早餐，已经有很多人了，找了个把边的位置，拿了些吃的，一尝，更昨天的晚餐一样的味道，不好吃，胡乱吃了些，就走了，决定第二天不在这里吃了。</div>
+<div>离开后，直接开车去景点，首当其冲的是coffee in love。大概走了67分钟，导航提示到了。这里在一个小山坡顶上，有个咖啡厅，还有和欧式风格的黄色房子，山坡下边有些特意设置的稻草人和树木，这里的人很多，大都中国人，也许是行为旅游攻略，都知道了这里，有些地方拍照都得排队。沿着山坡望去，是这个很大的冲积峡谷，当中有条河流，县城也在这个峡谷里。坐在咖啡厅靠坡的位置上很惬意，丝丝清风，伴随着音乐，很容易放轻松。</div>
+<div>         下一个景点是粉红房子，离的不远，赶过去，那里的人更多。叫粉红房子一点不夸张，这里的什么都粉色的，门口停着的粉色Jeep，粉色花园，粉色亭子，反正看过去都是粉色的，同样这里像个酒吧，可以点些饮料，坐在粉色印花的椅子上，你也可以趴在粉色的吧台上，哈哈，就连吧台上的小玩具车和小猪都是粉色的。差点忘了，手里还有杯粉色的饮料，真是粉到家了。</div>
+<div>        对于景点，更神奇的是倒房子，就是倒着的房子，在地图上找了很久终于到了，原来就在去县城的路边。当时是晚上，看不太清，等停了车，仔细观瞧，就是个倒着的房子，小的像个标志牌，我忍不住惊叹道：这也算个景点！？一下子逗乐了两个正围着倒房子拍照的姑娘，她们说为了找到这个景点都三天了，结果就是这个，真是无语。</div>
+<div>        除此之外还有大树村，树房子，中国村（后面会详说）都是一点点，一棵树，一个景，如果说这些景点让我失望的话，这里景点的人让我佩服不已，每个景点，都有个说明书，风格不同，有汉语的，有多种语言的，但都描述了周边的其他景点，而且每个景点都是免费随意参观的，他们好像并不担心介绍其他的景点会使自己生意受到影响。这让我想起国内的景点，也许有这文化底蕴，也许有个传说，无一例外，就数售票的地方干净好看，去年冬天，我们去了房山一个冰湖，已经时下午2、3点了，停车要钱，门票也一个子不少，真是不舒服，就更别提小远脏的厕所了。而这里让人忘记自己是游客，这里让你和自然和休闲舒服的融合一起，释放疲惫和紧张。</div>
+<div>        中午的时候天气太热了，在外边有点待不住，我们从粉红房子出发，到了县城，事先找了一家评价好的餐厅，叫BeBe Spice，在酒吧街的位置，好不容易到了,结果不营业，真是大失所望，无奈继续向前溜，看到了自己中国餐厅，叫相约酒吧U&amp;me，装饰有中国风，不过也是停业，就觉得奇怪，只好问了问对面餐厅，只有老板一个人，不过说有正餐可用，这才放心了，因为这时我饿的心慌。偌大的餐厅就我们自己，很难想象坐满宾客是怎样的热闹。我们点了饮料和主食，坐着休息，从旁边的柜台上有旅游者指南，拿过来看，发现这里周三休息，很多店铺都关门，真是不巧，这家营业是不是因为竞争压力呢，不管了，多亏他们开着了。这里的人们是不是到很晚才睡，然后早上起的也玩，所以活动时间比较晚，就像广州一样，早上不开门，晚上9点夜市刚开始哈。</div>
+<div>         拜县县城不大，像个小镇，但基本上都是外国人，大部分欧美人，小半中国人，白天的步行街人来人往好不热闹，欧美人很开放很热情，他们有什么都能说出来表现出来，小米为了拍照穿了小婚纱，在街角，两个欧美青年一男一女，男的开摩托车，女的在后面做，经过我们时，女生大声的说 oh You are pretty (哇 好漂亮)! 傍晚，我们在BeBe Spice就餐时，坐在角落里，因为比较暗老板娘为我们开启了灯光，对面四个美女(应该是美国姑娘)惊呼：好浪漫呀；还有清迈的Ryan，很自然的和我们打招呼聊天逛，也很自然的分别。这不就是人的本来情感吗？而我却要隐藏起来，看见也当看不见，有也当没有呢？感觉不真实真累。</div>
+<div>         晚上的酒吧街琳琅满目，歌声，笑声交织在一起，到处都是满脸幸福的人们，难道这里能带给人快乐，难怪Ryan说他下一个目的地就是这里，我能体会到他来这后的欢快。也许是中国人没有酒吧文化，吧台上没有看见中国的面孔。穿过灯红酒绿的酒吧街，就是步行街了，街上人更多了，两旁是小吃摊点，这里和白天大不一样了，有点像《千与千寻》里晚上的镇子，特别让我注意的是一群流浪艺人，他们男男女女，有老有少，成一排坐在墙根，前面摆放着他们的作品或者或许时旅途中获得的物品，他们没有商贩们愁苦的脸，像是坐在自家院子里，惬意而快乐，他们或是彼此交谈，或是仔细的为顾客介绍自己的货品，其中还会有很多亚洲面孔的人，我不明白他们是为何在此，或许是间隔年，或许是体验旅行，或许… 我们沿街慢慢的走着，不时看看摊点上的东西，感觉很放松，在一个手工制作吊坠的艺人旁边停下，我仔细看他做的物品，很精致，上面镶嵌了各式各样的石头，看中了一个，觉得很有意义，关键是他手工做的，他放下手上正在做的吊坠，给我们讲解，虽然听不大懂，能感觉到他的真诚和友善，当我把钱交给他时，他竟然站起来给我们鞠了个恭，以示感谢。</div>
+<div>        也许是泰国的包容，也许是拜县的美景，或许是习俗，这里有无数的年轻人，快心的笑，放松的游。</div>
+<div></div>
+<div>--未完待续--  下篇 中国村</div>
       
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.lixiaofei.cn/2016/04/13/gotopai/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="太阳雪">
-      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="太阳雪">
+      <meta itemprop="description" content="总结 技术 思考 想法">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="管窥程序">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/04/13/gotopai/" itemprop="url">
-                  去拜县
-                </a>
-              
-            
-          </h2>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/04/13/gotopai/" class="post-title-link" itemprop="url">去拜县</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2016-04-13 22:07:12" itemprop="dateCreated datePublished" datetime="2016-04-13T22:07:12+08:00">2016-04-13</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-07-23 18:24:10" itemprop="dateModified" datetime="2020-07-23T18:24:10+08:00">2020-07-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%B8%85%E8%BF%88%E4%B9%8B%E8%A1%8C/" itemprop="url" rel="index"><span itemprop="name">清迈之行</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%B8%85%E8%BF%88%E4%B9%8B%E8%A1%8C/%E6%B8%B8%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">游记</span></a></span>
-
-                
-                
-              
             </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
-                <a href="/2016/04/13/gotopai/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/04/13/gotopai/" itemprop="commentCount"></span>
-                </a>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-23 18:24:10" itemprop="dateModified" datetime="2020-07-23T18:24:10+08:00">2020-07-23</time>
               </span>
-            
-          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B8%85%E8%BF%88%E4%B9%8B%E8%A1%8C/" itemprop="url" rel="index"><span itemprop="name">清迈之行</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B8%85%E8%BF%88%E4%B9%8B%E8%A1%8C/%E6%B8%B8%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">游记</span></a>
+                </span>
+            </span>
 
           
-          
-
-          
-
-          
-
-          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2016/04/13/gotopai/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/04/13/gotopai/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
-    
 
     
     
@@ -1737,192 +948,95 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          
-          大概9点，开始返回，早饭到10点，依旧丰盛的早餐，吃完收拾行李，睡了一会儿，楼下结算准备出发去拜县。      去拜县有130公里，山路居多，还好休息了一下，先向北再向西，路上担心小米和宝宝，车速不是很快，公里很好走，像山东人修的，平整宽阔，今年亚洲南部地区干旱，加上去年年底北极寒冷圈南下，使许多树
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/04/13/gotopai/#更多" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+          <p>大概9点，开始返回，早饭到10点，依旧丰盛的早餐，吃完收拾行李，睡了一会儿，楼下结算准备出发去拜县。<br><span style="font-family: 'Helvetica Neue', Arial, sans, sans-serif; font-size: 16px;">      去拜县有130公里，山路居多，还好休息了一下，先向北再向西，路上担心小米和宝宝，车速不是很快，公里很好走，像山东人修的，平整宽阔，今年亚洲南部地区干旱，加上去年年底北极寒冷圈南下，使许多树木都干枯了，有点像秋天的景象，不像在南方国度。继续前行，穿过村镇，山谷，路上车很少，当时担心的左侧行驶的问题也没有了。下了这个坡后，路边有和加油站，停了下来，去了卫生间，不知为什么，泰国见到的所有卫生间都很干净，包括随便小的地方的，不像国内的没有下脚的地方。继续走，后面的山路更险，不时的有摩托车从山上下来，多为欧美人，还有不少女的，真厉害，很佩服。走到一半，我感到很困倦，看到路边有和平台，索性就将车停下来，打开</span><span style="font-family: 'Helvetica Neue', Arial, sans, sans-serif; font-size: 16px;">车门，一阵</span><span style="font-family: 'Helvetica Neue', Arial, sans, sans-serif; font-size: 16px;">清风</span><span style="font-family: 'Helvetica Neue', Arial, sans, sans-serif; font-size: 16px;">迎面而来，透彻</span><span style="font-family: 'Helvetica Neue', Arial, sans, sans-serif; font-size: 16px;">心肺，山谷中阵阵鸟叫，清脆婉转，我们下车，活动筋骨，感受异国之美。
+</span>       <img src="http://blog.lixiaofei.cn/wp-content/uploads/2016/04/途中休息.jpg" alt="途中休息"></p>
+<div>        前面还有很多路要走，期待拜县的美景，休息了一会儿出发。无数的转弯，无尽的森林，车里有空调，不觉得热，走了一段导航不好使了，好一阵没反应，于是在路边停车检查，一摸，烫手，难怪不好使。导航放在前挡下，一路被晒着，重启也不好用，小米说反正就一条路，等有岔路再说，有道理，放下导航，启程。大概1个小时后，到了一座桥，军绿色的，钢铁结构，难道就是二战桥，停车，过去看，果然是，很多泰国人在此留影拍个照，我们也没缺，桥有1公里左右，钢铁结构，桥面铺有木板，有的已经破碎，不知它们是否经历过二战，桥不高，但很宏伟结实，估计但是美军过坦克用吧。![二战桥](http://blog.lixiaofei.cn/wp-content/uploads/2016/04/二战桥.jpg)</div>
+<div>        二战桥附近有很多摊点，买纪念日服饰之类，也有餐饮，我们去了对面一家，走了一路也渴了，顺便休息，这家很别致，有条吊桥和大路链接，通过吊桥，有和别致的小花园，绿草莹莹，花团锦簇，飘来阵阵香气，很舒服。我们点了杯芒果汁，坐在角落里，沐浴着清风，欣赏美景，旁边放了一辆废弃的老爷车，红色敞篷，叫不上名字，外观很新，坐上去感受一个历史的豪气。</div>
+<div>        休息之后继续前进，这里距离目的地不远了，这时导航可以用了，在它的指引下，我们路过了coffee in love,粉红房子等景点，之后才知道这里的景点是什么。一会儿，导航提示快到了，我降低车速，在路边有个指示牌，pai art rescue,要是没有指示牌很难看到这里的岔口，进去岔口，路明显窄了，虽然是柏油路，但不平整，不能开太快。沿着指示牌，穿过村庄，要是没有指示牌真不敢往里走，里面的路只能过去一辆车，三转八拐终于看到牌子上写前台距离200米，经过独栋客房间的小路，过了小环岛，停车，到了。</div>
+<div>  -- 未完待续 --</div>
       
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.lixiaofei.cn/2016/04/13/qingmai/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="太阳雪">
-      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="太阳雪">
+      <meta itemprop="description" content="总结 技术 思考 想法">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="管窥程序">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/04/13/qingmai/" itemprop="url">
-                  清迈
-                </a>
-              
-            
-          </h2>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/04/13/qingmai/" class="post-title-link" itemprop="url">清迈</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2016-04-13 21:45:28" itemprop="dateCreated datePublished" datetime="2016-04-13T21:45:28+08:00">2016-04-13</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-07-23 18:24:10" itemprop="dateModified" datetime="2020-07-23T18:24:10+08:00">2020-07-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%B8%85%E8%BF%88%E4%B9%8B%E8%A1%8C/" itemprop="url" rel="index"><span itemprop="name">清迈之行</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%B8%85%E8%BF%88%E4%B9%8B%E8%A1%8C/%E6%B8%B8%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">游记</span></a></span>
-
-                
-                
-              
             </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
-                <a href="/2016/04/13/qingmai/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/04/13/qingmai/" itemprop="commentCount"></span>
-                </a>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-23 18:24:10" itemprop="dateModified" datetime="2020-07-23T18:24:10+08:00">2020-07-23</time>
               </span>
-            
-          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B8%85%E8%BF%88%E4%B9%8B%E8%A1%8C/" itemprop="url" rel="index"><span itemprop="name">清迈之行</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B8%85%E8%BF%88%E4%B9%8B%E8%A1%8C/%E6%B8%B8%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">游记</span></a>
+                </span>
+            </span>
 
           
-          
-
-          
-
-          
-
-          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2016/04/13/qingmai/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/04/13/qingmai/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
-    
 
     
     
@@ -1930,193 +1044,106 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          
-                  很快飞机降落了，我们三个一连坐了3次飞机，真是有些累了。![清迈机场](http://blog.lixiaofei.cn/wp-content/uploads/2016/04/清迈机场.jpg)
-        下飞机，到行李转盘处，拿到行李之后，上面的小宠物不见了，想是不是有人看好
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/04/13/qingmai/#更多" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+          <div>        很快飞机降落了，我们三个一连坐了3次飞机，真是有些累了。![清迈机场](http://blog.lixiaofei.cn/wp-content/uploads/2016/04/清迈机场.jpg)</div>
+<div>        下飞机，到行李转盘处，拿到行李之后，上面的小宠物不见了，想是不是有人看好看拿走了。由于太累在转盘附近休息了一会儿，才出去，首先要做的事情是提车，在一个月之前我就订好了车，有些小激动，头一次驾驶右舵车。到了到达大厅，这里比较简单，就两层，以后是达到，2楼出发，找租车地点有些费劲，因为它在国际到达的出口处，我们在国内到达处，问了一下，说在另一个建筑里，可能都到了走廊的尽头，我们过去，找到了，开始以为有中文服务，结果全是英语，说什么保险没听懂，最后大致明白询问是否购买保险，车辆丢失和损毁险，我想了一下没要，最后看来是对的。小哥让等会儿，很快车到了，我们出去看到了和网上一样的车子，很干净，问了一下油箱盖怎么开，和还车时要不要洗车等问题，拿了钥匙就ok了。我的兴奋劲还没有过，在车里坐着查看车子，这时有机场人员过来示意让走，我打开导航，用的是小米的手机，这里不得不说还是苹果的手机好，插上卡自动获取信息，打开上网功能，要不是iPhone还不知道怎么走呢。导航开始，出发。</div>
+<div>        真有很多不适应的，雨刷和转向灯是反的，档位在左手边，刚开始很别扭，老开雨刷，走到第一个转弯处，差不多适应了，至于测距之类的还好，根据感觉走就成了，按照导航一点点走，路上车子比较多，还后很多摩托车，不时从旁边飞驰而过，根据国内习惯总是想开在右边，其实那是高速道，路上的牌子上总能看到keep left的提示，和国内就是不一样。</div>
+<div>        路上算是顺利，等到了酒店前的小路上，我知道怎么走了，因为之前在google街景上看过，到了平那科怀凯酒店，这时我们这次旅行住的最好的一家酒店。</div>
+<div>签入，刚开始没有中文服务，之后有了，还提供了饮料以示欢迎。屋子很大，还有个小阳台。</div>
+<div>![平纳科怀特1](http://blog.lixiaofei.cn/wp-content/uploads/2016/04/平纳科怀特1.jpg)</div>
+<div>太累了睡了一觉到下午4点多起来，问前台哪里有地道的本地餐饮，说有家叫tong tem toh,确实地道，没有中文菜单，看着图点了些，有个肉酱很好吃，除了一个有臭味其他都还好。吃完去mango togo,全是中国人，排队，我们说打包，不用等桌。由于吃了些晚上没有再吃，但到10点多小米想吃，于是去2楼点了送餐，出乎意料好吃。</div>
+<div>        第二天早上起来去吃早餐，很好吃，特别是烤肉串，吃完饭开车出去逛古城，去了Wat Chedi Luang Worawihan，中国人停车不要钱，让我倍感自豪。![庙](http://blog.lixiaofei.cn/wp-content/uploads/2016/04/庙.jpg)</div>
+<div>        中午太热，逛了一圈，出去。我查到了super rich在附近，于是过去，路不太好走，有个地方很窄，到了，进门一看5.34简直不敢相信，比起机场的4点几简直多了1块钱，我换了2千，对了在清迈机场换了1千。很高兴，我们在7eleven买了水，和凡士林，涂了些手上很好。太热回家，在路上买了很多东西，在房间里好好吃了一顿，睡觉，起来去先2楼泳池，有两个人在游，小米有孕没下水，我自己游了阵，给小米拍了很多照片，游完点了餐，说我们下来吃。上楼换衣服，等下来时我以为吃的放在桌上了，结果没有，出乎意料的是当我们坐下之后，服务员一下子就把点的拿上来了，原来他准备好了，等客人坐好才拿上来，真贴心。</div>
+<div>        饭菜很可口，中间有个欧美人带着妻子小孩过来，他妻子看起来怀孕了也，但他们都下水了，他对小孩很好，一直在水里和小孩玩。</div>
+<div>![酒店泳池](http://blog.lixiaofei.cn/wp-content/uploads/2016/04/酒店泳池.jpg)</div>
+<div>        吃完饭，到傍晚了，开车出去看晚上的寺庙，路过Wat Lok Molee寺庙，虽然不大，很是庄严，有很多小和尚在修课，在此才知道很多寺庙有修炼的孩子，也许就是他们的学习生活吧。路过夜市摊，在旁边蛋糕店买了吃的，又去了一个寺庙Wat Kuan Kama，没有灯光看不清，也就作罢，随便在古城里逛了一圈，回去了，收拾东西第二天要赶去拜县。</div>
+<div>        早晨早起，开车出去，感受清晨的清迈，先到了Wat Mo Kham Tuang，晨光里的寺庙金黄闪闪，</div>
+<div>![庙2](http://blog.lixiaofei.cn/wp-content/uploads/2016/04/庙2.jpg)</div>
+<div>格外庄严，在这里碰到了帅气的美国休斯顿小伙rayn,很会开玩笑，很幽默，聊了几句，我们一起浏览了寺庙，互相拍了照片，我的英语很差，只能聊简单的，之后邀请他和我们去<span style="font-family: &amp;apos; helvetica neue&amp;apos;, arial, sans, sans-serif;font-size: 16px;">Wat Chedi Luang Worawihan，昨天停车免费的地方，路上聊了些，到了又是逛了一圈，还在昨天我们签名的地方这下了他的名字，很好的体验，之后他说想回去了于是我们分手，约好回头给他照片。然后我们去了最大的寺庙帕刑寺，这里金碧辉煌，感受到清晨清迈的舒适和安宁，有带孩子的老人，整理摊点的商贩，诵经的僧人，鸟儿的叫声和节奏明晰的佛教音乐，我们在树荫下穿过，在草坪上留影，尽情感受美妙的一刻。</span></div>
+<div></div>
+<div>-- 未完待续--</div>
       
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
       
-
-  
-
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.lixiaofei.cn/2016/04/13/ganfeiji/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="太阳雪">
-      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="太阳雪">
+      <meta itemprop="description" content="总结 技术 思考 想法">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="管窥程序">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/04/13/ganfeiji/" itemprop="url">
-                  赶飞机
-                </a>
-              
-            
-          </h2>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/04/13/ganfeiji/" class="post-title-link" itemprop="url">赶飞机</a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2016-04-13 21:35:35" itemprop="dateCreated datePublished" datetime="2016-04-13T21:35:35+08:00">2016-04-13</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-07-23 18:24:10" itemprop="dateModified" datetime="2020-07-23T18:24:10+08:00">2020-07-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%B8%85%E8%BF%88%E4%B9%8B%E8%A1%8C/" itemprop="url" rel="index"><span itemprop="name">清迈之行</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%B8%85%E8%BF%88%E4%B9%8B%E8%A1%8C/%E6%B8%B8%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">游记</span></a></span>
-
-                
-                
-              
             </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
-                <a href="/2016/04/13/ganfeiji/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2016/04/13/ganfeiji/" itemprop="commentCount"></span>
-                </a>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-23 18:24:10" itemprop="dateModified" datetime="2020-07-23T18:24:10+08:00">2020-07-23</time>
               </span>
-            
-          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B8%85%E8%BF%88%E4%B9%8B%E8%A1%8C/" itemprop="url" rel="index"><span itemprop="name">清迈之行</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B8%85%E8%BF%88%E4%B9%8B%E8%A1%8C/%E6%B8%B8%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">游记</span></a>
+                </span>
+            </span>
 
           
-          
-
-          
-
-          
-
-          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2016/04/13/ganfeiji/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/04/13/ganfeiji/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
-    
 
     
     
@@ -2124,61 +1151,32 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          
-                  下飞机感到这里真热，我们还穿着长裤，到了陌生的地方会感到很混乱，因为之后再来觉得这里设计的真好方便清晰。沿着提取行李指示走了很长的通道，到了，这里很多人，当时不知道是先去行李还是先出关，问了工作人员，说是就从这里出，仔细看才知道这里是出关口，很多人，泰国人处人不多，其他的，每个都排满
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/04/13/ganfeiji/#更多" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+          <div>        下飞机感到这里真热，我们还穿着长裤，到了陌生的地方会感到很混乱，因为之后再来觉得这里设计的真好方便清晰。沿着提取行李指示走了很长的通道，到了，这里很多人，当时不知道是先去行李还是先出关，问了工作人员，说是就从这里出，仔细看才知道这里是出关口，很多人，泰国人处人不多，其他的，每个都排满了人，缓慢地向前移动。感觉是泰国的工作效率比较低，出关的速度很慢，大家都有些不耐烦了，原本觉得在曼谷机场有将近5小时的停留时间，由于晚点耽误了3个多小时，加上出关慢心里比较着急，但没办法，最后想算了，如果赶不上飞机再说，或许能退票什么的。</div>
+<div>        和前面两个来自大陆的小伙子聊了会儿，终于到我们了，看护照和签证，签证之前办好了，拍电子照片，没有问什么问题，就好了。出来后就是行李转盘，没弄清楚是哪个，开始走错方向了，最后在转盘前面的显示器中看到我们的航班在第9转盘，赶过去刚好看到行李出来了，算是松口气，找到洗手间，换了夏天的衣服，舒服了些，然后拿出自己准备的攻略，有很多换钱的地方，很容易找到人民币的汇率，买4.7买5.4，真够黑的，由于之前在同事那里换了1000多泰铢，我没有在这里换，听说去清迈换更划算。</div>
+<div>        开始找机场免费大巴，当时在二楼，也不知道哪里有，看路标，下到1楼，终于看到大巴的出口，而且有一辆在等候，我赶紧过去，想上车，小米说我是否准备好，我才想起来需要给他们看廊曼机场的机票，于是我找到单子给他们看，说了半天他们也不明白，旁边坐的一个突然说了中文“赶不上”，意思是我们做大巴赶不上那趟飞机，说去坐Taxi，我心里想攻略上说要砍价，于是风风火火的赶到有出租车停的地方，和一对中东游客碰在一起，但他们手里有票，司机接了票，让他们上车，我一脸茫然，说不清楚也听不明白，于是去另外的出租车那里，司机还是不让座，指向一个地方，这时我突然明白了，他是我们去拿一个乘车条，回头看去，果然有个柜台，有些人在排队，我赶过去，胡乱的说了一下我们要去坐飞机，他打印了一个小票，小票上有明显的数字，29好像，对应的是29电子牌，去那里把小票给司机，这回对了，司机帮助我们装行李，我以为小票上写了我们要去哪里，看司机茫然的样子才知需要我们告诉他目的地，对呀，从机场出发的乘客大部分要去曼谷，我想这要去廊曼就觉得大家都可能去哪里，司机一定知道，未免有些一厢情愿了。廊曼不知道英语怎么说，由于前期都是我准备的，所以小米也不知道，但她想了一下说了廊曼的英语发音，司机一下子就明白了，（看来下次出国旅行时要搞清楚地名的发音）然后说了飞机起飞的时间，由于靠左行驶，我坐在左侧副驾位置，司机开车出发，路上了司机简单的聊了些，司机的英语不好，所以许多都不明白，在路上我看到了海尔的广告牌，感到自豪，中国品牌的力量。司机突然指向左右吧，说兰博基尼（英语发音），我没听懂，看过去明白了，说这是很好的车，看来好东西在每个人心目中都是一样的。大概40多分钟，看到路标上有写廊曼机场，我感觉快到了，还问了司机旁边的是不是在修地铁。过了一会儿到了，在立交桥上掉头，司机问了什么，可能是我们的航站楼，我很茫然不知道，说了哟要去清迈，司机大概知道了，将我们放在第二个航站楼门口，说一般去清迈都在这里，我满是感激，下车问价钱，600！超出了我的预计，听人说一般需要300就可以了，司机说走了高速，需要交费等等，当时着急要走，也就罢了，给了钱，这时副驾的门我忘关了，小米提醒我关门，由于太着急，我随手推了门角，结果在手心里划了一道口子，血流不止，也顾不上了，背上包，进航站楼，在里面，我拿出提前备好的云南白药，将血止住，当时也不知道伤的多厉害，先止血再说，小米看到我手破了，很担心，我怕她看着害怕没有给你看伤口。</div>
+<div>        简单处理后来到旁边的狮航柜台，狮航有15公斤的免费行李额，我们的箱子将近20公斤，沟通后，值机小姐让我们调整一下行李，于是我们将箱子打开拿了些比较重的东西出来，放上还是超，当时值机小姐说可以了，还有小米的怀孕，她给了一张单子，勾选了需要填写的地方，说登机时给空乘人员。还算顺利。后来的经历才让我知道，狮航的服务有多么好。到了安检口，我们将行李整理了一下，我又在伤口上涂了云南白药，说真的多亏了它，要不然手上的伤会影响整个旅行。结果就在这里将就我与水火的灵丹妙药丢了。进入安检口，对于孕妇都有单独通道，每个机场都一样。机票上显示在37号口，看着指示前行，有很多买吃的地方，小米看到有个小姑娘在吃东西，问她在哪买的，没想到这个小姑娘一直将小米带过去，真是好人多呀。小米回来之后，我买了杯热牛奶，因为机场没有热水，可能是这里太热了，人们没有喝热水的习惯吧。由于司机在路上帮我们节省了很多时间，所以可以稍作休息。时间差不多，开始登机，结果不让带那杯牛奶上飞机，最后想想，可能是因为纸杯饮料容易撒吧。</div>
+<div>飞机上人不多，我们旁边坐了一个小姑娘，像是学生。</div>
+<div>        原本以为飞机会晚点，结果没有，看来这里并不像看到的比较拖沓，挺有时间观念的吗。空少很帅，而且还提供水和小零食，当时觉得真小气，但是做过亚航的班机后才知到这里多么美好。由于小米需要经常上厕所，我看到第一排的位置没人，就坐了过去，很舒服，帅哥空少看到后，说了几句没听懂，意思是要回到座位上，我以为是让我们当时回去，也没理，就坐着，在心里想待会儿人家问怎么说，迷迷糊糊听到通知说要降落了，空少让我回到位置上，大概刚才的意思是降落之前需要回到自己的位置上，我们回到自己的位置上，我看着窗外的风景，清迈一点点接近。</div>
+<div>![86099965](http://blog.lixiaofei.cn/wp-content/uploads/2016/04/86099965.jpg)</div>
+<div>-- 未完待续 --</div>
       
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-
-    
-  </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2186,212 +1184,116 @@
           </div>
           
 
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.png"
-                alt="太阳雪" />
-            
-              <p class="site-author-name" itemprop="name">太阳雪</p>
-              <p class="site-description motion-element" itemprop="description">总结 技术 思考 想法</p>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/%20%7C%7C%20archive">
-                
-                    <span class="site-state-item-count">32</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">10</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">13</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </section>
-
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">太阳雪</span>
-
-  
-
-  
-</div>
-
-
-  
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="太阳雪"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">太阳雪</p>
+  <div class="site-description" itemprop="description">总结 技术 思考 想法</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">太阳雪</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
 
 
 
@@ -2400,173 +1302,101 @@
 
 
 
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
+<script src="/js/schemes/muse.js"></script>
 
 
-
-
-
-
-
-
-
-
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.2.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.2.0"></script>
-
-
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
-
-
-
-  
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  
-  
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(function (item) {
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: false,
-        appId: 'teRj7yeJj0xpfGKLJ5uFdbIu-gzGzoHsz',
-        appKey: '3uie0p1nxouCCnkjiXTEBeLd',
-        placeholder: '您的关注是我的动力',
-        avatar:'mm',
-        guest_info:guest,
-        pageSize:'10' || 10,
-    });
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
   </script>
 
 
 
-  
 
 
 
 
 
-  
+
+
+
+
+
+
 
   
 
   
 
-  
-  
 
-  
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-
-  
-
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'teRj7yeJj0xpfGKLJ5uFdbIu-gzGzoHsz',
+      appKey     : '3uie0p1nxouCCnkjiXTEBeLd',
+      placeholder: "您的关注是我的动力",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
 
 </body>
 </html>
