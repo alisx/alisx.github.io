@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.lixiaofei.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":true,"storage":true,"lazyload":true,"nav":{"valine":{"order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="第一章 世界上最小的Django项目参考代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="轻量级Django 读书笔记-第一章">
+<meta property="og:url" content="http://blog.lixiaofei.cn/2018/06/01/2018-06-01-django1/index.html">
+<meta property="og:site_name" content="管窥程序">
+<meta property="og:description" content="第一章 世界上最小的Django项目参考代码">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-06-01T04:17:29.000Z">
+<meta property="article:modified_time" content="2020-07-24T07:30:32.265Z">
+<meta property="article:author" content="太阳雪">
+<meta property="article:tag" content="Django">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://blog.lixiaofei.cn/2018/06/01/2018-06-01-django1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>轻量级Django 读书笔记-第一章 | 管窥程序</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">管窥程序</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Every Day is a gift</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/alisx" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.lixiaofei.cn/2018/06/01/2018-06-01-django1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="太阳雪">
+      <meta itemprop="description" content="总结 技术 思考 想法">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="管窥程序">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          轻量级Django 读书笔记-第一章
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-06-01 12:17:29" itemprop="dateCreated datePublished" datetime="2018-06-01T12:17:29+08:00">2018-06-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-24 15:30:32" itemprop="dateModified" datetime="2020-07-24T15:30:32+08:00">2020-07-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Readingnote/" itemprop="url" rel="index"><span itemprop="name">Readingnote</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2018/06/01/2018-06-01-django1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/06/01/2018-06-01-django1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="第一章-世界上最小的Django项目"><a href="#第一章-世界上最小的Django项目" class="headerlink" title="第一章 世界上最小的Django项目"></a>第一章 世界上最小的Django项目</h1><p><a href="https://github.com/alisx/lightdjango_practice/tree/master/Chapter%201" target="_blank" rel="noopener">参考代码</a><br><a id="more"></a></p>
+<h2 id="Django怎么念"><a href="#Django怎么念" class="headerlink" title="Django怎么念"></a>Django怎么念</h2><p>Django怎么读了，<a href="https://www.zhihu.com/question/20237763" target="_blank" rel="noopener">读法</a>应该是 <strong>\/ˈdʒæŋɡoʊ\/</strong> 类似与<strong>jang-goh</strong> 类似于 <strong>姜戈</strong> </p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>概念是了解学习一个新事务的基础，是要了解的知识中抽象的，从设计者的角度总结出来的基础构建，同时是学习者入门的钥匙<br>概念还像是框架，一个范围，有了这些框架和范围，就能对知识的内容和边际有所感知。</p>
+<ul>
+<li>Web服务器<br>Web服务器是处理网络请求的程序，流行的web服务有<a href="https://httpd.apache.org/" target="_blank" rel="noopener">Apache</a>、<a href="https://www.nginx.com/" target="_blank" rel="noopener">Nginx</a>等,专注于请求吞吐量、安全，一般能独立处理静态文件</li>
+<li>Web应用程序<br>专门处理复杂的网络请求，返回动态的内容的应用程序，可以理解成Web服务器的扩展，实际上Web服务器主要是利用Web应用程序发挥作用的。Web应用程序可以用多种语言开发，如python，C#，java，php等等</li>
+<li>WSGI<br><a href="https://zh.wikipedia.org/wiki/Web%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%BD%91%E5%85%B3%E6%8E%A5%E5%8F%A3" target="_blank" rel="noopener">WSGI</a>，全称是Web Server Gateway Interface,是Web服务器和Web应用程序的之间的接口，是一个规范，正是有了WSGI，才让Web服务器可以选择不同的Web应用框架或者程序语言来做开发</li>
+<li>模型<br>模型是数据和附着于数据的一些操作的集合，模型和系统分析中的实体类似，是软件系统的基础，软件系统是围绕在一系列实体之上的</li>
+<li>视图<br>视图是为了展示数据,是模型的展示</li>
+<li>URL路由<br>用来确定通过URL地址来访问资源（资源的概念来自于RESTful）或者与资源互动</li>
+</ul>
+<h2 id="最小的WEB应用"><a href="#最小的WEB应用" class="headerlink" title="最小的WEB应用"></a>最小的WEB应用</h2><h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><ol>
+<li>首先需要一个设置，就像建造房屋的基础，在设置里声明需要用到哪些基础设施，以及公共字段 <ul>
+<li>settings是Django项目中用来做设置的类，通过 <code>from django.conf import settrings</code>引用</li>
+<li>设置中需要引用项目中的某些资源，比如URL路由设置等，所以需要设置<code>ROOT_URLCONF</code>,由于只用一个文件构建这个项目，所有需要用<code>__name__</code>内部变量作为<code>ROOT_URLCONF</code>的值,表示本代码文件(python中叫模块)<blockquote>
+<p>关于<code>__name__</code>是python中模块(可以理解成代码文件，例如main.py 可以理解成是模块main)在上下文中的名字,如果y由python解释器直接运行，其值为 <code>&#39;__main__&#39;</code>,否则(例如被其他模块import)为模块的名字  <a href="https://www.zhihu.com/question/61311201" target="_blank" rel="noopener">参考这里</a></p>
+</blockquote>
+</li>
+<li><code>DEBUG</code>是调试模式的开关，打开时，如果遇到500错误，会将很详细的错误描述、临时变量、调用栈等信息显示出来，方便调试，并且允许通过localhost域名进行访问。在生产环境中需要设置为关闭，次数就不能通过localhost来访问了，如果需要访问，就需要通过<code>ALLOW_HOSTS</code>来设置可被允许访问的域名，<code>ALLOW_HOSTS</code>是个数组</li>
+<li><code>SECRET_KEY</code>很重要，会用来做模块的Hash(例如被加载的静态文件名后面会加上一串编码，编码的安全性直接取决与<code>SECRET_KEY</code>的值<blockquote>
+<p><code>SECRET_KEY</code> 配置变量是通用密钥, 可在 Flask 和多个第三方扩展中使用. 如其名所示, 加密的强度取决于变量值的机密度. 不同的程序要使用不同的密钥, 而且要保证其他人不知道你所用的字符串.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>创建视图<ul>
+<li>视图的作用是为不同的请求返回响应的响应，Django 将请求和响应分别封装在 <code>django.http.HttpRequest</code> 和 <code>django.http.HttpResponse</code>中了</li>
+<li>在视图中定义入口方法，会接收一个参数，这个参数就是<code>HttpRequest</code>的实例，即一次客户端的请求，通过这个参数可以获取到请求中的所有信息，例如Header、cookies等等</li>
+<li>在入库方法中可以做任何你想做的事情，例如处理数据、生成报表、合成图片等等，最后需要返回一个<code>HttpResponse</code>对象作为响应，简单例子只返回了字符串<code>&#39;Hello world&#39;</code></li>
+</ul>
+</li>
+<li><p>创建URL路由</p>
+<ul>
+<li>路由的作用是处理请求的URL，根据配置将不同URL请求分配给对于的视图</li>
+<li>对于Django 2.0+,推荐使用path，代替之前的url，path有更强的表现力，另外不需要用正则表达式作为URL匹配规则，这样减少了一定的配置复杂度</li>
+<li>将根URL分配到上面定义的视图上，即 <code>path(&#39;&#39;, index)</code></li>
+</ul>
+</li>
+<li><p>这三步是最简应用的所有业务代码，这里没有用到 <strong>模型</strong>,因为最简应用中，数据只是<code>&#39;Hello world&#39;</code>,直接写到视图中了</p>
+</li>
+</ol>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>Django是个Web应用框架，要作为Web服务需要启动Web服务器，有两种选择</p>
+<ol>
+<li>作为开发测试用，直接用命令行启动<ul>
+<li>Django自带了一个命令行启动服务的工具，当然不仅可以用来启动服务，还可以用来创建项目等等</li>
+<li>只需要引入<code>execute_from_command_line</code>命令行工具就可以了，然后在命令行中输入<code>python hello.py runserver</code>就能启动服务了，<code>hello.py</code>是最简应用的<a href="https://github.com/alisx/lightdjango_practice/blob/master/Chapter%201/hello.py" target="_blank" rel="noopener">代码文件</a></li>
+</ul>
+</li>
+<li><p>作为生产用，需要借助真正的Web服务器</p>
+<ul>
+<li><p>正如Django官方文档中<a href="https://docs.djangoproject.com/zh-hans/2.0/intro/tutorial01/" target="_blank" rel="noopener">描述</a>的那样：</p>
+<blockquote>
+<p>我们在 Web 框架方面是专家，在 Web 服务器方面并不是。  </p>
+</blockquote>
+</li>
+<li><p>最简单的方式是用Gunicorn做Web服务器，这里会有一个WSGI的概念，<strong>和Web服务器链接前，需要提供符合WSGI规范的接口</strong>，概念不容易理解，但实现很简单，引入<code>get_wsgi_application</code>,创建一个<code>application</code>对象就可以了</p>
+</li>
+<li>如果不用Web服务器，是否创建WSGI无关紧要，但是要使用的话，必须创建</li>
+<li><code>application</code>是约定俗成的名字，自己可以随意修改</li>
+</ul>
+</li>
+</ol>
+<h2 id="提升"><a href="#提升" class="headerlink" title="提升"></a>提升</h2><p>编写代码是为了能为更多人服务，即需要将其产品化，所有需要更进一步，为产品化打好基础</p>
+<ul>
+<li><p>动态化<br>  正如Django的设计精神所说，让开发者不必重复造轮子，代码应该是一次书写，适应多种情况  </p>
+<blockquote>
+<p>有个这样的经历：之前参与了一个项目，每次上线都要花2天时间，因为上线时需要修改十几个文件的配置，不能少改或改错一个，否则上线时间会更长。原因就是开发、测试、生产项目配置没分开，导致上线风险高，且效率极低</p>
+</blockquote>
+<ol>
+<li><p>作者推荐用 <a href="https://12factor.net/zh_cn/" target="_blank" rel="noopener">Twelve Factor App</a> 方法来解决环境配置问题。</p>
+<blockquote>
+<p>其实很简单，就是根据环境变量加载不同的配置文件或者使配置项变的不同，感慨的是方法论的力量，即使这么简单的方法也有一套理论，因为方法就是一个清单，给清单起个名字交流起来就很方便了，另外可见将这个方法复用起来。对比而已，我总是急于实现，无论什么方法先实现了再说,核心的差别在于总结，不复盘，不思考，像一个饥不择食的人，谈何更高层次的需求。</p>
+</blockquote>
+</li>
+<li><p>将 <code>DEBUG</code> 和 <code>SECRET_KEY</code> 配置成从环境变量中获取，且为他们加入了默认值，这样在开发环境中不用考虑上线需求，可以专注于业务的实现</p>
+</li>
+</ol>
+</li>
+<li><p>模板化<br>  首先说点个人感悟，我们知道时间是最宝贵的财富，也知道时间不能被积累，但世界上有很多中方法可以让时间积累起来，比如复利，比如酿造技术，再比如信用度，还有简单的人品，这些都可以靠时间积累起来，相当于把时间积累起来了。对于技术而言，如何才能让时间积累起来呢？靠经验，靠知识，靠记忆，这些都存在一个问题，就是变现太慢，积累的经验知识要想发挥作用的话是线性的，输入很慢，而且质量无法保证。在我看来最好的积累方式是模板，可以将知识转换成模板，需要用时直接将模板转换为代码，模板是动态的灵活的甚至可继承的，模板是精确的，不会岁时间变得模糊；模板是可维护的，可以将陆陆续续发现的好的点子加进去，这不就实现了时间的积累了吗？</p>
+<p>  Django之所以强大，是他的模块化和模板化，以及深入在各个地方的面向对象思想，正是这些特性的存在，让全世界很多优秀的人将自己的智慧时间加入进来，  </p>
+<p>  这里要说的是他的构建项目的模板，在官方文档中可以通过命令行工具创建一个项目或者App，按作者的话说就是</p>
+<blockquote>
+<p>通常创建新项目要使用 <code>startproject</code> 命令。这个命令没有什么神奇的地方，只是创建一些文件和目录而已</p>
+</blockquote>
+<p>  言外之意有两点，1 可以不用通过官方的方式来创建项目；2 这个东西我们可以自己做<br>  对于2扩展一下，可以将一个项目作为我们自己的项目模板，例如做一个博客系统的模板，电商项目的模板，REST项目的模板等等，这将大大提升我们的生产力</p>
+<ul>
+<li><code>startproject</code> 命令会从指定模板路径 (默认路径在 <code>{pythonInstallDir}/Lib/site-packages/django/conf/project_template</code>, <code>{pythonInstallDir}</code>是 python安装的目录) 的目录下，拷贝所有的目录及文件</li>
+<li>拷贝过程中，<code>startproject</code> 命令会传入一些上下文变量,有<code>project_name</code>、 <code>project_directory</code>、<code>secret_key</code>、<code>docs_version</code></li>
+<li>可以将用这些字段作为文件名、文件夹名，或者写到代码里，在代码中需要用双大括号(暂且叫模板变量替换符吧)来表示 例如 <code></code>,将来会被体会为 <code>startproject</code> 命令行参数中的 项目名</li>
+<li>项目模板路径，如果创建一个文件夹(project_temps)专门存放这种项目模板,其中有个一个项目模板是 simpleproject ,其下有个project_name.py文件，这时使用命令创建<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python django-adming.py startproject myproject --template=project_temps/simpleproject</span><br></pre></td></tr></table></figure>
+就会在当前路径下创建一个文件夹 myproject,其中有个文件是 myproject.py</li>
+<li>参数 <code>--template</code> 需要指定确切的路径，支持绝对路径和相对路径</li>
+<li>做了个尝试：将项目模板放在默认模板的路径中，在<code>--template</code>中指定项目模板的文件夹名，创建工具并不会去默认的模板路径下查找，相对与他只会在当前目录下找与指定模板同名的目录或者文件</li>
+</ul>
+</li>
+</ul>
+<h2 id="感悟"><a href="#感悟" class="headerlink" title="感悟"></a>感悟</h2><p>&emsp;&emsp;正如作者在第一段所描述，当我实践官方的例子时，虽然感到很震撼，但也被项目中多个文件搞晕了，看不出入口和结构，这一章用一个极简的例子，清晰的描述了Django的核心，同时阐述了Web应用的本质。</p>
+<hr>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Django/" rel="tag"># Django</a>
+              <a href="/tags/Python/" rel="tag"># Python</a>
+          </div>
+
+        
+
+			<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.png" alt="太阳雪 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>关注我，获得更多精彩内容</div>
+</div>
+
+        
+		
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/05/31/2018-05-31-django0/" rel="prev" title="轻量级Django 读书笔记-开篇">
+      <i class="fa fa-chevron-left"></i> 轻量级Django 读书笔记-开篇
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/06/05/2018-06-05-django2/" rel="next" title="轻量级Django 读书笔记-第二章">
+      轻量级Django 读书笔记-第二章 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-世界上最小的Django项目"><span class="nav-number">1.</span> <span class="nav-text">第一章 世界上最小的Django项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Django怎么念"><span class="nav-number">1.1.</span> <span class="nav-text">Django怎么念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.2.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最小的WEB应用"><span class="nav-number">1.3.</span> <span class="nav-text">最小的WEB应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编码"><span class="nav-number">1.3.1.</span> <span class="nav-text">编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动"><span class="nav-number">1.3.2.</span> <span class="nav-text">启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提升"><span class="nav-number">1.4.</span> <span class="nav-text">提升</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#感悟"><span class="nav-number">1.5.</span> <span class="nav-text">感悟</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="太阳雪"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">太阳雪</p>
+  <div class="site-description" itemprop="description">总结 技术 思考 想法</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">太阳雪</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'teRj7yeJj0xpfGKLJ5uFdbIu-gzGzoHsz',
+      appKey     : '3uie0p1nxouCCnkjiXTEBeLd',
+      placeholder: "您的关注是我的动力",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
