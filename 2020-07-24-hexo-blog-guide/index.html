@@ -39,7 +39,7 @@
 <meta property="og:image" content="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/10.png">
 <meta property="og:image" content="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/11.png">
 <meta property="article:published_time" content="2020-07-24T09:16:14.000Z">
-<meta property="article:modified_time" content="2020-07-27T06:12:23.719Z">
+<meta property="article:modified_time" content="2020-07-27T07:48:08.566Z">
 <meta property="article:author" content="太阳雪">
 <meta property="article:tag" content="-- 教程">
 <meta name="twitter:card" content="summary">
@@ -212,7 +212,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-27 14:12:23" itemprop="dateModified" datetime="2020-07-27T14:12:23+08:00">2020-07-27</time>
+                <time title="修改时间：2020-07-27 15:48:08" itemprop="dateModified" datetime="2020-07-27T15:48:08+08:00">2020-07-27</time>
               </span>
 
           
@@ -292,15 +292,15 @@
 <p>下载 Git windows 安装程序 <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">https://git-scm.com/download/win</a></p>
 <p>完成后，双击运行安装程序</p>
 <p>一路选择默认设计就行，因为配置项很多，如果不想一步步选，可以勾选安装窗口的 <code>only show new options</code> 勾选框</p>
-<p><img src="/images/2020/07/hexo-blog-guide/01.png" alt="git 安装选项"></p>
+<p><img src="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/01.png" alt="git 安装选项"></p>
 <p>安装完成后，如果不使用 git 来管理代码（对于写作来说就是文章），可以不用关注 git 的相关用法，只要知道可以通过鼠标右键菜单，启动一个 git 命令窗口就行了</p>
-<p><img src="/images/2020/07/hexo-blog-guide/02.png" alt="git 安装选项"></p>
+<p><img src="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/02.png" alt="git 安装选项"></p>
 <blockquote>
 <p>安装时不同的选择导致的快捷菜单可能不同</p>
 </blockquote>
 <h2 id="创建博客"><a href="#创建博客" class="headerlink" title="创建博客"></a>创建博客</h2><p>环境准备好后，就可以构建博客系统了</p>
 <h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>创建一个博客目录，例如：<code>D:\myblog</code>，到改目录下，鼠标右键，选择 <code>Git Bash Here</code> 菜单，会进入一个命令行窗口，和 Windows 的命令行窗口类似</p>
-<p><img src="/images/2020/07/hexo-blog-guide/03.png" alt="git 命令窗口"></p>
+<p><img src="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/03.png" alt="git 命令窗口"></p>
 <p>在这里输入命令 <code>hexo init</code>，回车，会下载博客程序，当提示 <code>INFO  Start blogging with Hexo!</code> 时候，说明创建完成</p>
 <p>接着输入 <code>hexo server</code> 或者 <code>hexo s</code> 启动 Hexo 博客程序了</p>
 <p>在浏览器中输入 localhost:4000，就可以查看博客了</p>
@@ -331,7 +331,7 @@
 <h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>Hexo 自带了 landscape 主题，可以跟换其他的</p>
 <p>在 <a href="https://hexo.io/themes/index.html" target="_blank" rel="noopener">https://hexo.io/themes/index.html</a> 这里预览可用主题</p>
 <p>选择喜欢的主题，找到 github 地址，一般都在预览页中有提供，复制主题项目的 github 地址：</p>
-<p><img src="/images/2020/07/hexo-blog-guide/04.png" alt="github 项目地址"></p>
+<p><img src="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/04.png" alt="github 项目地址"></p>
 <p>进入博客根目录，右键选择 <code>Git Bash Here</code>，打开 git 命令行，输入 <code>git clone [主题github 项目地址地址] theme/[主题英文名称]</code> 回车执行</p>
 <p>执行完成后，博客目录下 theme 里 会多一个 主题英文名称的文件夹，这就是刚才下载的主题</p>
 <p>打开 Hexo 配置文件 <code>_config.yml</code> 找到 <code>theme</code> 配置项，修改为 <code>主题英文名称</code></p>
@@ -341,27 +341,27 @@
 <h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>Github 不仅是很多开源软件的仓库，还可以成为我们博客的服务器，最重要的是免费，国内有类似的产品 Gitee（码云）提供类似功能</p>
 <h3 id="注册和创建项目"><a href="#注册和创建项目" class="headerlink" title="注册和创建项目"></a>注册和创建项目</h3><p>访问 <a href="https://github.com" target="_blank" rel="noopener">https://github.com</a>，选择 sign up 填写必要信息完成注册，注册完成后，点击 sign in 登录</p>
 <p>登录后，点击页面右上角附近的 <code>加号</code>，在弹出菜单中选择 <code>New repository</code></p>
-<p><img src="/images/2020/07/hexo-blog-guide/05.png" alt="创建新项目"></p>
+<p><img src="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/05.png" alt="创建新项目"></p>
 <p>在打开的页面中，填写项目名称，可以随要填写，因为作为博客使用，选择公开仓库，并且勾选为项目创建 <code>Readme</code></p>
-<p><img src="/images/2020/07/hexo-blog-guide/06.png" alt="填写项目信息"></p>
+<p><img src="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/06.png" alt="填写项目信息"></p>
 <blockquote>
 <p>如果不勾线创建 Readme 的话，在创建 Pages 之前必须提交写内容项目中</p>
 </blockquote>
 <p>完成后，点击 <code>Create repository</code> 创建项目</p>
 <p>成功后，会打开创建项目的页面</p>
 <h3 id="设置-pages"><a href="#设置-pages" class="headerlink" title="设置 pages"></a>设置 pages</h3><p>在项目页面选择 <code>Settings</code> 选项卡</p>
-<p><img src="/images/2020/07/hexo-blog-guide/07.png" alt="填写项目信息"></p>
+<p><img src="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/07.png" alt="填写项目信息"></p>
 <p>然后一直往下找到 GitHub Pages 节段，在 Souce 栏，点击 None 下拉菜单，选择第一项 <code>master branch</code>:</p>
-<p><img src="/images/2020/07/hexo-blog-guide/08.png" alt="填写项目信息"></p>
+<p><img src="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/08.png" alt="填写项目信息"></p>
 <p>页面会刷新，刷新后，就创建好了 Pages，并且显示出这个项目 Pages 的网址:</p>
-<p><img src="/images/2020/07/hexo-blog-guide/09.png" alt="填写项目信息"></p>
+<p><img src="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/09.png" alt="填写项目信息"></p>
 <p>其中 <code>Custom domain</code> 可以设置自己的域名</p>
 <p>下面简单说下域名</p>
 <h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><p>域名是网络中的一个地址，比较方便记忆，另外有意义的域名对网站有一定的宣传作用，比如 mi.com</p>
 <p>一个域名可以有无数个二级域名，比如 域名为 abc.com，二级域名可以是 erp.abc.com，blog.abc.com，docs.abc.com 等等，每个二级域名可以是不同的地址，或者说可以对应不同的网站</p>
 <p>域名可以通过域名代理商购买，国内一般可以在 万网 上购买（目前万网并入阿里云），国外一般可以在 GoDaddy 上购买。域名是有有效期的，到期之前可以续费，以延长用于时间</p>
 <p>有了域名后，可以在域名供应商提供的管理工具中设置域名对应的地址，叫做解析，可以将域名解析到自己的 GitHub Pages 上，例如我的：</p>
-<p><img src="/images/2020/07/hexo-blog-guide/10.png" alt="域名解析"></p>
+<p><img src="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/10.png" alt="域名解析"></p>
 <ul>
 <li>记录类型有多种，CNAME 表示指向另一个网址</li>
 <li>主记录可以设置二级域名</li>
@@ -407,14 +407,19 @@
 <p>生成博客的静态网页文件之后，就可以部署到 GitHub Pages 上了，命令很简单 <code>hexo deploy</code>，执行完后，用自己的域名或者 GitHub Pages 提供的网址就可以访问了，如果没有变化，很可能是因为网站缓存，稍等下刷新就能看到了</p>
 <p>博客上的文章发布完成了，怎么发布到其他平台呢？</p>
 <p>这里介绍个 Markdown 美化工具 <a href="https://mdnice.com/" target="_blank" rel="noopener">https://mdnice.com/</a>，可以将 Markdown 文件转换为适合不同平台的 Html 格式</p>
-<p><img src="/images/2020/07/hexo-blog-guide/11.png" alt="域名解析"></p>
+<p><img src="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/11.png" alt="域名解析"></p>
 <p>可以复制 Markdown 格式文件内容到左侧栏，或者通过 <code>文件</code> 菜单导入 Markdown 文件</p>
 <p>可以通过 <code>主题</code> 菜单选择不同分格的主题</p>
 <p>最后在最右侧，选择 公众号、知乎、掘金三个平台，会将转换后的复制到剪切板，然后粘贴到对应平台的文章编辑器中</p>
 <p>这里有个问题，如果文章中有图片如何处理，因为在博客中，图片地址都是相对地址，直接复制上去是显示不出来的，所以复制之前，将图片相对地址替换为实际网址，例如本文中的图片相对地址为：<code>/images/2020/07/hexo-blog-guide/01.png</code>，替换为：<code>http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/01.png</code>，如果图片较多的话，可以用编辑器的批量替换功能</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这篇文章比较长，感觉有些复杂，涉及的东西比较多比较杂，梳理一下就是 注册一个 GitHub，创建一个 Pages 项目，在本地安装一个 Hexo 博客系统，将本地博客发布到 Pages 上，虽然比较麻烦，但只做这么一次，搭建好了后，后面主要用来创作文章，会轻松很多。</p>
 <p>事情总没有预想中梳理，如果过程中有问题，请给我留言，一起交流学习，总之，要相信没有解决不了的问题</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a><br><a href="https://laytonsun.com/learning/2020-04/upgrade-hexo-and-next.html" target="_blank" rel="noopener">https://laytonsun.com/learning/2020-04/upgrade-hexo-and-next.html</a><br><a href="https://mdnice.com/" target="_blank" rel="noopener">https://mdnice.com/</a><br><a href="https://theme-next.js.org/" target="_blank" rel="noopener">https://theme-next.js.org/</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a></li>
+<li><a href="https://laytonsun.com/learning/2020-04/upgrade-hexo-and-next.html" target="_blank" rel="noopener">https://laytonsun.com/learning/2020-04/upgrade-hexo-and-next.html</a></li>
+<li><a href="https://mdnice.com/" target="_blank" rel="noopener">https://mdnice.com/</a></li>
+<li><a href="https://theme-next.js.org/" target="_blank" rel="noopener">https://theme-next.js.org/</a></li>
+</ul>
 
     </div>
 
