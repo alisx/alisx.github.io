@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.lixiaofei.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":true,"storage":true,"lazyload":true,"nav":{"valine":{"order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="自媒体越来越受重视，写作能力也变得更加重要，但万事开头难，第一步：构建一个人文章发布平台，都难道不少人，今天介绍一种免费搭建个人博客系统的方法，不仅能成为自己写作平台，还可以将文章轻松发布到其他公共平台上，准备好了吗">
+<meta property="og:type" content="article">
+<meta property="og:title" content="免费打造个人博客系统">
+<meta property="og:url" content="http://blog.lixiaofei.cn/2020-07-24-hexo-blog-guide/index.html">
+<meta property="og:site_name" content="管窥程序">
+<meta property="og:description" content="自媒体越来越受重视，写作能力也变得更加重要，但万事开头难，第一步：构建一个人文章发布平台，都难道不少人，今天介绍一种免费搭建个人博客系统的方法，不仅能成为自己写作平台，还可以将文章轻松发布到其他公共平台上，准备好了吗">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/01.png">
+<meta property="og:image" content="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/02.png">
+<meta property="og:image" content="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/03.png">
+<meta property="og:image" content="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/04.png">
+<meta property="og:image" content="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/05.png">
+<meta property="og:image" content="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/06.png">
+<meta property="og:image" content="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/07.png">
+<meta property="og:image" content="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/08.png">
+<meta property="og:image" content="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/09.png">
+<meta property="og:image" content="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/10.png">
+<meta property="og:image" content="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/11.png">
+<meta property="article:published_time" content="2020-07-24T09:16:14.000Z">
+<meta property="article:modified_time" content="2020-07-27T06:12:23.719Z">
+<meta property="article:author" content="太阳雪">
+<meta property="article:tag" content="-- 教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/01.png">
+
+<link rel="canonical" href="http://blog.lixiaofei.cn/2020-07-24-hexo-blog-guide/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>免费打造个人博客系统 | 管窥程序</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">管窥程序</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Every Day is a gift</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/alisx" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.lixiaofei.cn/2020-07-24-hexo-blog-guide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="太阳雪">
+      <meta itemprop="description" content="总结 技术 思考 想法">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="管窥程序">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          免费打造个人博客系统
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-24 17:16:14" itemprop="dateCreated datePublished" datetime="2020-07-24T17:16:14+08:00">2020-07-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-27 14:12:23" itemprop="dateModified" datetime="2020-07-27T14:12:23+08:00">2020-07-27</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020-07-24-hexo-blog-guide/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020-07-24-hexo-blog-guide/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>自媒体越来越受重视，写作能力也变得更加重要，但万事开头难，第一步：构建一个人文章发布平台，都难道不少人，今天介绍一种免费搭建个人博客系统的方法，不仅能成为自己写作平台，还可以将文章轻松发布到其他公共平台上，准备好了吗<br><a id="more"></a></p>
+<blockquote>
+<p>虽然是整个过程都是免费的，但是有一定的学习成本，不过只要静下心来了解概念，按照步骤操作，一定能得到自己满意的效果</p>
+</blockquote>
+<p>主要流程是：</p>
+<p>用流行的 Hexo 博客系统，利用 Github Pages，搭建个人博客，使用 Markdown 语法进行写作，发布博客后，借用 Markdown 美化工具，生成公众号、知乎、头条等平台的文章格式，发布到相应平台</p>
+<h2 id="概念说明"><a href="#概念说明" class="headerlink" title="概念说明"></a>概念说明</h2><ul>
+<li><p><strong>Hexo</strong><br>Hexo 是流行的博客框架，能集成多种插件和主题，可以生成各种类型的博客，具有很好的生态圈，并且在不断升级优化中，不用担心年久失修</p>
+</li>
+<li><p><strong>Github pages</strong><br>Github 是一个基于 Git 版本管理工具的代码托管平台，是全球最大的开源代码平台，pages 是 Github 给用户提供的一种建立静态网页的服务，创建好之后，只要将做好的静态页面上传到 Github 上，就能被全球的能联网的人访问了</p>
+</li>
+<li><p><strong>Markdown</strong><br>Markdown 是一种简单标记方法，使用简单规则，就可以做出美观的页面，比使用 Html 标记等语言制作页面方便的多，熟悉了标记规则之后，创作过程可以完全忘记标记的存在，并且大多数编辑器，包括在线编辑器都支持 Markdown 语法，使用 Markdown 语法写的文章，可以很方便的在不同平台上共享，而不用担心文章格式受到改变</p>
+</li>
+<li><p><strong>Markdown 美化工具</strong><br>Markdown 之所以简单，是因为它只提炼了文章格式相关的标记，比如标题，列表，加粗，斜体，代码块等，而将样式部分完全交给了解释程序，也就是说相同的格式可以被美化为不同风格的文章样式，所以就有了 Markdown 美化工具，只要将 markdown 文本粘贴到编辑器，就能查看美化后的效果，并且还可以切换不同风格，直到自己满意。<br>简单说 Markdown 美化工具就是将 markdown 文本转换为 Html 文本</p>
+</li>
+<li><p><strong>操作系统</strong><br>Hexo 是基于 Nodejs 的，所以支持 Windows、Linux 和 MacOS，这里只以 Windows 为例讲解</p>
+</li>
+</ul>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>Hexo 是基于 Nodejs 的，也就是用 Nodejs 写的一个应用，另外 Hexo 相关组件和包都是放在 Github 上的，所以还需要一个 git 工具，以便和 Github 交互</p>
+<h3 id="安装-nvm"><a href="#安装-nvm" class="headerlink" title="安装 nvm"></a>安装 nvm</h3><p>Nodejs 版本很多，软件包也很多，常常令初学者头疼，现在有了专门管理 Nodejs 环境的工具 nvm，通过 nvm 可以简单的安装不同版本的 Nodejs，并且可以在不同版本之间切换，从而解决 Nodejs 的版本混乱问题</p>
+<ol>
+<li><p>下载安装包<br>这里这里 <a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank" rel="noopener">https://github.com/coreybutler/nvm-windows/releases</a> 选择最新版本的安装包，下载 zip 文件，例如目前最新版是 1.1.7，下载地址是<br><a href="https://github.com/coreybutler/nvm-windows/releases/download/1.1.7/nvm-noinstall.zip" target="_blank" rel="noopener">https://github.com/coreybutler/nvm-windows/releases/download/1.1.7/nvm-noinstall.zip</a></p>
+</li>
+<li><p>将下载的 zip 包解压到你的程序安装目录，例如 D:\Software\nvm</p>
+</li>
+<li><p>在刚才解压的文件夹，双击运行 install.cmd 文件，中间可能会提示需要使用管理员权限，选择是即可</p>
+</li>
+<li><p>由于 nodejs 软件目录国内访问较慢，有必要设置下软件源，即让 nvm 从指定的地方下载 nodejs，方法是在环境变量中加一个 <code>NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node</code><br>如果不清楚如何设置，可以参考这里<a href="https://jingyan.baidu.com/article/8ebacdf02d3c2949f65cd5d0.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/8ebacdf02d3c2949f65cd5d0.html</a></p>
+</li>
+</ol>
+<h3 id="安装-nodejs"><a href="#安装-nodejs" class="headerlink" title="安装 nodejs"></a>安装 nodejs</h3><p>有了 nvm 就能轻松地安装 nodejs 了</p>
+<p>打开一个命令行窗口，输入 <code>nvm install 12.18.2</code></p>
+<p><code>12.18.2</code> 为 nodejs 目前最新的稳定版本号，可以在这里参看最新的版本号 <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a></p>
+<p>成功安装后，在命令行中输入 node —version 就可以看到版本号信息，如 v12.18.2</p>
+<p>安装 nodejs 的同时，会安装好 npm，即 nodejs 的软件包管理器，用来管理 nodejs 的各种扩展软件包，如果了解 python 的话，和 pip 很相似</p>
+<h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><p>Hexo 实际上是一个 nodejs 的软件包，可以通过 npm 来安装</p>
+<p>在安装之前，最好换以下 npm 的软件源，以便国内访问更快些</p>
+<p>在命令行中输入命令：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvm node_mirror https://npm.taobao.org/mirrors/node/</span><br><span class="line">nvm npm_mirror https://npm.taobao.org/mirrors/npm/</span><br></pre></td></tr></table></figure>
+<p>注意用的是 nvm 而不是 npm，这两个命令，会在 nvm 安装文件夹下创建一个 settings.txt 文件，写入镜像网址，当然不用上述命令，自己创建 settings.txt,输入镜像网址也是一样的，settings.txt 内容为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node_mirror: https:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;node&#x2F;</span><br><span class="line">npm_mirror: https:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;npm&#x2F;</span><br></pre></td></tr></table></figure>
+<p>现在可以用 npm 安装 Hexo 了，在命令行窗口中，输入：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意这里用的是 <strong>npm</strong> 而不是 nvm</li>
+<li>参数 g 表示全局安装，即在任何目录下都可以使用</li>
+</ul>
+<p>安装完成后，输入 <code>hexo --version</code> 可以看到包括 hexo 版本在内一些环境信息</p>
+<h3 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h3><p>Git 可以管理本地的软件版本，也能和 Github 打交道，而且 GIT 工具集成了 Linux 的命令环境，可以在 Git 命令行下使用 Linux 命令，而且语法高亮，比较方便</p>
+<p>下载 Git windows 安装程序 <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">https://git-scm.com/download/win</a></p>
+<p>完成后，双击运行安装程序</p>
+<p>一路选择默认设计就行，因为配置项很多，如果不想一步步选，可以勾选安装窗口的 <code>only show new options</code> 勾选框</p>
+<p><img src="/images/2020/07/hexo-blog-guide/01.png" alt="git 安装选项"></p>
+<p>安装完成后，如果不使用 git 来管理代码（对于写作来说就是文章），可以不用关注 git 的相关用法，只要知道可以通过鼠标右键菜单，启动一个 git 命令窗口就行了</p>
+<p><img src="/images/2020/07/hexo-blog-guide/02.png" alt="git 安装选项"></p>
+<blockquote>
+<p>安装时不同的选择导致的快捷菜单可能不同</p>
+</blockquote>
+<h2 id="创建博客"><a href="#创建博客" class="headerlink" title="创建博客"></a>创建博客</h2><p>环境准备好后，就可以构建博客系统了</p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>创建一个博客目录，例如：<code>D:\myblog</code>，到改目录下，鼠标右键，选择 <code>Git Bash Here</code> 菜单，会进入一个命令行窗口，和 Windows 的命令行窗口类似</p>
+<p><img src="/images/2020/07/hexo-blog-guide/03.png" alt="git 命令窗口"></p>
+<p>在这里输入命令 <code>hexo init</code>，回车，会下载博客程序，当提示 <code>INFO  Start blogging with Hexo!</code> 时候，说明创建完成</p>
+<p>接着输入 <code>hexo server</code> 或者 <code>hexo s</code> 启动 Hexo 博客程序了</p>
+<p>在浏览器中输入 localhost:4000，就可以查看博客了</p>
+<blockquote>
+<p>有时候 localhost:4000 没有很长时间没有反应，可能是 4000 端口被其他程序占用了，这时输入 Ctrl + C 结束 Hexo 程序，换个端口启动就好了，例如 <code>hexo s -p 5000</code> , 参数 <code>-p</code> 表示指定端口，5000 为指定的端口</p>
+</blockquote>
+<h3 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h3><p>默认启动的博客是英文版的，另外默认的主题是 landscape，如果不喜欢可以更好</p>
+<p>在博客根目录下，<code>_config.yml</code> 为配置文件，配置项很多，只需要设置很少部分就可以</p>
+<p>站点设置 site，设置博客站点的基本信息</p>
+<ul>
+<li>title 站点名称</li>
+<li>subtitle 副标题</li>
+<li>description 站点描述</li>
+<li>keywords 站点关键字，方便搜索引擎归类</li>
+<li>author 作者名称</li>
+<li>language 语言，简体中文为 <code>zh-CN</code></li>
+<li>timezone 时区</li>
+</ul>
+<p>域名设置 URL，即为博客设置个网址</p>
+<ul>
+<li>url 网址，例如 <a href="http://blog.lixiaofei.cn">http://blog.lixiaofei.cn</a></li>
+<li>root 表示博客的根目录，如果设置为 /blog 那么网址会是 url 加上这个根路径</li>
+<li>permalink 为固定网址，表示每篇文章的网址组成部分</li>
+</ul>
+<blockquote>
+<p>如果自己的域名，需要购买，例如在万网上购买，之后需要实名认证，然后将域名解析到博客服务器地址上，服务器地址将在 Github pages 部分详细说明</p>
+</blockquote>
+<h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p>Hexo 自带了 landscape 主题，可以跟换其他的</p>
+<p>在 <a href="https://hexo.io/themes/index.html" target="_blank" rel="noopener">https://hexo.io/themes/index.html</a> 这里预览可用主题</p>
+<p>选择喜欢的主题，找到 github 地址，一般都在预览页中有提供，复制主题项目的 github 地址：</p>
+<p><img src="/images/2020/07/hexo-blog-guide/04.png" alt="github 项目地址"></p>
+<p>进入博客根目录，右键选择 <code>Git Bash Here</code>，打开 git 命令行，输入 <code>git clone [主题github 项目地址地址] theme/[主题英文名称]</code> 回车执行</p>
+<p>执行完成后，博客目录下 theme 里 会多一个 主题英文名称的文件夹，这就是刚才下载的主题</p>
+<p>打开 Hexo 配置文件 <code>_config.yml</code> 找到 <code>theme</code> 配置项，修改为 <code>主题英文名称</code></p>
+<p>正常情况下刷浏览器的页面就可以看到新主题效果了，如果不行，执行下 <code>hexo server</code> 就可以了</p>
+<p>每个主题有自己不同的配置项，配置文件是对应主题文件夹中的 <code>_config.yml</code>，相关配置可以参考该主题的帮助文档</p>
+<p>这里建议选择使用者多，支持丰富的主题，相对而言文档全，bug 少</p>
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>Github 不仅是很多开源软件的仓库，还可以成为我们博客的服务器，最重要的是免费，国内有类似的产品 Gitee（码云）提供类似功能</p>
+<h3 id="注册和创建项目"><a href="#注册和创建项目" class="headerlink" title="注册和创建项目"></a>注册和创建项目</h3><p>访问 <a href="https://github.com" target="_blank" rel="noopener">https://github.com</a>，选择 sign up 填写必要信息完成注册，注册完成后，点击 sign in 登录</p>
+<p>登录后，点击页面右上角附近的 <code>加号</code>，在弹出菜单中选择 <code>New repository</code></p>
+<p><img src="/images/2020/07/hexo-blog-guide/05.png" alt="创建新项目"></p>
+<p>在打开的页面中，填写项目名称，可以随要填写，因为作为博客使用，选择公开仓库，并且勾选为项目创建 <code>Readme</code></p>
+<p><img src="/images/2020/07/hexo-blog-guide/06.png" alt="填写项目信息"></p>
+<blockquote>
+<p>如果不勾线创建 Readme 的话，在创建 Pages 之前必须提交写内容项目中</p>
+</blockquote>
+<p>完成后，点击 <code>Create repository</code> 创建项目</p>
+<p>成功后，会打开创建项目的页面</p>
+<h3 id="设置-pages"><a href="#设置-pages" class="headerlink" title="设置 pages"></a>设置 pages</h3><p>在项目页面选择 <code>Settings</code> 选项卡</p>
+<p><img src="/images/2020/07/hexo-blog-guide/07.png" alt="填写项目信息"></p>
+<p>然后一直往下找到 GitHub Pages 节段，在 Souce 栏，点击 None 下拉菜单，选择第一项 <code>master branch</code>:</p>
+<p><img src="/images/2020/07/hexo-blog-guide/08.png" alt="填写项目信息"></p>
+<p>页面会刷新，刷新后，就创建好了 Pages，并且显示出这个项目 Pages 的网址:</p>
+<p><img src="/images/2020/07/hexo-blog-guide/09.png" alt="填写项目信息"></p>
+<p>其中 <code>Custom domain</code> 可以设置自己的域名</p>
+<p>下面简单说下域名</p>
+<h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><p>域名是网络中的一个地址，比较方便记忆，另外有意义的域名对网站有一定的宣传作用，比如 mi.com</p>
+<p>一个域名可以有无数个二级域名，比如 域名为 abc.com，二级域名可以是 erp.abc.com，blog.abc.com，docs.abc.com 等等，每个二级域名可以是不同的地址，或者说可以对应不同的网站</p>
+<p>域名可以通过域名代理商购买，国内一般可以在 万网 上购买（目前万网并入阿里云），国外一般可以在 GoDaddy 上购买。域名是有有效期的，到期之前可以续费，以延长用于时间</p>
+<p>有了域名后，可以在域名供应商提供的管理工具中设置域名对应的地址，叫做解析，可以将域名解析到自己的 GitHub Pages 上，例如我的：</p>
+<p><img src="/images/2020/07/hexo-blog-guide/10.png" alt="域名解析"></p>
+<ul>
+<li>记录类型有多种，CNAME 表示指向另一个网址</li>
+<li>主记录可以设置二级域名</li>
+<li>记录值，当记录类型为 CNAME 时，表示指向的一个网址，例如 自己的 GitHub Pages 地址</li>
+</ul>
+<p>这时就可以在 GitHub 的项目中 Settings 中的 GitHub Pages 节段中设置 <code>Custom domain</code> 了，填写自己的域名即可</p>
+<p>设置完后，最多 24 小时后，访问自己的域名（主记录中的域名）就可以显示出自己的 GitHub Pages 了</p>
+<h2 id="集成与部署"><a href="#集成与部署" class="headerlink" title="集成与部署"></a>集成与部署</h2><p>到此，所有的准备工作算是做完了，回顾一下，先搭建 Nodejs 环境，然后用 Npm 包管理工具安装 Hexo 应用，再由 Hexo 创建本地的博客系统，接下来注册 GitHub，并创建 Pages 项目，然后再设置域名，使通过域名可以访问到 Pages 项目</p>
+<p>现在我们需要将本地的博客和 GitHub Pages 关联起来，以至于我们可以不用关注如何发布和运行博客系统，只需将精力集中在写作之上</p>
+<p>首先将 Hexo 配置文件 _config.yml 中的 <code>url</code> 设置为自己的域名</p>
+<p>然后，设置部署，在配置文件 _config.yml 中找到 <code>deploy</code>，配置为：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/&lt;username&gt;/&lt;project&gt;</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>type 为部署类型，git 表示部署到 Git 远程仓库中</li>
+<li>repo 为 GitHub 上项目的地址，注意这个地址不是 GitHub Pages 的网址，例如我的 项目地址为：<a href="https://github.com/alisx/alisx.github.io.git" target="_blank" rel="noopener">https://github.com/alisx/alisx.github.io.git</a>, Pages 网址为：alisx.github.io</li>
+<li>branch 为需要部署的项目分支，一般设置为主分支就可以</li>
+</ul>
+<p>最后，需要安装一个 Hexo 插件，用来与 GitHub 交互，在博客所在目录下，启动 Git Bash 命令行工具执行：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>现在就可以使用 <code>hexo deploy</code> 命令将本地博客部署到 GitHub Pages 上了</p>
+<blockquote>
+<p>部署时可能会提示输入 GitHub 的登录用户名及密码，按照提示输入即可</p>
+</blockquote>
+<h2 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h2><p>现在一起就绪，如何来写作呢？</p>
+<h3 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h3><p>在 Git 命令行中（只要是命令行都可以，不过 Git 命令行有高亮以及类 Linux 命令），进入博客根目录，输入 <code>hexo new draft my_first_article</code> 就可以在 <code>source</code> 文件夹下，创建一个名为 <code>my_first_article.md</code> 文件了，解释下这个命令</p>
+<ul>
+<li>new 表示创建一个文章</li>
+<li>draft 意思为草稿，在这是其实是表示一个模板，即草稿模板，模板存放在 <code>scaffolds</code> 文件夹下，其中有个 <code>draft.md</code> 文件，另外还有 <code>post.md</code> 和 <code>page.md</code> 两个文件，在新建时使用模板，不仅会套用模板文件，还会将新建的文件放在 <code>source</code> 文件夹对应模板的文件夹中，例如上面的 <code>source\draft</code></li>
+<li>最所以这么做，是因为处于 <code>draft</code> 状态的文章，不会被部署到博客上，只有在 <code>post</code> 和 <code>page</code> 状态的文章才会被部署</li>
+</ul>
+<h3 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h3><p>用 Markdown 编辑器，大概创建的草稿文件，例如 <code>my_first_article.md</code>，会发现文件中已经有了部分文字，这是来自于模板文件的，在最开头 <code>---</code> 之间的部分是文章的源信息，用来表示文章标题，作者，创建时间，分类，标签等信息，这些信息用于生成文章的 Html 页面</p>
+<p>源信息之后，就是文章的正文部分，使用 Markdown 标记写作就可以了，如果不熟悉 Markdown 语法，请参考我之前写的 Markdown 教程: <a href="http://blog.lixiaofei.cn/2018-05-10-markdown/">http://blog.lixiaofei.cn/2018-05-10-markdown/</a>，语法并不复杂，主要是需要多加练习，形成肌肉记忆</p>
+<h3 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h3><p>预览是必要的环节，很多问题都是在这里发现的，虽然很多 Markdown 编辑器提供预览功能，但是能知道其在自己博客上的展示效果还是很有必要的</p>
+<p>因为刚写的文章还在草稿状态，即在 <code>draft</code> 文件夹下，所以在预览时多加一个参数</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server --draft</span><br></pre></td></tr></table></figure>
+<p>这个命令和之前启动本地博客程序一样，不过多了个参数 <code>--draft</code>，其作用是可以将 draft 中的文章展示出来，从而达到预览的效果</p>
+<h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><p>文章写完了，检查没有问题，就可以发布了</p>
+<p>首先需要将文章从 <code>draft</code> 状态修改为 <code>post</code> 状态，使用命令 <code>hexo publish my_first_article</code>，执行完后，可以将 <code>draft</code> 文件夹中的名称为 <code>my_first_article.md</code> 的文章移动到 <code>post</code> 文件夹，来完成发布，此时执行 <code>hexo server</code> 不用加 <code>--draft</code> 参数就可以在浏览器中查看了</p>
+<p>然后，需要将文章转换为 html 格式，因为 GitHub Pages 上只能展示静态的网页，使用的命令是 <code>hexo generate</code>，其会将 <code>post</code> 文件夹中的修改过的 Markdown 文件转换为 html 格式的文件。</p>
+<blockquote>
+<p>这里有两个问题，1 怎么知道哪些文件被修改过了；2 转换后的文件放哪里；<br>Hexo 会对文章建立索引，记录下来文章的指纹，如果文章被修改过，文章的指纹会改变，从而知道是否被修改，然后会将转换后的文件结合博客的其他结构放在 <code>public</code> 文件夹下，也就是整个博客的静态网页文件</p>
+</blockquote>
+<p>生成博客的静态网页文件之后，就可以部署到 GitHub Pages 上了，命令很简单 <code>hexo deploy</code>，执行完后，用自己的域名或者 GitHub Pages 提供的网址就可以访问了，如果没有变化，很可能是因为网站缓存，稍等下刷新就能看到了</p>
+<p>博客上的文章发布完成了，怎么发布到其他平台呢？</p>
+<p>这里介绍个 Markdown 美化工具 <a href="https://mdnice.com/" target="_blank" rel="noopener">https://mdnice.com/</a>，可以将 Markdown 文件转换为适合不同平台的 Html 格式</p>
+<p><img src="/images/2020/07/hexo-blog-guide/11.png" alt="域名解析"></p>
+<p>可以复制 Markdown 格式文件内容到左侧栏，或者通过 <code>文件</code> 菜单导入 Markdown 文件</p>
+<p>可以通过 <code>主题</code> 菜单选择不同分格的主题</p>
+<p>最后在最右侧，选择 公众号、知乎、掘金三个平台，会将转换后的复制到剪切板，然后粘贴到对应平台的文章编辑器中</p>
+<p>这里有个问题，如果文章中有图片如何处理，因为在博客中，图片地址都是相对地址，直接复制上去是显示不出来的，所以复制之前，将图片相对地址替换为实际网址，例如本文中的图片相对地址为：<code>/images/2020/07/hexo-blog-guide/01.png</code>，替换为：<code>http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/01.png</code>，如果图片较多的话，可以用编辑器的批量替换功能</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这篇文章比较长，感觉有些复杂，涉及的东西比较多比较杂，梳理一下就是 注册一个 GitHub，创建一个 Pages 项目，在本地安装一个 Hexo 博客系统，将本地博客发布到 Pages 上，虽然比较麻烦，但只做这么一次，搭建好了后，后面主要用来创作文章，会轻松很多。</p>
+<p>事情总没有预想中梳理，如果过程中有问题，请给我留言，一起交流学习，总之，要相信没有解决不了的问题</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a><br><a href="https://laytonsun.com/learning/2020-04/upgrade-hexo-and-next.html" target="_blank" rel="noopener">https://laytonsun.com/learning/2020-04/upgrade-hexo-and-next.html</a><br><a href="https://mdnice.com/" target="_blank" rel="noopener">https://mdnice.com/</a><br><a href="https://theme-next.js.org/" target="_blank" rel="noopener">https://theme-next.js.org/</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%99%E7%A8%8B/" rel="tag"># -- 教程</a>
+          </div>
+
+        
+
+			<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.png" alt="太阳雪 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>关注我，获得更多精彩内容</div>
+</div>
+
+        
+		
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020-07-23-rebuild-blog/" rel="prev" title="完成了博客重建">
+      <i class="fa fa-chevron-left"></i> 完成了博客重建
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念说明"><span class="nav-number">1.</span> <span class="nav-text">概念说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境准备"><span class="nav-number">2.</span> <span class="nav-text">环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-nvm"><span class="nav-number">2.1.</span> <span class="nav-text">安装 nvm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-nodejs"><span class="nav-number">2.2.</span> <span class="nav-text">安装 nodejs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Hexo"><span class="nav-number">2.3.</span> <span class="nav-text">安装 Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Git"><span class="nav-number">2.4.</span> <span class="nav-text">安装 Git</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建博客"><span class="nav-number">3.</span> <span class="nav-text">创建博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">3.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置"><span class="nav-number">3.2.</span> <span class="nav-text">设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主题"><span class="nav-number">3.3.</span> <span class="nav-text">主题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github"><span class="nav-number">4.</span> <span class="nav-text">Github</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册和创建项目"><span class="nav-number">4.1.</span> <span class="nav-text">注册和创建项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置-pages"><span class="nav-number">4.2.</span> <span class="nav-text">设置 pages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域名"><span class="nav-number">4.3.</span> <span class="nav-text">域名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集成与部署"><span class="nav-number">5.</span> <span class="nav-text">集成与部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写作"><span class="nav-number">6.</span> <span class="nav-text">写作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建"><span class="nav-number">6.1.</span> <span class="nav-text">新建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑"><span class="nav-number">6.2.</span> <span class="nav-text">编辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预览"><span class="nav-number">6.3.</span> <span class="nav-text">预览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发布"><span class="nav-number">6.4.</span> <span class="nav-text">发布</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">8.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="太阳雪"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">太阳雪</p>
+  <div class="site-description" itemprop="description">总结 技术 思考 想法</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">太阳雪</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'teRj7yeJj0xpfGKLJ5uFdbIu-gzGzoHsz',
+      appKey     : '3uie0p1nxouCCnkjiXTEBeLd',
+      placeholder: "您的关注是我的动力",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
