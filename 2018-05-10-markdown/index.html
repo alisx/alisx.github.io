@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.lixiaofei.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":true,"storage":true,"lazyload":true,"nav":{"valine":{"order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"www.lixiaofei.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":true,"storage":true,"lazyload":true,"nav":{"valine":{"order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="markdown 俨然成为了写作神器，这篇文章是刚开始学时写的，到现在我已经熟练的应用了（2020年7月24日）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo Markdown 语法说明">
-<meta property="og:url" content="http://blog.lixiaofei.cn/2018-05-10-markdown/index.html">
+<meta property="og:url" content="http://www.lixiaofei.cn/2018-05-10-markdown/index.html">
 <meta property="og:site_name" content="管窥程序">
 <meta property="og:description" content="markdown 俨然成为了写作神器，这篇文章是刚开始学时写的，到现在我已经熟练的应用了（2020年7月24日）">
 <meta property="og:locale" content="zh_CN">
@@ -35,7 +35,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://gitee.com/uploads/20/1580520_alisx.png?1517841484=30%25">
 
-<link rel="canonical" href="http://blog.lixiaofei.cn/2018-05-10-markdown/">
+<link rel="canonical" href="http://www.lixiaofei.cn/2018-05-10-markdown/">
 
 
 <script id="page-configurations">
@@ -172,7 +172,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.lixiaofei.cn/2018-05-10-markdown/">
+    <link itemprop="mainEntityOfPage" href="http://www.lixiaofei.cn/2018-05-10-markdown/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -262,7 +262,7 @@
 <hr>
 <h1 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h1><p>用<code>~~</code>来表示，需要在被删除文字的两端都加 例如 <del>我被删除了</del></p>
 <h1 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h1><h2 id="普通链接"><a href="#普通链接" class="headerlink" title="普通链接"></a>普通链接</h2><p>语法是<code>[链接文字](链接地址 &quot;链接标题&quot;)</code></p>
-<p>例如 <a href="http://blog.lixiaofei.cn" title="李晓飞的博客">这是我的博客</a></p>
+<p>例如 <a href="http://blog.lixiaofei.cn" target="_blank" rel="noopener" title="李晓飞的博客">这是我的博客</a></p>
 <h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>那么图片如何插入呢</p>
 <p>语法是<code>![图片说明](图片地址 &quot;图片标题&quot;)</code> 注意和链接的区别是前面加了一个!</p>
 <p>例如 <img src="https://gitee.com/uploads/20/1580520_alisx.png?1517841484=30%" alt="这是个美女吧" title="可能是吧"><br>这个感觉很大，能缩小吗？找了一下 说直接用 html的图片语法好了<br><a href="https://blog.csdn.net/YhL_Leo/article/details/50099843" target="_blank" rel="noopener">图片部分的参考</a><br>对吧<br><img src="https://gitee.com/uploads/20/1580520_alisx.png?1517841484" width="5%" height="5%"></p>
@@ -271,7 +271,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% aplayer title author url [picture_url, narrow, autoplay, width:xx%, lrc:xxx] %&#125;</span><br></pre></td></tr></table></figure>
 <p>这个不作演示了， 可参考<a href="https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md" target="_blank" rel="noopener" title="中文使用帮助">hexo-tag-aplayer</a> 说明的很详细</p>
 <h2 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h2><p>如果还想插入视频的话，就用原生的iframe吧</p>
-<h2 id="自动链接"><a href="#自动链接" class="headerlink" title="自动链接"></a>自动链接</h2><p>对于像邮箱地址之类的特殊链接，直接使用 <code>&lt;&gt;</code> 来实现超链接效果，例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请联系我: &lt;mymail@oneexample.com&gt;</span><br></pre></td></tr></table></figure><br>显示为<br>请联系我: <a href="&#109;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#109;&#121;&#x6d;&#x61;&#x69;&#x6c;&#x40;&#x6f;&#x6e;&#101;&#x65;&#x78;&#x61;&#109;&#x70;&#108;&#x65;&#x2e;&#x63;&#111;&#109;">&#109;&#121;&#x6d;&#x61;&#x69;&#x6c;&#x40;&#x6f;&#x6e;&#101;&#x65;&#x78;&#x61;&#109;&#x70;&#108;&#x65;&#x2e;&#x63;&#111;&#109;</a></p>
+<h2 id="自动链接"><a href="#自动链接" class="headerlink" title="自动链接"></a>自动链接</h2><p>对于像邮箱地址之类的特殊链接，直接使用 <code>&lt;&gt;</code> 来实现超链接效果，例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请联系我: &lt;mymail@oneexample.com&gt;</span><br></pre></td></tr></table></figure><br>显示为<br>请联系我: <a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#111;&#x3a;&#x6d;&#121;&#x6d;&#x61;&#x69;&#108;&#x40;&#x6f;&#x6e;&#101;&#x65;&#120;&#97;&#x6d;&#x70;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;">&#x6d;&#121;&#x6d;&#x61;&#x69;&#108;&#x40;&#x6f;&#x6e;&#101;&#x65;&#120;&#97;&#x6d;&#x70;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;</a></p>
 <h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><p>注释指的是有其后面的内容不受markdown语法控制 用 \ 来表示<br>不是有没所有的内容，而是紧跟其后的markdown标记，例如想原样显示几个*号 需要这样写，\*<em>*</em> </p>
 <p>例如***</p>
 <p>例如<br>## 我是个这是不是二级标题 **我也不能加粗**</p>

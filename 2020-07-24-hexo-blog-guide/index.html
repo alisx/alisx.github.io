@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.lixiaofei.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":true,"storage":true,"lazyload":true,"nav":{"valine":{"order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"www.lixiaofei.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":true,"storage":true,"lazyload":true,"nav":{"valine":{"order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="自媒体越来越受重视，写作能力也变得更加重要，但万事开头难，第一步：构建一个人文章发布平台，都难道不少人，今天介绍一种免费搭建个人博客系统的方法，不仅能成为自己写作平台，还可以将文章轻松发布到其他公共平台上，准备好了吗">
 <meta property="og:type" content="article">
 <meta property="og:title" content="免费打造个人博客系统">
-<meta property="og:url" content="http://blog.lixiaofei.cn/2020-07-24-hexo-blog-guide/index.html">
+<meta property="og:url" content="http://www.lixiaofei.cn/2020-07-24-hexo-blog-guide/index.html">
 <meta property="og:site_name" content="管窥程序">
 <meta property="og:description" content="自媒体越来越受重视，写作能力也变得更加重要，但万事开头难，第一步：构建一个人文章发布平台，都难道不少人，今天介绍一种免费搭建个人博客系统的方法，不仅能成为自己写作平台，还可以将文章轻松发布到其他公共平台上，准备好了吗">
 <meta property="og:locale" content="zh_CN">
@@ -46,7 +46,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://blog.lixiaofei.cn/images/2020/07/hexo-blog-guide/00.jpg">
 
-<link rel="canonical" href="http://blog.lixiaofei.cn/2020-07-24-hexo-blog-guide/">
+<link rel="canonical" href="http://www.lixiaofei.cn/2020-07-24-hexo-blog-guide/">
 
 
 <script id="page-configurations">
@@ -183,7 +183,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.lixiaofei.cn/2020-07-24-hexo-blog-guide/">
+    <link itemprop="mainEntityOfPage" href="http://www.lixiaofei.cn/2020-07-24-hexo-blog-guide/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -323,7 +323,7 @@
 </ul>
 <p>域名设置 URL，即为博客设置个网址</p>
 <ul>
-<li>url 网址，例如 <a href="http://blog.lixiaofei.cn">http://blog.lixiaofei.cn</a></li>
+<li>url 网址，例如 <a href="http://blog.lixiaofei.cn" target="_blank" rel="noopener">http://blog.lixiaofei.cn</a></li>
 <li>root 表示博客的根目录，如果设置为 /blog 那么网址会是 url 加上这个根路径</li>
 <li>permalink 为固定网址，表示每篇文章的网址组成部分</li>
 </ul>
@@ -395,7 +395,7 @@
 <li>最所以这么做，是因为处于 <code>draft</code> 状态的文章，不会被部署到博客上，只有在 <code>post</code> 和 <code>page</code> 状态的文章才会被部署</li>
 </ul>
 <h3 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h3><p>用 Markdown 编辑器，大概创建的草稿文件，例如 <code>my_first_article.md</code>，会发现文件中已经有了部分文字，这是来自于模板文件的，在最开头 <code>---</code> 之间的部分是文章的源信息，用来表示文章标题，作者，创建时间，分类，标签等信息，这些信息用于生成文章的 Html 页面</p>
-<p>源信息之后，就是文章的正文部分，使用 Markdown 标记写作就可以了，如果不熟悉 Markdown 语法，请参考我之前写的 Markdown 教程: <a href="http://blog.lixiaofei.cn/2018-05-10-markdown/">http://blog.lixiaofei.cn/2018-05-10-markdown/</a>，语法并不复杂，主要是需要多加练习，形成肌肉记忆</p>
+<p>源信息之后，就是文章的正文部分，使用 Markdown 标记写作就可以了，如果不熟悉 Markdown 语法，请参考我之前写的 Markdown 教程: <a href="http://blog.lixiaofei.cn/2018-05-10-markdown/" target="_blank" rel="noopener">http://blog.lixiaofei.cn/2018-05-10-markdown/</a>，语法并不复杂，主要是需要多加练习，形成肌肉记忆</p>
 <h3 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h3><p>预览是必要的环节，很多问题都是在这里发现的，虽然很多 Markdown 编辑器提供预览功能，但是能知道其在自己博客上的展示效果还是很有必要的</p>
 <p>因为刚写的文章还在草稿状态，即在 <code>draft</code> 文件夹下，所以在预览时多加一个参数</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server --draft</span><br></pre></td></tr></table></figure>
