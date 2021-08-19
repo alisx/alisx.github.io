@@ -27,17 +27,17 @@
 <meta property="og:site_name" content="管窥程序">
 <meta property="og:description" content="最近参加了一个训练营，作为副教练，承担起训练营的运营工作。事不大，活不少，打卡记录、活动积分、奖励制度、评优方案、趋势对比，应有尽有…… 开始认为 Excel 就足够应付，没想到第一项工作 —— 人员汇总，就把我难倒了，于是果断拎起 Python 这把大刀，披荆斩棘，利用业余时间，不到一周竟然打造出了一套运营管理系统，到底是如何做的呢？一起来看。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://www.lixiaofei.cn/images%5C2021%5C08%5Cpython_op%5C01.png">
-<meta property="og:image" content="http://www.lixiaofei.cn/images%5C2021%5C08%5Cpython_op%5C02.png">
-<meta property="og:image" content="http://www.lixiaofei.cn/images%5C2021%5C08%5Cpython_op%5C03.png">
-<meta property="og:image" content="http://www.lixiaofei.cn/images%5C2021%5C08%5Cpython_op%5C04.png">
+<meta property="og:image" content="http://www.lixiaofei.cn/images/2021/08/python_op/01.png">
+<meta property="og:image" content="http://www.lixiaofei.cn/images/2021/08/python_op/02.png">
+<meta property="og:image" content="http://www.lixiaofei.cn/images/2021/08/python_op/03.png">
+<meta property="og:image" content="http://www.lixiaofei.cn/images/2021/08/python_op/04.png">
 <meta property="article:published_time" content="2021-08-08T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-08-19T06:11:05.603Z">
+<meta property="article:modified_time" content="2021-08-19T07:11:23.153Z">
 <meta property="article:author" content="太阳雪">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="编程">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.lixiaofei.cn/images%5C2021%5C08%5Cpython_op%5C01.png">
+<meta name="twitter:image" content="http://www.lixiaofei.cn/images/2021/08/python_op/01.png">
 
 <link rel="canonical" href="http://www.lixiaofei.cn/2021-08-09-python-op/">
 
@@ -206,7 +206,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-19 14:11:05" itemprop="dateModified" datetime="2021-08-19T14:11:05+08:00">2021-08-19</time>
+                <time title="修改时间：2021-08-19 15:11:23" itemprop="dateModified" datetime="2021-08-19T15:11:23+08:00">2021-08-19</time>
               </span>
 
           
@@ -244,8 +244,7 @@
         <p>最近参加了一个训练营，作为副教练，承担起训练营的运营工作。事不大，活不少，打卡记录、活动积分、奖励制度、评优方案、趋势对比，应有尽有……</p>
 <p>开始认为 Excel 就足够应付，没想到第一项工作 —— 人员汇总，就把我难倒了，于是果断拎起 Python 这把大刀，披荆斩棘，利用业余时间，不到一周竟然打造出了一套运营管理系统，到底是如何做的呢？一起来看。</p>
 <a id="more"></a>
-<h2 id="基础整理">基础整理</h2>
-<p>数据是运营的基础，人员数据是基础数据，首先需要搞定人员信息。</p>
+<h2 id="基础整理"><a href="#基础整理" class="headerlink" title="基础整理"></a>基础整理</h2><p>数据是运营的基础，人员数据是基础数据，首先需要搞定人员信息。</p>
 <p>训练营里的人员信息来自多个渠道，有通过 APP 报名的，有调查问卷收集的，还有人工录取的。</p>
 <p>加上同一个可能在不太的地方用不一样的名字，以及不同渠道收集的数据完整性不同，所以整理基数数据工作耗费了将近两天时间。</p>
 <p>最初用 Excel 的 VLookup 做数据合并，但灵活度小，限制大，放弃了。</p>
@@ -267,14 +266,13 @@
 <li>需要注意的时 <code>_get_conn</code> 中的 <code>self._conn.row_factory = sqlite3.Row</code> 语句，作用时执行查询后，返回的结果会被转化为 <code>sqlite.Row</code> 对象，以便通过字段名来读取值，详细参加 <a href="https://docs.python.org/3/library/sqlite3.html" target="_blank" rel="noopener" title="conn.row_factory">row_factory</a>。</li>
 </ul>
 <p>处理好基数数据，也有了数据库工具，就可以开始构建系统了。</p>
-<h2 id="结构设计">结构设计</h2>
-<p>系统再小，也需要先从结构设计入手。</p>
+<h2 id="结构设计"><a href="#结构设计" class="headerlink" title="结构设计"></a>结构设计</h2><p>系统再小，也需要先从结构设计入手。</p>
 <p>这个系统只是单机版（实际上可以做 Web 扩展，下篇展开），所以省去了网络和 API 设计，直接从库表设计开始。</p>
 <p>首先分析业务。</p>
 <p>训练营的运营数据包括，打卡数据，开单数据，组长日常工作，以及成员积分（通过积分规则，再自动核算部分展开）。</p>
 <p>另外，成员有职务之分：普通成员 和 组长。规则是：组长可以作为普通成员，普通成员不能做为组长。</p>
 <p>那么人员库表中，加入了职务，和组别，以便区分人员角色：</p>
-<p><img src="../images%5C2021%5C08%5Cpython_op%5C01.png" alt="人员表"></p>
+<p><img src="../images/2021/08/python_op/01.png" alt="人员表"></p>
 <ul>
 <li>mixin_id 是用户注册App的id</li>
 <li>std_id 为打卡系统的id</li>
@@ -282,14 +280,13 @@
 <li>title 为职务</li>
 </ul>
 <p>然后设置一个活动类型表，并指定活动与职务的关系：</p>
-<p><img src="../images%5C2021%5C08%5Cpython_op%5C02.png" alt="活动表"></p>
+<p><img src="../images/2021/08/python_op/02.png" alt="活动表"></p>
 <ul>
 <li>type 为活动类型</li>
 <li>value 为活动积分</li>
 <li>tilte 为该活动对于的职务</li>
 </ul>
-<p>接下来就是活动记录表了，由于已经定义了活动与职务的对于关系，所以，活动记录表中，只需记录活动类型即可：<br>
-<img src="../images%5C2021%5C08%5Cpython_op%5C03.png" alt="活动记录表"></p>
+<p>接下来就是活动记录表了，由于已经定义了活动与职务的对于关系，所以，活动记录表中，只需记录活动类型即可：<br><img src="../images/2021/08/python_op/03.png" alt="活动记录表"></p>
 <ul>
 <li>mixin_id 为用户id，std_id 其实是没必要的，不过录入打卡记录时顺带记录了</li>
 <li>date 为活动发生的日期</li>
@@ -297,16 +294,14 @@
 </ul>
 <p>如果同一个人同一天同一个活动出现多次，就会有重复记录，那么如何区分是否真的重复呢？在 数据收集 中展开。</p>
 <p>除了基本的数据结构，还由积分统计明细和积分合计表，这里不再赘述，会在核算部分提及。</p>
-<h2 id="数据收集">数据收集</h2>
-<p>现在数据框架有了，数据从何而来呢？</p>
+<h2 id="数据收集"><a href="#数据收集" class="headerlink" title="数据收集"></a>数据收集</h2><p>现在数据框架有了，数据从何而来呢？</p>
 <p>这个训练营的数据主要来自两个地方，第一是打卡数据，第二是日常记录数据。</p>
 <p>打卡数据由鲸打卡提供，可以在浏览器中查看，并且提供了导出打卡 Excel 的功能。</p>
 <p>不过操作比较麻烦： 首先登录后台（用微信扫码登录），再先选择导出条件（一般为时间区间），下载Excel，然后打开 Excel，才能复制其中的打卡信息，存入文本文件，最后才能执行脚本处理。</p>
 <blockquote>
-<p>好问题：<br>
-为什么不直接处理 Excel 呢？</p>
+<p>好问题：<br>为什么不直接处理 Excel 呢？</p>
 <ol>
-<li>因为Excel 处理需要安装额外库，也没有文本文件处理方便。</li>
+<li>因为Excel 处理需要安装额外库，也没有文本文件处理方便。  </li>
 <li>另外未来考虑做成 Web 系统，所以没有做 Excel 的进一步扩展。</li>
 </ol>
 </blockquote>
@@ -329,8 +324,7 @@
 <p>那么不妨每次重算！？</p>
 <p>即每次执行时，先库表数据删除，然后重新插入一遍。</p>
 <p>虽然效率了不高，也算是用框架换时间吧，换的不出机器时间，而是我的工作时间哈哈。</p>
-<h2 id="自动核算">自动核算</h2>
-<p>数据统计收集完毕，就需要根据活动积分，计算每个人的积分明细合计。</p>
+<h2 id="自动核算"><a href="#自动核算" class="headerlink" title="自动核算"></a>自动核算</h2><p>数据统计收集完毕，就需要根据活动积分，计算每个人的积分明细合计。</p>
 <p>既然我们选用了数据库，就直接用 Sql 语句搞定吧。</p>
 <p>相对程序处理来说，Sql 更容易做统计类的事情。</p>
 <p>统计普通成员积分明细的语句如下：</p>
@@ -358,8 +352,7 @@
 <p>全部清除重算</p>
 </blockquote>
 <p>其他数据处理也类似。</p>
-<h2 id="报表导出">报表导出</h2>
-<p>数据处理做好了，要让发挥数据的作用，就需要制作成报表，才能让其他人利用。</p>
+<h2 id="报表导出"><a href="#报表导出" class="headerlink" title="报表导出"></a>报表导出</h2><p>数据处理做好了，要让发挥数据的作用，就需要制作成报表，才能让其他人利用。</p>
 <p>本着一切从简的原则（主要是需要尽快提供结果），选择也 Excel 成现统计结果。</p>
 <p>要输出哪些内容呢？</p>
 <p>打卡率、成员积分、组排名等，是需要的。</p>
@@ -394,16 +387,14 @@
 <p>最后，文件中数据如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">date	1组	2组	3组	4组	5组</span><br><span class="line">2021-08-01	65%	90%	79%	85%	72%</span><br><span class="line">2021-08-02	75%	90%	79%	85%	67%</span><br><span class="line">2021-08-03	55%	90%	84%	75%	67%</span><br><span class="line">2021-08-04	60%	95%	74%	75%	61%</span><br></pre></td></tr></table></figure>
 <p>复制到 Excel 的图表数据中就会形成打卡率图表：</p>
-<p><img src="../images%5C2021%5C08%5Cpython_op%5C04.png" alt="打卡率图表"></p>
-<h2 id="日常维护">日常维护</h2>
-<p>运营工作不是一成不变的，比如为了激励成员对提出的问题进行整理，新增了一个积分点叫 <code>解答整理</code>。</p>
+<p><img src="../images/2021/08/python_op/04.png" alt="打卡率图表"></p>
+<h2 id="日常维护"><a href="#日常维护" class="headerlink" title="日常维护"></a>日常维护</h2><p>运营工作不是一成不变的，比如为了激励成员对提出的问题进行整理，新增了一个积分点叫 <code>解答整理</code>。</p>
 <p>就得调整积分项，因为之前已经将积分项用库表存储了，现在只需要增加一条记录，并指明该积分适用于成员角色就可以了。</p>
 <p>另外，在 活动详情 报表中，需要按活动名称记录每个人的数据，也是个行转列的操作，但麻烦的是活动项是会变的。</p>
 <p>于是先将获取项动态获取到，然后合成为行转列的语句，再和查询语句合并为完整的 Sql 语句，这样活动再有调整时，值管添加数据项就好了，代码如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">score_type_temp = <span class="string">"max(case when type ='&#123;atype&#125;' then num else 0 end) as '&#123;atype&#125;'"</span></span><br><span class="line"></span><br><span class="line">types = db.query(<span class="string">"select type, value from tbas_score where title='%s'"</span> % title)</span><br><span class="line">temps = []</span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> types:</span><br><span class="line">    temps.append(sql.score_type_temp.format(atype=t[<span class="string">'type'</span>]))</span><br><span class="line"></span><br><span class="line">allsql = sql.member_score.format(<span class="string">",\n"</span>.join(temps))</span><br></pre></td></tr></table></figure>
 <p>最后，将各部分的代码集成起来，放在一个 <code>main</code> 函数中，每天执行一次，将输出的文本文件中的数据复制到 Excel 中，就完成当日报表了，整个操作耗时不到十分钟，还算满意。</p>
-<h2 id="总结">总结</h2>
-<p>促使我这么做的是，不想在机械的事情上耗费时间，所以会尽可能得将能自动处理的，让程序处理。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>促使我这么做的是，不想在机械的事情上耗费时间，所以会尽可能得将能自动处理的，让程序处理。</p>
 <p>虽然让一切程序化是一个理想，在实现的道路上会有很多阻碍，所以还需要找到落地的平衡点，需要接受不完美，需要已实用为导向 —— <strong>先实现，再完美</strong>。</p>
 <p>下期，在实现基本功能的基础上，我们聊聊如何将这个平台 Web 化。</p>
 <p>比心！</p>
