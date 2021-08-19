@@ -245,9 +245,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>从去年 11 月份，参与 《Python 技术》 公众号的写作，已经快一年了，过程中学习了很多东西，感触很深，有激发起来维护自己博客的想法，一顿折腾后，终于搞定了<br><a id="more"></a></p>
-<h2 id="继续选择-Hexo"><a href="#继续选择-Hexo" class="headerlink" title="继续选择 Hexo"></a>继续选择 Hexo</h2><p>本想切换为 JeykII，找了一圈，都是从 JeyKII 像 Hexo 迁移的，加上之前用的也是 Hexo，索性继续用吧</p>
-<h2 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h2><p>虽然时继续用，可一点也不平顺，年久失修，环境问题，适配问题，个性化问题，折腾了好几天，本来想轻松地搞定，结果事与愿违</p>
+        <p>从去年 11 月份，参与 《Python 技术》 公众号的写作，已经快一年了，过程中学习了很多东西，感触很深，有激发起来维护自己博客的想法，一顿折腾后，终于搞定了</p>
+<a id="more"></a>
+<h2 id="继续选择-Hexo">继续选择 Hexo</h2>
+<p>本想切换为 JeykII，找了一圈，都是从 JeyKII 像 Hexo 迁移的，加上之前用的也是 Hexo，索性继续用吧</p>
+<h2 id="坑">坑</h2>
+<p>虽然时继续用，可一点也不平顺，年久失修，环境问题，适配问题，个性化问题，折腾了好几天，本来想轻松地搞定，结果事与愿违</p>
 <p>遇到地问题大概有：</p>
 <ul>
 <li>nodejs 环境问题</li>
@@ -257,18 +260,22 @@
 <li>github 缓慢问题</li>
 <li>…</li>
 </ul>
-<h2 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h2><p>今天先写一篇感想，之后将我的安装过程整理以下，这里先给出一个大纲：</p>
+<h2 id="后续">后续</h2>
+<p>今天先写一篇感想，之后将我的安装过程整理以下，这里先给出一个大纲：</p>
 <ol>
-<li><strong>申请 github 账号，创建一个 仓库，设置 gitpage属性</strong><ol>
+<li><strong>申请 github 账号，创建一个 仓库，设置 gitpage属性</strong>
+<ol>
 <li>关于 github 慢的问题   <a href="https://www.ipaddress.com/" target="_blank" rel="noopener">https://www.ipaddress.com/</a></li>
 <li>创建账号，并开启 SSH 这样就很方便</li>
 <li>需要安装 git windows 版，集成了很多方便用的工具</li>
 </ol>
 </li>
-<li><p><strong>安装 nodejs，并安装 hexo 博客系统</strong></p>
+<li><strong>安装 nodejs，并安装 hexo 博客系统</strong>
 <ol>
-<li>关于 nodejs  npm nvs 的关系和解释以及这里的坑<ol>
-<li>关于软件源<ol>
+<li>关于 nodejs  npm nvs 的关系和解释以及这里的坑
+<ol>
+<li>关于软件源
+<ol>
 <li><a href="https://www.jianshu.com/p/0deb70e6f395" target="_blank" rel="noopener">https://www.jianshu.com/p/0deb70e6f395</a></li>
 <li><a href="https://blog.csdn.net/weixin_33950035/article/details/91951416" target="_blank" rel="noopener">https://blog.csdn.net/weixin_33950035/article/details/91951416</a></li>
 </ol>
@@ -278,18 +285,25 @@
 <li>hexo 的原理与应用</li>
 <li>配置个人信息，必要时需要一个个人域名作为博客地址</li>
 <li>配置写作模板</li>
-<li><p>设置主题</p>
+<li>设置主题
 <ol>
-<li>配置公众号二维码</li>
-<li>设置公式支持<ol>
+<li>
+<p>配置公众号二维码</p>
+</li>
+<li>
+<p>设置公式支持</p>
+<ol>
 <li><a href="https://blog.csdn.net/wgshun616/article/details/81019687" target="_blank" rel="noopener">https://blog.csdn.net/wgshun616/article/details/81019687</a></li>
 </ol>
 </li>
-<li>开启评论<ol>
+<li>
+<p>开启评论</p>
+<ol>
 <li><a href="https://valine.js.org/quickstart.html" target="_blank" rel="noopener">https://valine.js.org/quickstart.html</a></li>
 </ol>
 </li>
-<li><p>分页的问题，在next 主题下，修改显示效果</p>
+<li>
+<p>分页的问题，在next 主题下，修改显示效果</p>
 <ol>
 <li>themes\next\layout_partials\pagination.swig</li>
 <li>这里有个小技巧，怎么改，因为都是国际化的，直接搜 下一页可能找不到，就去从 language 中找下一步对应的关键字，然后再找，就能找到代码的位置</li>
@@ -299,20 +313,24 @@
 </li>
 </ol>
 </li>
-<li><strong>启动博客并检查</strong><ol>
-<li>可能遇到的问题<ol>
+<li><strong>启动博客并检查</strong>
+<ol>
+<li>可能遇到的问题
+<ol>
 <li>无响应 <a href="https://segmentfault.com/q/1010000003870970" target="_blank" rel="noopener">https://segmentfault.com/q/1010000003870970</a></li>
 <li>查看端口占用的命令  netstat -ano|findstr “4000” <a href="https://www.runoob.com/w3cnote/windows-finds-port-usage.html" target="_blank" rel="noopener">https://www.runoob.com/w3cnote/windows-finds-port-usage.html</a></li>
 </ol>
 </li>
-<li>发布文章<ol>
+<li>发布文章
+<ol>
 <li>无法提交时遇到的问题 <a href="https://blog.csdn.net/weixin_36401046/article/details/52940313" target="_blank" rel="noopener">https://blog.csdn.net/weixin_36401046/article/details/52940313</a></li>
 </ol>
 </li>
 </ol>
 </li>
 <li><strong>开始创作第一篇文章</strong></li>
-<li><strong>将原始文件存档</strong><ol>
+<li><strong>将原始文件存档</strong>
+<ol>
 <li>开启另一个github 源，用来存放独立的文件和资源，</li>
 <li>需要保存的配置</li>
 </ol>
@@ -427,7 +445,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -440,7 +458,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

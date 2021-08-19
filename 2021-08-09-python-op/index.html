@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.lixiaofei.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":true,"storage":true,"lazyload":true,"nav":{"valine":{"order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="最近参加了一个训练营，作为副教练，承担起训练营的运营工作。事不大，活不少，打卡记录、活动积分、奖励制度、评优方案、趋势对比，应有尽有…… 开始认为 Excel 就足够应付，没想到第一项工作 —— 人员汇总，就把我难倒了，于是果断拎起 Python 这把大刀，披荆斩棘，利用业余时间，不到一周竟然打造出了一套运营管理系统，到底是如何做的呢？一起来看。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搞定运营，我用 Python">
+<meta property="og:url" content="http://www.lixiaofei.cn/2021-08-09-python-op/index.html">
+<meta property="og:site_name" content="管窥程序">
+<meta property="og:description" content="最近参加了一个训练营，作为副教练，承担起训练营的运营工作。事不大，活不少，打卡记录、活动积分、奖励制度、评优方案、趋势对比，应有尽有…… 开始认为 Excel 就足够应付，没想到第一项工作 —— 人员汇总，就把我难倒了，于是果断拎起 Python 这把大刀，披荆斩棘，利用业余时间，不到一周竟然打造出了一套运营管理系统，到底是如何做的呢？一起来看。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.lixiaofei.cn/images%5C2021%5C08%5Cpython_op%5C01.png">
+<meta property="og:image" content="http://www.lixiaofei.cn/images%5C2021%5C08%5Cpython_op%5C02.png">
+<meta property="og:image" content="http://www.lixiaofei.cn/images%5C2021%5C08%5Cpython_op%5C03.png">
+<meta property="og:image" content="http://www.lixiaofei.cn/images%5C2021%5C08%5Cpython_op%5C04.png">
+<meta property="article:published_time" content="2021-08-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-08-19T06:11:05.603Z">
+<meta property="article:author" content="太阳雪">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.lixiaofei.cn/images%5C2021%5C08%5Cpython_op%5C01.png">
+
+<link rel="canonical" href="http://www.lixiaofei.cn/2021-08-09-python-op/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>搞定运营，我用 Python | 管窥程序</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">管窥程序</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Today is a gift</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/alisx" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.lixiaofei.cn/2021-08-09-python-op/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="太阳雪">
+      <meta itemprop="description" content="总结 技术 思考 想法">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="管窥程序">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          搞定运营，我用 Python
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-09 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-09T00:00:00+08:00">2021-08-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-19 14:11:05" itemprop="dateModified" datetime="2021-08-19T14:11:05+08:00">2021-08-19</time>
+              </span>
+
+          
+            <span id="/2021-08-09-python-op/" class="post-meta-item leancloud_visitors" data-flag-title="搞定运营，我用 Python" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021-08-09-python-op/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021-08-09-python-op/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>最近参加了一个训练营，作为副教练，承担起训练营的运营工作。事不大，活不少，打卡记录、活动积分、奖励制度、评优方案、趋势对比，应有尽有……</p>
+<p>开始认为 Excel 就足够应付，没想到第一项工作 —— 人员汇总，就把我难倒了，于是果断拎起 Python 这把大刀，披荆斩棘，利用业余时间，不到一周竟然打造出了一套运营管理系统，到底是如何做的呢？一起来看。</p>
+<a id="more"></a>
+<h2 id="基础整理">基础整理</h2>
+<p>数据是运营的基础，人员数据是基础数据，首先需要搞定人员信息。</p>
+<p>训练营里的人员信息来自多个渠道，有通过 APP 报名的，有调查问卷收集的，还有人工录取的。</p>
+<p>加上同一个可能在不太的地方用不一样的名字，以及不同渠道收集的数据完整性不同，所以整理基数数据工作耗费了将近两天时间。</p>
+<p>最初用 Excel 的 VLookup 做数据合并，但灵活度小，限制大，放弃了。</p>
+<p>最后使用 Python 处理各个渠道的数据，再录入了数据库，完成了数据整理工作。</p>
+<p>这里重点说一下数据库。</p>
+<p>使用数据库的好处是，方便数据整合、统计和更新。但是数据库一般比较重，维护部署都是问题，于是选用了文本数据库 <a href="https://www.sqlite.org/index.html" target="_blank" rel="noopener" title="SQLite">SQLite</a> 作为数据库。</p>
+<p>SQLite 很轻，不需要服务器，但功能于 <a href="https://www.mysql.com/cn/" target="_blank" rel="noopener" title="MySQL">MySQL</a> 类似。</p>
+<p>使用起来安装 Python 的 SQLite 模块就可以了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install sqlite3</span><br></pre></td></tr></table></figure>
+<p>创建数据库链接：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sqlite3</span><br><span class="line">conn = sqlite3.connect(<span class="string">'database.db'</span>)</span><br></pre></td></tr></table></figure>
+<p>其中 <code>database.db</code> 就是一个普通文件，如果没有，会自动创建一个。</p>
+<p>有了链接，就可以执行数据库操作了，比如创建一个库表,插入数据：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一个游标</span></span><br><span class="line">cur = con.cursor()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行SQl 语句创建库表</span></span><br><span class="line">cur.execute(<span class="string">'''CREATE TABLE stocks</span></span><br><span class="line"><span class="string">               (date text, trans text, symbol text, qty real, price real)'''</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 向库表中插入数据</span></span><br><span class="line">cur.execute(<span class="string">"INSERT INTO stocks VALUES ('2006-01-05','BUY','RHAT',100,35.14)"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提交更改结果</span></span><br><span class="line">con.commit()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭链接</span></span><br><span class="line">con.close()</span><br></pre></td></tr></table></figure>
+<p>因为需要频繁地操作数据库，所以将这些操作写成一个类：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DBSqlite</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, db)</span>:</span></span><br><span class="line">        super().__init__()</span><br><span class="line">        self.db = db</span><br><span class="line">        self._conn = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self._conn:</span><br><span class="line">            self._conn.close()</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_get_conn</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self._conn:</span><br><span class="line">            self._conn = sqlite3.connect(self.db)</span><br><span class="line">            self._conn.row_factory = sqlite3.Row</span><br><span class="line">        <span class="keyword">return</span> self._conn</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_query</span><span class="params">(self, sql)</span>:</span></span><br><span class="line">        conn = self._get_conn()</span><br><span class="line">        cur = conn.cursor()</span><br><span class="line">        rows = []</span><br><span class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> cur.execute(sql):</span><br><span class="line">            rows.append(row)</span><br><span class="line">        cur.close()</span><br><span class="line">        <span class="keyword">return</span> rows</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">de</span><span class="params">(self, sql)</span>:</span></span><br><span class="line">        conn = self._get_conn()</span><br><span class="line">        cur = conn.cursor()</span><br><span class="line">        <span class="keyword">for</span> s <span class="keyword">in</span> sql.split(<span class="string">";"</span>):</span><br><span class="line">            cur.execute(s)</span><br><span class="line">        conn.commit()</span><br><span class="line">        cur.close()</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert</span><span class="params">(self, table, rows)</span>:</span></span><br><span class="line">        conn = self._get_conn()</span><br><span class="line">        cur = conn.cursor()</span><br><span class="line">        cur.executemany(<span class="string">"insert into %s values (%s)"</span> % (table, (<span class="string">"?,"</span>*len(rows[<span class="number">0</span>]))[:<span class="number">-1</span>]), rows)</span><br><span class="line">        conn.commit()</span><br><span class="line">        cur.close()</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">query</span><span class="params">(self, sql)</span>:</span></span><br><span class="line">        conn = self._get_conn()</span><br><span class="line">        cur = conn.cursor()</span><br><span class="line">        cur.execute(sql)</span><br><span class="line">        rows = cur.fetchall()</span><br><span class="line">        cur.close()</span><br><span class="line">        <span class="keyword">return</span> rows</span><br></pre></td></tr></table></figure>
+<ul>
+<li>封装了基本操作，<code>de</code> 为执行一个数据库操作，<code>insert</code> 为插入数据，<code>query</code> 执行一个查询</li>
+<li>需要注意的时 <code>_get_conn</code> 中的 <code>self._conn.row_factory = sqlite3.Row</code> 语句，作用时执行查询后，返回的结果会被转化为 <code>sqlite.Row</code> 对象，以便通过字段名来读取值，详细参加 <a href="https://docs.python.org/3/library/sqlite3.html" target="_blank" rel="noopener" title="conn.row_factory">row_factory</a>。</li>
+</ul>
+<p>处理好基数数据，也有了数据库工具，就可以开始构建系统了。</p>
+<h2 id="结构设计">结构设计</h2>
+<p>系统再小，也需要先从结构设计入手。</p>
+<p>这个系统只是单机版（实际上可以做 Web 扩展，下篇展开），所以省去了网络和 API 设计，直接从库表设计开始。</p>
+<p>首先分析业务。</p>
+<p>训练营的运营数据包括，打卡数据，开单数据，组长日常工作，以及成员积分（通过积分规则，再自动核算部分展开）。</p>
+<p>另外，成员有职务之分：普通成员 和 组长。规则是：组长可以作为普通成员，普通成员不能做为组长。</p>
+<p>那么人员库表中，加入了职务，和组别，以便区分人员角色：</p>
+<p><img src="../images%5C2021%5C08%5Cpython_op%5C01.png" alt="人员表"></p>
+<ul>
+<li>mixin_id 是用户注册App的id</li>
+<li>std_id 为打卡系统的id</li>
+<li>team 为小组名</li>
+<li>title 为职务</li>
+</ul>
+<p>然后设置一个活动类型表，并指定活动与职务的关系：</p>
+<p><img src="../images%5C2021%5C08%5Cpython_op%5C02.png" alt="活动表"></p>
+<ul>
+<li>type 为活动类型</li>
+<li>value 为活动积分</li>
+<li>tilte 为该活动对于的职务</li>
+</ul>
+<p>接下来就是活动记录表了，由于已经定义了活动与职务的对于关系，所以，活动记录表中，只需记录活动类型即可：<br>
+<img src="../images%5C2021%5C08%5Cpython_op%5C03.png" alt="活动记录表"></p>
+<ul>
+<li>mixin_id 为用户id，std_id 其实是没必要的，不过录入打卡记录时顺带记录了</li>
+<li>date 为活动发生的日期</li>
+<li>type 为活动内容</li>
+</ul>
+<p>如果同一个人同一天同一个活动出现多次，就会有重复记录，那么如何区分是否真的重复呢？在 数据收集 中展开。</p>
+<p>除了基本的数据结构，还由积分统计明细和积分合计表，这里不再赘述，会在核算部分提及。</p>
+<h2 id="数据收集">数据收集</h2>
+<p>现在数据框架有了，数据从何而来呢？</p>
+<p>这个训练营的数据主要来自两个地方，第一是打卡数据，第二是日常记录数据。</p>
+<p>打卡数据由鲸打卡提供，可以在浏览器中查看，并且提供了导出打卡 Excel 的功能。</p>
+<p>不过操作比较麻烦： 首先登录后台（用微信扫码登录），再先选择导出条件（一般为时间区间），下载Excel，然后打开 Excel，才能复制其中的打卡信息，存入文本文件，最后才能执行脚本处理。</p>
+<blockquote>
+<p>好问题：<br>
+为什么不直接处理 Excel 呢？</p>
+<ol>
+<li>因为Excel 处理需要安装额外库，也没有文本文件处理方便。</li>
+<li>另外未来考虑做成 Web 系统，所以没有做 Excel 的进一步扩展。</li>
+</ol>
+</blockquote>
+<p>不选择导出，就得用程序请鲸鱼打卡上抓取了。</p>
+<p>所以就研究了下打开管理后台的请求，分析了一下，请求中有个 <code>cookie</code> 值是关键，于是，复制请求，转化为 Python 代码，详细描述见 <a href="https://mp.weixin.qq.com/s/XqICwC9_cRBhua-6-lbjWw" target="_blank" rel="noopener">自动预约程序</a></p>
+<p>收集到的数据是 JSON 格式的，将其转化为 List，插入数据库：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">record_check</span><span class="params">(rows)</span>:</span></span><br><span class="line">    dbrows = []</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> rows:</span><br><span class="line">        u = get_user(std_id=int(row[<span class="number">0</span>]))</span><br><span class="line">        <span class="keyword">if</span> u:</span><br><span class="line">            <span class="keyword">if</span> row[<span class="number">2</span>] != <span class="string">"×"</span>:</span><br><span class="line">                dbrows.append((u[<span class="string">'mixin_id'</span>], u[<span class="string">'std_id'</span>], row[<span class="number">1</span>], <span class="string">"打卡"</span>, <span class="number">1</span>, row[<span class="number">2</span>], <span class="literal">None</span>))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">"没有找到用户："</span>, row)</span><br><span class="line">    <span class="keyword">if</span> len(dbrows) &gt; <span class="number">0</span>:</span><br><span class="line">        db.insert(<span class="string">"tprj_activity"</span>, dbrows)</span><br><span class="line">    <span class="keyword">return</span> dbrows</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>record_check</code> 方法是用来记录打开记录的，参数 <code>rows</code> 是从打开后台抓取的数据</li>
+<li><code>get_user</code> 是可以根据打卡用户的 id，从用户表中找到用户记录，然后结合打卡记录，补全打卡记录</li>
+<li><code>db</code> 是 上面提到的 DBSqlite 得一个实例，调用其 <code>insert</code> 方法将数据插入数据库</li>
+</ul>
+<p>日常记录，需要根据训练营中的实际情况做记录，比如成员开单，组长轮值等，记录在 Excel 中比较方便。每日统计一次，所以我直接将数据复制处理，也存放到文本文件中，用程序解析成记录行，插入库表，展示一下解析方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_activity</span><span class="params">(datafilename)</span>:</span></span><br><span class="line">    rows = []</span><br><span class="line">    <span class="keyword">with</span> open(datafilename, <span class="string">'r'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> check_f:</span><br><span class="line">        data = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> check_f:</span><br><span class="line">            linedata = line[:<span class="number">-1</span>].split(<span class="string">'\t'</span>)</span><br><span class="line">            date = linedata[<span class="number">0</span>].replace(<span class="string">"/"</span>,<span class="string">"-"</span>)</span><br><span class="line">            userinfo = linedata[<span class="number">1</span>].split(<span class="string">"/"</span>)</span><br><span class="line">            team = userinfo[<span class="number">0</span>]</span><br><span class="line">            name, mixin_id, std_id = userinfo[<span class="number">1</span>].split(<span class="string">'-'</span>)</span><br><span class="line">            atype = linedata[<span class="number">2</span>]</span><br><span class="line">            rows.append((mixin_id, date, atype))</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+<p>可以看到，通过读入文本行，再拆分成对于字段，合成活动记录。</p>
+<p>这样两个数据收集工作就做好了，这里还需要解决一个问题 —— 避免数据重复。</p>
+<p>容易想到的方法是，为数据设置联合主键，然后对数据做增量式更新。</p>
+<p>但是这样做需要做更多的工作，而且还要很好的测试。</p>
+<p>从业务上分析可知：活动数据并不多，学员个数不过一百。</p>
+<p>那么不妨每次重算！？</p>
+<p>即每次执行时，先库表数据删除，然后重新插入一遍。</p>
+<p>虽然效率了不高，也算是用框架换时间吧，换的不出机器时间，而是我的工作时间哈哈。</p>
+<h2 id="自动核算">自动核算</h2>
+<p>数据统计收集完毕，就需要根据活动积分，计算每个人的积分明细合计。</p>
+<p>既然我们选用了数据库，就直接用 Sql 语句搞定吧。</p>
+<p>相对程序处理来说，Sql 更容易做统计类的事情。</p>
+<p>统计普通成员积分明细的语句如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tprj_user_score_detail </span><br><span class="line"><span class="keyword">SELECT</span> a.mixin_id, <span class="keyword">sum</span>(s.value), u.team, <span class="string">'成员'</span>, a.date </span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    tprj_activity a</span><br><span class="line">    <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> tprj_user u <span class="keyword">ON</span> a.mixin_id = u.mixin_id</span><br><span class="line">    <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> tbas_score s <span class="keyword">ON</span> a.type = s.type </span><br><span class="line"><span class="keyword">WHERE</span> s.title = <span class="string">'成员'</span> </span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span></span><br><span class="line">    a.mixin_id,</span><br><span class="line">    u.team,</span><br><span class="line">    u.title,</span><br><span class="line">    a.date</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查询所有职务属于 <code>成员</code> 的活动积分，插入成员积分明细表</li>
+<li><code>tprj_activity</code> 为活动记录表，与 <code>tprj_user</code> 用户表链接，然后再链接上活动表 <code>tbas_score</code>，作用是对活动类做约束</li>
+<li><code>where</code> 条件中，限制活动类型必须为 <code>成员</code> 活动</li>
+<li><code>sum(s.value)</code> 为一个成员的当日积分合计，<code>日期</code> 体现在 <code>group by</code> 的条件中了</li>
+</ul>
+<p>类似的需要写很多统计语句，比如组长的，小组的，以及各自的积分合计，不再逐个展示了。</p>
+<p>由于 sql 语句较多，为了便于管理，将 sql 语句整理到 <code>sql.py</code> 文件中，在导入主程序代码，最后调用 <code>DBSqlite</code> 工具方法执行，例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sql</span><br><span class="line">...</span><br><span class="line">db.de(sql.user_score_detail)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>是不优雅多了？</p>
+<p>打卡率是通过统计活动记录计算的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cal_check_rate</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment">## 计算打卡率</span></span><br><span class="line">    team_member = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> r <span class="keyword">in</span> db.query(sql.team_member_count):</span><br><span class="line">        team_member[r[<span class="string">'team'</span>]] = r[<span class="string">'mcount'</span>]</span><br><span class="line">    dbrows = []</span><br><span class="line">    <span class="keyword">for</span> r <span class="keyword">in</span> db.query(sql.team_check_count):</span><br><span class="line">        dbrows.append((r[<span class="string">'team'</span>], r[<span class="string">'date'</span>], round((r[<span class="string">'checkcount'</span>]/team_member[r[<span class="string">'team'</span>]])*<span class="number">100</span>)))</span><br><span class="line">    <span class="keyword">if</span> len(dbrows) &gt; <span class="number">0</span>:</span><br><span class="line">        db.insert(<span class="string">"tprj_team_check_rate"</span>, dbrows)</span><br><span class="line">    <span class="keyword">return</span> dbrows</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>team_member_count</code> 语句语句获取各组的人数，因为可能有人没有注册打卡。只通过打卡记录获取组内人数，不严谨。</li>
+<li><code>team_check_count</code> 语句是按组和日期分类核算出的组打卡数</li>
+<li>打卡率公式为：<code>（打卡个数/组内人数） * 100%</code></li>
+<li>将计算好的打卡率，按日期存入 <code>dbrows</code>，最后插入数据库</li>
+</ul>
+<p>这里还需要注意的是重复数据问题，处理方法简单粗暴：</p>
+<blockquote>
+<p>全部清除重算</p>
+</blockquote>
+<p>其他数据处理也类似。</p>
+<h2 id="报表导出">报表导出</h2>
+<p>数据处理做好了，要让发挥数据的作用，就需要制作成报表，才能让其他人利用。</p>
+<p>本着一切从简的原则（主要是需要尽快提供结果），选择也 Excel 成现统计结果。</p>
+<p>要输出哪些内容呢？</p>
+<p>打卡率、成员积分、组排名等，是需要的。</p>
+<p>对于打卡率，需要按组分类，这样就有读出小组成员的作用，如何抽取数据呢？</p>
+<p>写个 Sql 就好了, 获取打卡率的语句 <code>check_rate_show</code> 如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">    <span class="built_in">date</span>,</span><br><span class="line">    <span class="keyword">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> team =<span class="string">'1组'</span> <span class="keyword">then</span> rate <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> <span class="string">'1组'</span>,</span><br><span class="line">    <span class="keyword">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> team =<span class="string">'2组'</span> <span class="keyword">then</span> rate <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> <span class="string">'2组'</span>,</span><br><span class="line">    <span class="keyword">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> team =<span class="string">'3组'</span> <span class="keyword">then</span> rate <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> <span class="string">'3组'</span>,</span><br><span class="line">    <span class="keyword">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> team =<span class="string">'4组'</span> <span class="keyword">then</span> rate <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> <span class="string">'4组'</span>,</span><br><span class="line">    <span class="keyword">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> team =<span class="string">'5组'</span> <span class="keyword">then</span> rate <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> <span class="string">'5组'</span></span><br><span class="line"><span class="keyword">FROM</span> tprj_team_check_rate</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="built_in">date</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>tprj_team_check_rate</code> 是用于按组和日期存放打卡率</li>
+<li><code>select</code> 语句中，使用了行转列的技巧，使得结果为 第一列为日期，后面列为各个组，这样是为了绘制成图表方便</li>
+</ul>
+<p>其实结果可以导入 Excel ，生成报表，更方便一些，但是我没这样做，因为：</p>
+<ol>
+<li>操作 Excel 比较费劲，调试工作量大</li>
+<li>我有更大的打算，即最终实现为在线版的，所以花费大量时间不值得</li>
+</ol>
+<p>因此我直接将数据输出到文本文件里了。</p>
+<p>例如对打卡率的输出是这样的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_check_rate</span><span class="params">()</span>:</span></span><br><span class="line">    data = db.qj(sql.check_rate_show)</span><br><span class="line">    result = []</span><br><span class="line">    <span class="comment"># 处理表头</span></span><br><span class="line">    line = <span class="string">'\t'</span>.join(data[<span class="number">0</span>].keys()) + <span class="string">"\n"</span></span><br><span class="line">    result.append(line)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 生成表体</span></span><br><span class="line">    <span class="keyword">for</span> d <span class="keyword">in</span> data:</span><br><span class="line">        row = []</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> d.keys():</span><br><span class="line">            <span class="keyword">if</span> k != <span class="string">'date'</span>:</span><br><span class="line">                row.append(str(d[k]) + <span class="string">"%"</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                row.append(d[k])</span><br><span class="line">        line = <span class="string">'\t'</span>.join(row) + <span class="string">"\n"</span></span><br><span class="line">        result.append(line)</span><br><span class="line">    result.append(<span class="string">'\n'</span>)</span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>check_rate_show</code> 执行 Sql 获得数据</li>
+<li>从数据中获取表头信息，做成一行记录，请注意字段的分隔为 tab 符，这样时为了方便直接粘贴到 Excel 中</li>
+<li>取出数据中的每一行，做成表体数据行</li>
+<li>最后再加入一个回车，这是为了和其他的输出分隔开</li>
+</ul>
+<p>方法执行的结果，写入文本文件：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">filename = <span class="string">"result_%s.txt"</span> % today.strftime(<span class="string">"%Y-%m-%d %H_%M_%S"</span>)</span><br><span class="line"><span class="keyword">with</span> open(filename, <span class="string">'w'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> r:</span><br><span class="line">    r.writelines(show_check_rate()) <span class="comment"># 打卡率</span></span><br><span class="line">    r.writelines(show_member_score()) <span class="comment"># 成员积分</span></span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>filename</code> 为要写入的文本文件，这里利用当前时间作为文件名，是为了不重复</li>
+<li>打开文件，用 <code>writelines</code> 方法将返回的行写入文件中</li>
+<li>这里还可以调用其他产生输出方法，将结果写入文件</li>
+</ul>
+<p>最后，文件中数据如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">date	1组	2组	3组	4组	5组</span><br><span class="line">2021-08-01	65%	90%	79%	85%	72%</span><br><span class="line">2021-08-02	75%	90%	79%	85%	67%</span><br><span class="line">2021-08-03	55%	90%	84%	75%	67%</span><br><span class="line">2021-08-04	60%	95%	74%	75%	61%</span><br></pre></td></tr></table></figure>
+<p>复制到 Excel 的图表数据中就会形成打卡率图表：</p>
+<p><img src="../images%5C2021%5C08%5Cpython_op%5C04.png" alt="打卡率图表"></p>
+<h2 id="日常维护">日常维护</h2>
+<p>运营工作不是一成不变的，比如为了激励成员对提出的问题进行整理，新增了一个积分点叫 <code>解答整理</code>。</p>
+<p>就得调整积分项，因为之前已经将积分项用库表存储了，现在只需要增加一条记录，并指明该积分适用于成员角色就可以了。</p>
+<p>另外，在 活动详情 报表中，需要按活动名称记录每个人的数据，也是个行转列的操作，但麻烦的是活动项是会变的。</p>
+<p>于是先将获取项动态获取到，然后合成为行转列的语句，再和查询语句合并为完整的 Sql 语句，这样活动再有调整时，值管添加数据项就好了，代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">score_type_temp = <span class="string">"max(case when type ='&#123;atype&#125;' then num else 0 end) as '&#123;atype&#125;'"</span></span><br><span class="line"></span><br><span class="line">types = db.query(<span class="string">"select type, value from tbas_score where title='%s'"</span> % title)</span><br><span class="line">temps = []</span><br><span class="line"><span class="keyword">for</span> t <span class="keyword">in</span> types:</span><br><span class="line">    temps.append(sql.score_type_temp.format(atype=t[<span class="string">'type'</span>]))</span><br><span class="line"></span><br><span class="line">allsql = sql.member_score.format(<span class="string">",\n"</span>.join(temps))</span><br></pre></td></tr></table></figure>
+<p>最后，将各部分的代码集成起来，放在一个 <code>main</code> 函数中，每天执行一次，将输出的文本文件中的数据复制到 Excel 中，就完成当日报表了，整个操作耗时不到十分钟，还算满意。</p>
+<h2 id="总结">总结</h2>
+<p>促使我这么做的是，不想在机械的事情上耗费时间，所以会尽可能得将能自动处理的，让程序处理。</p>
+<p>虽然让一切程序化是一个理想，在实现的道路上会有很多阻碍，所以还需要找到落地的平衡点，需要接受不完美，需要已实用为导向 —— <strong>先实现，再完美</strong>。</p>
+<p>下期，在实现基本功能的基础上，我们聊聊如何将这个平台 Web 化。</p>
+<p>比心！</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag"># 编程</a>
+          </div>
+
+        
+
+			<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.png" alt="太阳雪 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>关注我，获得更多精彩内容</div>
+</div>
+
+        
+		
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021-07-26-zero2one/" rel="prev" title="从 0 到 1，自然而然">
+      <i class="fa fa-chevron-left"></i> 从 0 到 1，自然而然
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021-08-12-python-op-web/" rel="next" title="只需一招，Python 将系统秒变在线版！">
+      只需一招，Python 将系统秒变在线版！ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础整理"><span class="nav-number">1.</span> <span class="nav-text">基础整理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构设计"><span class="nav-number">2.</span> <span class="nav-text">结构设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据收集"><span class="nav-number">3.</span> <span class="nav-text">数据收集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动核算"><span class="nav-number">4.</span> <span class="nav-text">自动核算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报表导出"><span class="nav-number">5.</span> <span class="nav-text">报表导出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日常维护"><span class="nav-number">6.</span> <span class="nav-text">日常维护</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="太阳雪"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">太阳雪</p>
+  <div class="site-description" itemprop="description">总结 技术 思考 想法</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">太阳雪</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'teRj7yeJj0xpfGKLJ5uFdbIu-gzGzoHsz',
+      appKey     : '3uie0p1nxouCCnkjiXTEBeLd',
+      placeholder: "您的关注是我的动力",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

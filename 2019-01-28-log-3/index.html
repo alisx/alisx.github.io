@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"www.lixiaofei.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":true,"storage":true,"lazyload":true,"nav":{"valine":{"order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="&amp;emsp;&amp;emsp;业务系统中，有个需求，需要根据一个主记录下的列表来产生一些数据，并且，一旦列表发生变化，需要重新生成数据。简单，做个把列表看成一个对象，重写hashCode和equals方法，又方便又优雅。写好后，问题来了，总是误判，认为变了，开启杀虫模式…… 终于世界安静了，想象黑客帝国3片尾场景。">
+  <meta name="description" content="业务系统中，有个需求，需要根据一个主记录下的列表来产生一些数据，并且，一旦列表发生变化，需要重新生成数据。简单，做个把列表看成一个对象，重写hashCode和equals方法，又方便又优雅。写好后，问题来了，总是误判，认为变了，开启杀虫模式…… 终于世界安静了，想象黑客帝国3片尾场景。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我是谁？—— 对象比较是bug的温床">
 <meta property="og:url" content="http://www.lixiaofei.cn/2019-01-28-log-3/index.html">
 <meta property="og:site_name" content="管窥程序">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;业务系统中，有个需求，需要根据一个主记录下的列表来产生一些数据，并且，一旦列表发生变化，需要重新生成数据。简单，做个把列表看成一个对象，重写hashCode和equals方法，又方便又优雅。写好后，问题来了，总是误判，认为变了，开启杀虫模式…… 终于世界安静了，想象黑客帝国3片尾场景。">
+<meta property="og:description" content="业务系统中，有个需求，需要根据一个主记录下的列表来产生一些数据，并且，一旦列表发生变化，需要重新生成数据。简单，做个把列表看成一个对象，重写hashCode和equals方法，又方便又优雅。写好后，问题来了，总是误判，认为变了，开启杀虫模式…… 终于世界安静了，想象黑客帝国3片尾场景。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-01-28T10:05:22.000Z">
 <meta property="article:modified_time" content="2020-07-24T08:00:03.756Z">
@@ -246,18 +246,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>&emsp;&emsp;业务系统中，有个需求，需要根据一个主记录下的列表来产生一些数据，并且，一旦列表发生变化，需要重新生成数据。简单，做个把列表看成一个对象，重写<code>hashCode</code>和<code>equals</code>方法，又方便又优雅。写好后，问题来了，总是误判，认为变了，开启杀虫模式…… 终于世界安静了，想象黑客帝国3片尾场景。<br><a id="more"></a></p>
-<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>&emsp;&emsp;这个需求是典型的对象比较问题，一般是将对象序列化，做编码，然后比较两个对象的编码，Java中提供了<code>hashCode</code>和<code>equals</code>方法，不过很多时候需要重写它们，因为默认的<code>hashCode</code>方法，用内存地址为编码，实用性不大。业务中引起一个对象变化的场景很多，例如新增，编辑，联动，RPC调用等等，很多场景下拿到的只是数据，为了方便使用，为此类定义了一个静态方法<code>isChanged</code>，参数是待比较对象，和列表数据，返回列表数据相对于待比较对象是否有了变化。对每个对象提取其列表数据的特征，生成一个key，一个确定的列表，有一个唯一确定的key，通过比较两个对象的key就能知道是否相同，从而知道是否有了变化，存在解决我是谁的问题。</p>
-<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p>&emsp;&emsp;这样，问题转换为如何获取将列表的key，获取key需要考虑：</p>
+        <p>  业务系统中，有个需求，需要根据一个主记录下的列表来产生一些数据，并且，一旦列表发生变化，需要重新生成数据。简单，做个把列表看成一个对象，重写<code>hashCode</code>和<code>equals</code>方法，又方便又优雅。写好后，问题来了，总是误判，认为变了，开启杀虫模式…… 终于世界安静了，想象黑客帝国3片尾场景。</p>
+<a id="more"></a>
+<h4 id="分析">分析</h4>
+<p>  这个需求是典型的对象比较问题，一般是将对象序列化，做编码，然后比较两个对象的编码，Java中提供了<code>hashCode</code>和<code>equals</code>方法，不过很多时候需要重写它们，因为默认的<code>hashCode</code>方法，用内存地址为编码，实用性不大。业务中引起一个对象变化的场景很多，例如新增，编辑，联动，RPC调用等等，很多场景下拿到的只是数据，为了方便使用，为此类定义了一个静态方法<code>isChanged</code>，参数是待比较对象，和列表数据，返回列表数据相对于待比较对象是否有了变化。对每个对象提取其列表数据的特征，生成一个key，一个确定的列表，有一个唯一确定的key，通过比较两个对象的key就能知道是否相同，从而知道是否有了变化，存在解决我是谁的问题。</p>
+<h4 id="实现">实现</h4>
+<p>  这样，问题转换为如何获取将列表的key，获取key需要考虑：</p>
 <ol>
-<li><strong>选特征</strong>：选取哪些列或者特征作为计算key的依据，主要根据业务要求，那些是关键特征，即，哪些特征发生变化就会影响其他结果，或者能唯一确定一条记录的元素，但要注意，这是库表主键不适合做指标，因为主键是数据层面做区分的，也业务层面有很大差异，很可能不同的库表存放的列表数据要做比较，这时主键的存在可能造成永不一致的情况。然后选取一个特征指的排序方式，可以将方式固定在算法中，也可以按照特征值属性名的ASCii编码顺序来排列，只要保证每次运算特征值顺序是一致的</li>
+<li>
+<p><strong>选特征</strong>：选取哪些列或者特征作为计算key的依据，主要根据业务要求，那些是关键特征，即，哪些特征发生变化就会影响其他结果，或者能唯一确定一条记录的元素，但要注意，这是库表主键不适合做指标，因为主键是数据层面做区分的，也业务层面有很大差异，很可能不同的库表存放的列表数据要做比较，这时主键的存在可能造成永不一致的情况。然后选取一个特征指的排序方式，可以将方式固定在算法中，也可以按照特征值属性名的ASCii编码顺序来排列，只要保证每次运算特征值顺序是一致的</p>
+</li>
+<li>
+<p><strong>看排序</strong>：列表的排序是否对key有影响，顺序是业务中至关重要却往往被忽视的一个因素，存在于数据产生的时间、判断条件的先后、加载数据的流程、业务动作的执行顺序等等，所以，对于列表来说，必须认真考虑一下顺序问题，如果顺序是必须考虑的，获取key之前先要将数据进行排序处理，其中要注意排序算法是否稳定，不稳定排序算法，会对关键特征不在排序范围内的，列表的key生成有很大的风险，很可能业务上相同的数据，被误判为不同，</p>
+</li>
+<li>
+<p><strong>序列化</strong>：一般会将对象转换为字节码，或者json，xml这样的字符串格式，这里需要对JSON特别注意，由于JS语言的数据类型转换随意性，例如 <code>1.00</code>、<code>1</code>、<code>&quot;1&quot;</code>、<code>&quot;1.0&quot;</code> 这样的数值被认为是相等的，例如有来自于数据库的，有来自与用户提交的，有RPC过来的，就得用一个转化方法将相同特征的数据转换为相同类型，例如都转换为带两位小数的数字（更多的应该考虑转换为字符串），再做特征提取（实际代码中这里的问题费了好大劲），然后序列化时特征值之间以及行之间需要用特殊的字符分隔，以免不同的数据合成的特征序列相同（例如 1和11 以及11和1不加分隔符合成的结果相同），例如用<code>#</code>、<code>@</code>等分隔，这也可以让人在获取key前有机会观察一下数据序列，以便发现潜在问题。</p>
+</li>
+<li>
+<p><strong>编码</strong>：对于此场景，选用md5等不可逆算法较好，效率会高。在对象产生时，可以先算出key，对比时，可以少算一次key</p>
+</li>
 </ol>
-<ol>
-<li><strong>看排序</strong>：列表的排序是否对key有影响，顺序是业务中至关重要却往往被忽视的一个因素，存在于数据产生的时间、判断条件的先后、加载数据的流程、业务动作的执行顺序等等，所以，对于列表来说，必须认真考虑一下顺序问题，如果顺序是必须考虑的，获取key之前先要将数据进行排序处理，其中要注意排序算法是否稳定，不稳定排序算法，会对关键特征不在排序范围内的，列表的key生成有很大的风险，很可能业务上相同的数据，被误判为不同，</li>
-<li><strong>序列化</strong>：一般会将对象转换为字节码，或者json，xml这样的字符串格式，这里需要对JSON特别注意，由于JS语言的数据类型转换随意性，例如 <code>1.00</code>、<code>1</code>、<code>&quot;1&quot;</code>、<code>&quot;1.0&quot;</code> 这样的数值被认为是相等的，例如有来自于数据库的，有来自与用户提交的，有RPC过来的，就得用一个转化方法将相同特征的数据转换为相同类型，例如都转换为带两位小数的数字（更多的应该考虑转换为字符串），再做特征提取（实际代码中这里的问题费了好大劲），然后序列化时特征值之间以及行之间需要用特殊的字符分隔，以免不同的数据合成的特征序列相同（例如 1和11 以及11和1不加分隔符合成的结果相同），例如用<code>#</code>、<code>@</code>等分隔，这也可以让人在获取key前有机会观察一下数据序列，以便发现潜在问题。</li>
-<li><strong>编码</strong>：对于此场景，选用md5等不可逆算法较好，效率会高。在对象产生时，可以先算出key，对比时，可以少算一次key  </li>
-</ol>
-<h4 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h4><p>&emsp;&emsp;这样的简单场景，实际上是现实中一个常见问题的缩影，即唯一性标识问题，从每个人的身份证号，到商品的的SN，到从数据库的主键，到对象的hashCode，从业务中的信息定义，到具体应用中的token等等。<br>&emsp;&emsp;有人说世界上从来没有新方法，都是对原有事物或者方法的组合，想想真是，所以基础知识和原理很重要，值得停下来好好想想，您说呢？</p>
+<h4 id="结语">结语</h4>
+<p>  这样的简单场景，实际上是现实中一个常见问题的缩影，即唯一性标识问题，从每个人的身份证号，到商品的的SN，到从数据库的主键，到对象的hashCode，从业务中的信息定义，到具体应用中的token等等。<br>
+  有人说世界上从来没有新方法，都是对原有事物或者方法的组合，想想真是，所以基础知识和原理很重要，值得停下来好好想想，您说呢？</p>
 
     </div>
 
@@ -365,7 +376,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -378,7 +389,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
