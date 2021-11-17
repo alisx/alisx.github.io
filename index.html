@@ -279,10 +279,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-09-16 12:15:12 / 修改时间：19:00:55" itemprop="dateCreated datePublished" datetime="2021-09-16T12:15:12+08:00">2021-09-16</time>
+              <time title="创建时间：2021-09-16 12:15:12" itemprop="dateCreated datePublished" datetime="2021-09-16T12:15:12+08:00">2021-09-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-17 22:19:57" itemprop="dateModified" datetime="2021-11-17T22:19:57+08:00">2021-11-17</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -331,74 +337,14 @@
 <p>转为 Pdf，或者 html，可以是可以，不过阅读起来不方便，也记不住上次读到哪里了，更要命的是无法做笔记，也搜了纸质书，因为这本书没用正式出版，所以也都是盗版的。</p>
 <p>因为我经常用 多看APP 读书，如果能直接在多看上看就好了。</p>
 <p>尝试了以一圈，发现了一个好方法，现在我以及阅读过半了，现在分享一下我的魔法过程。</p>
-<h2 id="解题思路">解题思路</h2>
-<p>首先看看多看支持什么样的电子书格式，百度一下，特别全，为了更好的体验，还是转为 epub 更好。</p>
-<p>因为 PDF 没法自适应行，只能通过放大缩小控制。</p>
-<p>那么如何转 epub 呢？一搜，发现有众多在线转的，尝试了几个，不是收费就是各种限制。</p>
-<p>咱不是会编程吗？如果能自己搞岂不更好。</p>
-<p>改变检索思路，很快发现了一个命令行工具 —— <code>pandoc</code>，进一步研究，发现竟然有 Python 版的 —— pypandoc，真是太棒了，研究一番，发现完全满足我的需求。</p>
-<p>于是解决方案就是：</p>
-<ol>
-<li>下载 markdown 版电子书</li>
-<li>用 pypandoc 转化为 epub 格式</li>
-<li>导入 多看 阅读</li>
-</ol>
-<h2 id="神奇出场">神奇出场</h2>
-<p>之所以喜欢 Python 有一个重要的原因就是安装和使用扩展很方便，几乎每个神器出场的方式都是一样的哈哈</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pypandoc</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>友情提示：<br>
-最好创建一个虚拟环境来安装，这样不好影响其他库，也方便迁移，理解和创建虚拟环境可以参考 <a href="https://mp.weixin.qq.com/s/WflK5pOKhvPg8zrf_W5mfw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/WflK5pOKhvPg8zrf_W5mfw</a></p>
-</blockquote>
-<p>安装成功之后，可以测试一下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pypandoc</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(pypandoc.get_pandoc_version())</span><br><span class="line"><span class="number">2.14</span><span class="number">.2</span></span><br></pre></td></tr></table></figure>
-<p>可见，我安装的版本是: 2.14.2</p>
-<blockquote>
-<p>pandoc 是一个常用的软件，很多操作系统比如 Windows 可能已经内置<br>
-另外也可以单独安装，使用它的命令行工具，更多的 Pandoc 安装方式 和用法可以参考 <a href="https://github.com/NicklasTegner/pypandoc" target="_blank" rel="noopener" title="Pandoc 说明">Pandoc 说明</a> 和 <a href="https://pandoc.org/index.html" target="_blank" rel="noopener" title="Panddoc 文档">Panddoc 文档</a></p>
-</blockquote>
-<h2 id="小试牛刀">小试牛刀</h2>
-<p>翻看 Pandoc 说明，发现有个 <code>convert_text</code> 方法，可以用字符串的方式提供待转化的文本。</p>
-<p>那先写一段 markdown 试试：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pypandoc</span><br><span class="line"></span><br><span class="line">input = <span class="string">"**Hello World!**"</span></span><br><span class="line">output = pypandoc.convert_text(input, <span class="string">'html'</span>, format=<span class="string">'md'</span>)</span><br><span class="line"></span><br><span class="line">print(output)</span><br></pre></td></tr></table></figure>
-<p>显示结果如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">strong</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>太棒了，将 <code>**Hello World!**</code> 转化成了一段 html 代码了。</p>
-<p>再试点复杂的：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pypandoc</span><br><span class="line"></span><br><span class="line">input = <span class="string">"""</span></span><br><span class="line"><span class="string"># Pandoc</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Pandoc 是个牛X的工具</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">## 用法</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">- `convert_text`</span></span><br><span class="line"><span class="string">- `convert_file`</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">output = pypandoc.convert_text(input, <span class="string">'html'</span>, format=<span class="string">'md'</span>)</span><br><span class="line">print(output)</span><br></pre></td></tr></table></figure>
-<p>看看输出：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">"pandoc"</span>&gt;</span>Pandoc<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Pandoc 是个牛X的工具<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">id</span>=<span class="string">"用法"</span>&gt;</span>用法<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">code</span>&gt;</span>convert_text<span class="tag">&lt;/<span class="name">code</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">code</span>&gt;</span>convert_file<span class="tag">&lt;/<span class="name">code</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>换一种输出格式呢？</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">output = pypandoc.convert_text(input, <span class="string">'rst'</span>, format=<span class="string">'md'</span>)</span><br></pre></td></tr></table></figure>
-<p>看看输出：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Pandoc</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"></span><br><span class="line">Pandoc 是个牛X的工具</span><br><span class="line"></span><br><span class="line">用法</span><br><span class="line">----</span><br><span class="line"></span><br><span class="line">-  &#96;&#96;convert_text&#96;&#96;</span><br><span class="line">-  &#96;&#96;convert_file&#96;&#96;</span><br></pre></td></tr></table></figure>
-<p>最好试试转化为 ePub 格式</p>
-<blockquote>
-<p>ePub 格式无法输出为字符串，需要存入文件，所以需要用 加入 <code>outputfile</code> 参数</p>
-</blockquote>
-<p>代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">convert_test(input, <span class="string">'epub'</span>, format=<span class="string">'md'</span>, outputfile=<span class="string">'test.epub'</span>)</span><br></pre></td></tr></table></figure>
-<p>用 EPUB File Reader 打开看看效果：</p>
-<p><img src="http://www.justdopython.com/images/2021/09/pypandoc/01.jpg" alt="epub"></p>
-<h2 id="生成电子书">生成电子书</h2>
-<p>测试了没问题后，就转化一个 Markdown 文件试试。</p>
-<p>对于文件，需要用 <code>convert_file</code> 方法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pypandoc</span><br><span class="line"></span><br><span class="line">convert_file(<span class="string">'everyone-can-use-english.md'</span>, <span class="string">'epub'</span>, <span class="string">'md'</span>, outputfile=<span class="string">'人人都能用英语.epub'</span>)</span><br></pre></td></tr></table></figure>
-<p>很快就能生成一个 epub 格式的电子书。</p>
-<p>这里需要注意的是： <strong>引用的图片</strong></p>
-<p>如果是网络上的，需要将图片地址换成全网址，如果是相对的，需要保持目录结构，并却提前准备好图片。</p>
-<p>不然将无法生成图片，使电子书失去一定的可读性。</p>
-<p>生成好了之后，可以将 <code>人人都能用英语.epub</code> 发送到手机上，用多看打开。</p>
-<p>看看效果：</p>
-<p><img src="http://www.justdopython.com/images/2021/09/pypandoc/02.jpg" alt="多看"></p>
-<p>之后就可以在书架里看到了：</p>
-<p><img src="http://www.justdopython.com/images/2021/09/pypandoc/03.jpg" alt="多看书架"></p>
-<p>简直太棒了，可以安心的读书了！</p>
-<h2 id="总结">总结</h2>
-<p>今天介绍了 <code>pyPandoc</code> 的简单用法 pyPandoc 不仅帮助我创建了电子书，而且让我理解了 Markdown 转化为 Html 的结果，为进步步打造自己的写作系统奠定了基础。</p>
-<p>Pandoc 是个强大的工具，利用好，可以帮助我们实现电子书自由，加上会 Python 编程，就更厉害了。</p>
-<p>期望这篇文章对你有用，祝你打造出自己的电子书系统，比心！</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021-09-16-pandoc/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -440,10 +386,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-09-06 13:58:57 / 修改时间：15:47:03" itemprop="dateCreated datePublished" datetime="2021-09-06T13:58:57+08:00">2021-09-06</time>
+              <time title="创建时间：2021-09-06 13:58:57" itemprop="dateCreated datePublished" datetime="2021-09-06T13:58:57+08:00">2021-09-06</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-17 22:19:51" itemprop="dateModified" datetime="2021-11-17T22:19:51+08:00">2021-11-17</time>
+              </span>
 
           
             <span id="/2021-09-06-the-lunch/" class="post-meta-item leancloud_visitors" data-flag-title="像回家吃饭一样" title="阅读次数">
@@ -482,42 +434,15 @@
 <p>“旅游呀，就是受罪，还是每天为大家做点事情实在”；</p>
 <p>“还用锻炼吗？每天来回走能有十多公里了”</p>
 <p>……</p>
-<p>如果不是亲耳听到，我一定不会相信，这些话出一位餐厅大妈老板之口。</p>
-<h2 id="1">1</h2>
-<p>自从公司搬到五路居后，经常去附近地下商场的美食城吃饭。其中一家干净整洁，风格优雅的餐厅 —— 6号拌面，很引人注意。</p>
-<p><img src="http://blog.lixiaofei.cn/images/2021/09/thelunch/01.jpg" alt="6号拌面"></p>
-<p>商场通道里的他们海报很有特色，除了菜品更多的是与食客的合影。</p>
-<p><img src="http://blog.lixiaofei.cn/images/2021/09/thelunch/02.jpg" alt="海报"></p>
-<p>每次经过门口，都会被老板的热情张罗所感染。偶尔和同事去过几次，都是点菜，感觉还不错。</p>
-<h2 id="2">2</h2>
-<p>后来，因为我饭点不定，常一个人去吃饭，于是再去试探了一下，这才知道除了点菜，还有现成的红碗、绿碗两大类菜品可直接选。</p>
-<p>红碗荤菜多，贵些，绿碗素菜多，便宜点，每种都有多样可选，另外主食有米饭，炒饭，面条，都是免费不限量的。我比较喜欢吃红碗的红烧鸡块，和绿碗的卤肉豆角。</p>
-<p><img src="http://blog.lixiaofei.cn/images/2021/09/thelunch/03.jpg" alt="菜品"></p>
-<p>自此之后，每天中午都去那里吃。</p>
-<p>有天拿了碗红烧鸡块，吃完结帐时才意识到是绿碗，问店员是否装错了，店员说：今天立秋，天气转凉，老板嘱咐所有菜都用绿碗盛，作为 <strong>立秋特供</strong>。</p>
-<h2 id="3">3</h2>
-<p>几天后，我忙完已经下午2点多了，去吃饭，店里没客人，大妈正在和店员们吃饭。</p>
-<p>我选了一份菜，边吃边聊了起来。虽然在这吃了几个月了，但没怎么聊过。</p>
-<p>我提到那个立秋特供时，打开了话匣子，聊了很多，于是听到了前面的那些话。</p>
-<p>她说，有次在离这里很远的一个商场，拎了一堆东西，突然一个小伙子跑过来说：“ 阿姨，您怎么跑这么远买东西呀，来来来我帮您拿…… ”</p>
-<p>这个小伙子是她之前帮助过的一个送餐员，当时她已经不记得帮过他了。</p>
-<p>她说，<strong>这个世界上，只要你做好事，帮助别人，迟早会还回来的</strong>。</p>
-<p>像这样的事情在她身上发生的太多了。</p>
-<p>她递给我一份菜单，我才发现这个菜单不一般 ——</p>
-<p>每页，一面是菜品，另一面是自己写散文诗，最后几页还有易读错字表</p>
-<p><img src="http://blog.lixiaofei.cn/images/2021/09/thelunch/07.jpg" alt="散文诗"></p>
-<p><img src="http://blog.lixiaofei.cn/images/2021/09/thelunch/06.jpg" alt="易读错字表"></p>
-<p>散文诗，有的是四个季节的描述，有的是旅途中的感悟，用词优美，并糅合古诗词，一种愉悦感跃然纸上。</p>
-<p>其中有篇在去年疫情期间写的文章，让我印象深刻，用拟人的手法，讨问病毒，更展现了人民战胜困难的勇敢与坚毅，以及表达了 <strong>对未来的信心和祝愿</strong>。</p>
-<h2 id="4">4</h2>
-<p>为什么要做这样的菜单呢？</p>
-<p>她说，可以让客人在等菜时看看，调节一下心情，舒缓一下情绪，让客人感觉像回家吃饭一样。</p>
-<p>虽然这里菜上的很快，客人也都只看手机，但这一份用心，蕴含无限温暖。</p>
-<p>每次，我都能感受到，回家吃饭的踏实、从容与温暖。</p>
-<h2 id="5">5</h2>
-<p>不占便宜，踏踏实实，认认真真，干干净净</p>
-<p>是一种修行，是一种的习惯，更是一种生活的态度</p>
-
+<p>如果不是亲耳听到，我一定不会相信，这些话出一位餐厅大妈老板之口……</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021-09-06-the-lunch/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
