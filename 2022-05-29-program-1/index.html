@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.lixiaofei.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":true,"storage":true,"lazyload":true,"nav":{"valine":{"order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="在《编程，真不难》中，我们对编程做了初步认识，并选择 Python 作为默认的编程语言。 下面，就来看看如何用 Python 编程，用程序员的说法就是让程序 跑起来。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2022-05-29-program-1">
+<meta property="og:url" content="http://www.lixiaofei.cn/2022-05-29-program-1/index.html">
+<meta property="og:site_name" content="管窥程序">
+<meta property="og:description" content="在《编程，真不难》中，我们对编程做了初步认识，并选择 Python 作为默认的编程语言。 下面，就来看看如何用 Python 编程，用程序员的说法就是让程序 跑起来。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.lixiaofei.cn/images/2022/program_1/01.png">
+<meta property="og:image" content="http://www.lixiaofei.cn/images/2022/program_1/02.png">
+<meta property="og:image" content="http://www.lixiaofei.cn/images/2022/program_1/03.png">
+<meta property="og:image" content="http://www.lixiaofei.cn/images/2022/program_1/04.png">
+<meta property="og:image" content="http://www.lixiaofei.cn/images/2022/program_1/05.png">
+<meta property="article:published_time" content="2022-05-28T22:59:14.000Z">
+<meta property="article:modified_time" content="2022-05-30T07:01:15.005Z">
+<meta property="article:author" content="太阳雪">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.lixiaofei.cn/images/2022/program_1/01.png">
+
+<link rel="canonical" href="http://www.lixiaofei.cn/2022-05-29-program-1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>2022-05-29-program-1 | 管窥程序</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">管窥程序</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Today is a gift</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/alisx" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.lixiaofei.cn/2022-05-29-program-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="太阳雪">
+      <meta itemprop="description" content="总结 技术 思考 想法">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="管窥程序">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2022-05-29-program-1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-05-29 06:59:14" itemprop="dateCreated datePublished" datetime="2022-05-29T06:59:14+08:00">2022-05-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-30 15:01:15" itemprop="dateModified" datetime="2022-05-30T15:01:15+08:00">2022-05-30</time>
+              </span>
+
+          
+            <span id="/2022-05-29-program-1/" class="post-meta-item leancloud_visitors" data-flag-title="2022-05-29-program-1" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022-05-29-program-1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022-05-29-program-1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>在《编程，真不难》中，我们对编程做了初步认识，并选择 Python 作为默认的编程语言。</p>
+<p>下面，就来看看如何用 Python 编程，用程序员的说法就是让程序 <strong>跑起来</strong>。</p>
+<a id="more"></a>
+<h2 id="运行程序的平台">运行程序的平台</h2>
+<p>计算机看起来很复杂，其实内部很简单，就是不断地表示、传输 和 变换 0 和 1 这两种状态。</p>
+<p>虽然状态简单，但用数以亿计的规模，就能表示出逼真的图像、实现各种逻辑运算。</p>
+<p>就像北京奥运会上的活字表演，通过上下两个状态，多个单元组合起来就能表现出丰富的形状一样。</p>
+<p><img src="../images/2022/program_1/01.png" alt="活字表演"></p>
+<p>计算机一旦启动，就以超高的速度，不断地处理大量的 0 和 1，如同奔腾的河流。</p>
+<p>为了能操控计算机，让它按照我们的设想运行，需要在其上建立一套控制系统，即 <a href="https://baike.baidu.com/item/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/192" target="_blank" rel="noopener" title="操作系统">操作系统</a>。</p>
+<p>比如 Windows、MacOS、Linux，还有用于智能手机的 Android、iOS等等，都是操作系统。</p>
+<p>操作系统完成了绝大部分操作和控制计算机的工作，就像在奔流涌动的河流上的一个超级大坝。</p>
+<p>大坝有序控制着水流，并给我们提供了一个可以操控水流的平台，让我们可以将水流的动能转化为其他我们想要的能量或者形式。</p>
+<p>而且在这个平台上，我们还可以构筑自己的建筑，并增加需要的功能 —— 基于操作系统开发应用程序。</p>
+<p>操作系统为我们提供了大量的计算机调用接口。有的接口提供了图形化的操作方式，而更多的接口只能通过程序的方式才能调用。</p>
+<p>笑来老师在《<a href="https://lixiaolai.com/#/befriending-time/" target="_blank" rel="noopener" title="把时间当作朋友">把时间当作朋友</a>》中，将我们的底层认知，比喻成操作系统，可谓是恰如其分。</p>
+<p>当一个操作系统不够稳定，可靠，精致时，不难想象构筑在其上的应用程序会是多么的浅薄。</p>
+<p>我们将来编写的程序，就是基于操作系统这个平台的。</p>
+<p>不同操作系统之间除了共性，还存在着很多差异。</p>
+<p>比如 Windows 中，用 <code>/</code> （反斜杠）作为文件系统的路径分割符，而 Linux 以及 MacOS 中用的是 <code>\</code> （斜杠）。</p>
+<p>这些不同，会对编程造成一定的影响，很多时候不得不针对不同的操作系统，编写对应的软件版本，比如我们即将看到的 Python 编译器。</p>
+<p>好在有 <strong>编译器</strong>，操作系统之间的绝大多数差异，都被编译器屏蔽了。</p>
+<p>编译器是不同的编程语言，为了让程序能与操作系统融合，也就是合理地调用操作系统的接口而建立的，解释编译代码的软件。</p>
+<p>有点拗口，打个比方，就像一个全自动洗衣机，可以自动控制水量、清洗时间、清洗过程，我们只需要准备好衣物，洗衣粉（液），柔顺剂，加入洗衣机规定的位置即可。</p>
+<p>有了编译器，编程中 90% 以上与操作系统接口相关的工作就已经完成了，而我们需要做的就是梳理业务逻辑，用合适的代码将其表示出来。</p>
+<p>这也就是为什么现在编程技能的门槛低到小孩子都能掌握的原因。</p>
+<p>回想一下上篇文章中雷军写的代码，那时想要操作计算机，需要用到汇编语言，精细地控制计算机内部单元，甚至需要直接操作 CPU（中央处理器，计算机的核心运算单元） 的每个元素。</p>
+<p>基于编译器，就可以忽略操作系统之间的差异，从而使得我们程序可以一处编写，到处运行。</p>
+<h2 id="安装-Python-编译器">安装 Python 编译器</h2>
+<p>下面来看看，我们 Python 牌的 “全自动洗衣机” 吧。</p>
+<p>Python 为不同的操作系统，量身定做了性能、功能几乎完全相同的编译器 —— 编译 Python 代码的程序。</p>
+<p>所以在选用之前，需要明确自己用的是什么操作系统，再选择相应的版本：</p>
+<p><img src="../images/2022/program_1/02.png" alt="Python 编译器的版本"></p>
+<blockquote>
+<p><strong>注意</strong>：需要选择 Python 3，而不是 Python 2</p>
+<p>基于种种原因，Python 2 已退出舞台中心，Python 3 已然成为了最受欢迎的 Python 语言版本</p>
+<p>另外，建议选择 <strong>Python 3.6</strong> 以后的版本，因为很多有用的语言特性是在 3.6 版本中添加的</p>
+</blockquote>
+<p>选择好后，下载程序，然后像按照一般应用程序一样安装。</p>
+<p>因为编译器本身就是个程序。所以这里略去具体的安装步骤，读者可以自行查找，与自己操作系统对应的安装详细步骤。</p>
+<p>这里给出一篇用于参考的<a href="https://zhuanlan.zhihu.com/p/104502997" target="_blank" rel="noopener" title="Python 安装教程">安装教程</a>。</p>
+<p>安装过程一定会遇到各种各样的问题，不要紧，这就是探索过程中的乐趣所在。</p>
+<p>如果遇到实在解决不了的问题，可以向笔者反馈。</p>
+<h2 id="配置编译器">配置编译器</h2>
+<p>一般我们的习惯是，通过双击程序的图标，打开程序。</p>
+<p>但对程序编译器来说，方式有些不同，但本质是一样的，都是得让操作系统知道要运行的程序在哪儿。</p>
+<p>如何让操作系统知道我们的 Python 编译器在哪儿呢，需要了解两个概念：<strong>环境变量</strong> 和 <strong>命令行</strong>。</p>
+<h3 id="环境变量">环境变量</h3>
+<p>简单说，就是程序执行时所处的环境信息。</p>
+<p>这个解释比较抽象，我们看个例子：</p>
+<p>假如我们，在一个有很多房间的陌生大楼里，每个房间里放着各种物品或者设备，现在要求我们找到 347 号打印机，打印一份 4378 号文件。</p>
+<p>我们一定很茫然，因为我们不知道 347 号打印在哪儿？4378 号文件又在何处？</p>
+<p>如果房间数量少，还可以逐个找找，但房间数量太多话，就很难了，更何况对现在这个大楼并不熟悉。</p>
+<p>如果此时，我们能找到一些线索，比如在哪些层、哪些房间可能存在我们要找的东西，那我们就可以按图索骥了。</p>
+<p>可问题是，即使存在这样的线索，我们要去哪儿找这些线索呢？</p>
+<p>庆幸的是每个大楼，都设置了一个服务台，专门存放供大家查阅的信息。</p>
+<p>其实，例子中的大楼就是操作系统，执行任务的我们就是程序，而存放线索的位置，就是<strong>环境变量</strong>。</p>
+<p>为啥叫这个奇怪的名，不叫个公告栏或者服务台啥的呢？</p>
+<p>这是因为，早期的计算机是由一群程序员设计的，程序中能存放数据的单位被称为变量，而在整体环境中能存放信息的位置就自然地叫成了环境变量，后面就成了惯例。</p>
+<p>无论是 Windows、Linux，或者是 macOS，都有环境变量，比如笔者的电脑上的环境变量设置：</p>
+<p><img src="../images/2022/program_1/03.png" alt="环境变量"></p>
+<p>如果不知道自己的电脑如何找，网上有很多具体的说明可自行查阅。</p>
+<p>在环境变量中，有个字段：<code>path</code>，其中存放的列表就是执行程序时需要查找的位置。</p>
+<p>无论什么程序，只要想在命令行程序中运行，就必须将其所在的位置加入到 <code>path</code> 中，或者，将自己放在已经在 <code>path</code> 的某个路径里，否则，将命令行将查找不到，从而无法执行。</p>
+<p>现在是否理解了环境变量了呢？如果是，那编程技能就提升了一大截。</p>
+<p>说了半天，这个环境变量与我们的 Python 编程有什么关系呢？</p>
+<p>先不要着急，我们还得了解一个概念。</p>
+<h3 id="命令行">命令行</h3>
+<p>一提到命令行，很多读者就发怵，那黑乎乎的一片，不断翻滚的字符，以及神秘的符号，完全是不食烟火之人玩的东西。</p>
+<p>确实，很多段子、影视剧，甚至程序员自己，都把这样的场景包装成很神秘的样子。</p>
+<p>其实呀，一点都不神秘，也谈不上难。</p>
+<p>在早期，图形化还不成熟的时候，与电脑的主要交互方式就是通过命令行来交互。甚至电脑启动后，只能看到一个不断闪烁的命令提示符。</p>
+<p>在我小时候，当时电脑培训的内容就是如何使用 <a href="https://baike.baidu.com/item/dos/32025" target="_blank" rel="noopener" title="DOS">DOS</a>。</p>
+<p>这个 DOS 就是 Windows 操作系统中的命令行前身，甚至可以说是 Windows 操作系统的前身。</p>
+<p>而后，随着图形化的发展和流行，越来越多的程序，都有使用更直观的图形化界面。甚至，基于 Linux 的 Android 智能手机操作系统，干脆屏蔽了命令行的展现形式。要知道命令行可是 Linux 的强项呀。</p>
+<p>而原本非常基础的命令行式交互方式，就显得古老而神秘了。</p>
+<p>虽然命令行比起图形化的应用程序，不太直观，但是，在编程过程中，却有无比便利的优势。</p>
+<p>这是因为，程序执行的大部分时间是不需人为干涉的，只需给它提供可用的资源（输入），让它按照一定的逻辑处理（处理），最后它就能把结果放在某个地方（输出），而中间的处理过程不需要F都展示。</p>
+<p>想象一下，我们需要从一个网站上爬取信息，期望的方式是执行一段代码，过一会儿，就能得到数据结果，而不是时时刻刻都需要我们的参与。</p>
+<p>另外，很多程序像爬虫程序一样，适合运行在云服务器上，而绝大多数云服务器根本就不支持图形界面。</p>
+<p>除此之外，让程序具有图形界面是比较费事的。比如一个输入框，从选择合适的图形框架，到编写能合理处理各种输入的代码，需要花费大量的时间和精力。如果不是要推向市场的软件产品，很少有开发者愿意付出这个代价。</p>
+<p>这就是程序员都喜欢命令行的原因，因为它足够的简单、高效，不用考虑太多的东西，也不用花费太大代价，即单纯。</p>
+<blockquote>
+<p>命令行，在不同操作系统上的叫法有所不同，Windows 中也被称为 <strong>命令提示符</strong>，类 Linux， MacOS 中，被称作 <strong>终端</strong></p>
+</blockquote>
+<h3 id="运行-Python-编译器">运行 Python 编译器</h3>
+<p>理解了环境变量，也认识了命令行，现在打开命令行（如果不清楚如何开启，网上有很多具体教程可以参考）。</p>
+<p>启动命令行后，在提示符上输入 <code>python</code>，并按回车，如果一切正常，会看到类似下面的显示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\xiaof&gt;python</span><br><span class="line">Python 3.8.5 (tags/v3.8.5:580fbb0, Jul 20 2020, 15:57:54) [MSC v.1924 64 bit (AMD64)] on win32</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> or <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<p>先不要管显示的是什么东西，我们先了解一下，命令行在收到命令后做了什么。</p>
+<p>刚才输入的 <code>python</code>，对命令行来说是一个命令，意思是需要命令行执行一个叫做 <code>python</code> 的命令或者程序。</p>
+<p>输入回车之后，命令行就会在环境变量的 <code>path</code> 列表中，逐个查找 <code>python</code> 可执行程序。</p>
+<p>如果像上面显示的结果，就说明命令行找到了一个叫 <code>python</code> 的程序，并且将其运行起来了。</p>
+<p>那么为什么命令行能找到呢？</p>
+<p>是因为环境变量的 <code>path</code> 里，保存了一个 <code>python</code> 程序所在的目录。</p>
+<p>还记得安装 Python 编译器时，有个意思是 <code>是否要将 Python 添加到 Path 中</code> 的选项吗？</p>
+<p><img src="../images/2022/program_1/04.png" alt="添加到 Path"></p>
+<p>勾选了这个选项，就能将 Python 程序所在的位置，添加到环境变量的 <code>path</code> 中了。</p>
+<p>这就是，当我们打开命令行，输入命令 <code>python</code> 时，看到类似上面结果的原因。</p>
+<blockquote>
+<p>一般情况下，命令行启动时，会将 <code>path</code> 中的信息读取进来，这样就不用每次运行命令时，都去查询环境变量了。</p>
+<p>但，也会引入一个问题：命令行一旦打开，无法知道，其打开后，加入到环境变量中的信息了。</p>
+<p>因此，如果一个命令行在安装 Python 前打开就已经打开了，那么，即使正确安装了 Python，在这个命令行中也无法正常运行 <code>python</code> 命令。</p>
+<p>解决方法很简单，关闭掉这个命令行，重新打开一个就是了。</p>
+</blockquote>
+<p>绕了这么大圈，笔者到底想说什么？</p>
+<p>其实就是想让读者明白，如何有效地在命令行中使用 Python 编译器。</p>
+<p>在实际环境中，情况往往很复杂。</p>
+<p>可能电脑上已经安装了 Python、或者需要与原来 Python 的环境区分开、或者将 Python 安装到了其他目录中、想用之前已经安装好的等等。</p>
+<p>无论什么情况，原理都是相同的，只要将自己想使用的 Python 编译程序的位置，写入到环境变量的 <code>path</code> 列表中就可以。</p>
+<p>如果有多套环境，可以通过在 <code>path</code> 中调整位置的先后顺序，来控制优先使用哪个版本的 Python 编译器。</p>
+<p>不仅如此，未来我们在使用 IDE（集成开发环境），如 <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" title="VS code">VS code</a>，或者更高级的编译工具，如 <a href="https://jupyter.org/" target="_blank" rel="noopener" title="Jupyter">Jupyter</a>时，就不会被如何选择 Python 编译器搞晕了。</p>
+<p>特别是当我们需要用虚拟环境时，现在的这些准备会显得尤为重要。</p>
+<p>而大多数人只想直奔主题，而不去理解其中的原理，就总是会卡在命令行和环境变量这两个坑里。</p>
+<h2 id="Python-编译器的工作模式">Python 编译器的工作模式</h2>
+<p>现在，我们可是安心地，理解刚才执行 <code>python</code> 命后的结果了。</p>
+<p>Python 编译器有两种工作模式，第一种是 <strong>交互模式</strong>。</p>
+<p>前面运行 <code>python</code> 命令后出现的结果，就是进入了编译器的交互模式。</p>
+<p>这个模式很像命令行程序，不过命令提示符变成了 <code>&gt;&gt;&gt;</code>。这是为了我们能够更容易地识别出当前所处的环境。</p>
+<blockquote>
+<p>命令行提示符，在不同的模式或者环境之下会有不同的样式，比如 &gt;、#、$ 等</p>
+</blockquote>
+<p>在交互模式中，输入任何合法的 Python 代码，立即就能看到代码执行的结果。</p>
+<p>比如输入: <code>1 + 1</code> 回车，就会看到执行结果为 <code>2</code>。</p>
+<p>交互模式很有用，就能随意地与 Python 编译器交互，学习和实践 Python 的语法和特性。</p>
+<p>另外，日常工作中也很常用，比如验证某个语法特性，或者跑一下某个算法等等。很多时候感觉 Python 交互模式，就像一个电脑里带的计算器。的确，把它当成计算器完全没问题哈哈。</p>
+<p>如果需要退出交互模式的话，输入 <code>exit()</code> 回车就可以了。</p>
+<p>第二种模式是 <strong>执行模式</strong>。</p>
+<p>当 <code>python</code> 命令后添加一个代码文件的参数时，就会触发 Python 编译器的执行模式。</p>
+<p>例如，在当前目录下，有个 <code>main.py</code> 代码文件，那么执行这个代码文件的命令是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python main.py</span><br></pre></td></tr></table></figure>
+<p>这时，<code>main.py</code> 就会被输入到 Python 编译器中，被解释成操作系统可以执行的程序，并执行。</p>
+<p>交互模式 和 执行模式，本质上是一样的，只不过，交互模式的每一步执行都会与用户交互。而执行模式，可以对一整段代码，即代码文件进行一并执行。</p>
+<p>实践当中，我们可以根据自己的需要，选择适合的编译模式。</p>
+<h2 id="代码编辑器">代码编辑器</h2>
+<p>编写代码，需要用到代码编辑器。</p>
+<p>代码编辑器品类繁多，功能从简易到高级应有尽有。比如我最常用的编辑器是 VS Code。</p>
+<p>不过，刚开始学习编程时，不需要功能强大的代码编辑器，越简单越好，比如使用操作系统自带的文本编辑器。</p>
+<p>为什么呢？</p>
+<p>首先，不需要为打造一个功能强大编辑工具劳神。并不是说功能强大不好，而是刚开始并不知道哪些功能更适合自己。而随着对编程技能的深入练习，就会自然地倾向于某些功能，从而选择一个适合自己，用着趁手的编辑器。</p>
+<p>第二，很多编译器具有语法提示功能，很大程度减轻了代码编写工作量。但对初学者来说，不利于对语法特性的深入了解。</p>
+<p>第三，功能强大的编辑器，会有程度相当的使用复杂度。很多时候，因为无法让编辑器达到预期效果，而产生对编程技能的厌恶情绪。这对刚开始学习编程的人来说，影响往往是巨大的，很可能就此放弃对编程技能的继续学习。</p>
+<p>功能强大的编辑器写出的代码并不会比简单的编辑器写出来的更正确。</p>
+<p>无论什么样的编辑器写出的代码，最终都是一个文本文件，虽然文件的扩展名是 <code>py</code>。</p>
+<p>只要是文本文件，就能作为 Python 编译器的输入，就能被有效地执行。当然是否正确执行取决于代码语法和逻辑是否正确。</p>
+<p>需要特别提醒的是，需要将文本文件的编码格式设置为 <strong>utf-8</strong>，utf-8 编码这个是目前通用性最好的编码方式，无论是在网络上传输，还是在其他机器上运行，都没问题。</p>
+<p>而非 utf-8 的编码格式，可能会在执行时，会得到编码错误的错误提示。</p>
+<p>这里，推荐一个简易的编辑器： <a href="https://sourceforge.net/projects/notepadplusplus.mirror/" target="_blank" rel="noopener" title="Notepad++">Notepad++</a>。</p>
+<p>这款编辑器，轻巧如操作系统自带的文本编辑器，更重要的是它提供了，便捷的文本编码格式转化功能：</p>
+<p><img src="../images/2022/program_1/05.png" alt="Notepad++ 文本编码"></p>
+<h2 id="小试牛刀">小试牛刀</h2>
+<p>现在，我们来写段代码，跑跑看。</p>
+<p>按照惯，我们就写个 Hello World 吧。</p>
+<p>用手头的文本编辑器，创建一个文件，输入一行代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Hello world!"</span>)</span><br></pre></td></tr></table></figure>
+<p>保存文件，且名为 <code>hello.py</code>（当然，只要符合操作系统文件名命名规范，可以随意命名）。</p>
+<p>在保存文件的文件夹中，打开一个命令行程序。</p>
+<p>在其中输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python hello.py</span><br></pre></td></tr></table></figure>
+<p>回车，就给看到一行输出：<code>Hello world</code>，说明我们第一个程序能跑了。</p>
+<blockquote>
+<p>命令行总是会在某一个文件目录下工作。一般从哪个目录打开，默认的工作目录就是打开命令行程序时的目录。可以通过 <code>cd</code> 命令来切换当前目录。操作系统都有这个命令。</p>
+</blockquote>
+<p>如果打开的命令行不在代码的目录下，需要得到正确的执行结果，可以：</p>
+<ol>
+<li>通过 <code>cd</code> 命令切换到代码目录下；</li>
+<li>将执行命令改成 <code>python [代码文件路径]hello.py</code>，例如 <code>python /program/python/hello.py</code></li>
+</ol>
+<blockquote>
+<p>以上两种执行方式，对程序来说会稍有不同，在后面讨论程序的当前目录时会详述</p>
+</blockquote>
+<p>程序虽然简单，但麻雀虽小五脏俱全：</p>
+<ul>
+<li>
+<p><strong>输入部分</strong>：没有输入。没有输入可以看作一种输入的特例，就像 0 也是一个数字一样。</p>
+</li>
+<li>
+<p><strong>处理部分</strong>：将一个字符串 <code>Hello world</code>，通过 Python 的方法 <code>print</code> 处理，输出到操作系统的标准输出端。</p>
+</li>
+<li>
+<p><strong>输出部分</strong>：在标准输出端（暂且理解成命令行的输出）上显示 <code>Hello world</code> 字样。</p>
+</li>
+</ul>
+<p>任何程序，无论多么复杂，结构都是类似的。</p>
+<p>比如 Python 编译器这个程序，输入是代码文件，处理过程是编译并执行代码文件，输出结果是返回代码文件执行的结果。</p>
+<h2 id="总结">总结</h2>
+<p>今天，我们从程序如何执行开始，了解了 Python 编译器，并且了解了两个重要的概念: <strong>环境变量</strong>、<strong>命令行</strong>。最后还编写了一个简单的 Python 代码。</p>
+<p>读者可能会觉得笔者的介绍很拖沓，说了半天，一点 Python 语法没有介绍，才讲了个 Hello World。</p>
+<p>笔者特别能理解这种感受。想当初，笔者开始学习编程时，也有种迫不及待想要立即掌握编程技能的冲动。</p>
+<p>不过，随着学习和实践的深入，笔者发现：无论编程语言多么复杂，功能多么强大，<strong>编程本身并不难</strong>，日常能用到的特性和功能估计不到 20%。而<strong>常出问题的地方，恰恰是与编程无关的地方</strong>，工作中常常会因为环境问题、工具问题、基础知识问题等，导致编程工作困难重重，耗费大量时间。</p>
+<p>当问题被解决的那一刻，虽然感到很舒畅，但更多的可能是对自己忽略了一个不起眼的问题而懊悔。比如，调试了半天，才发现编译环境不对……</p>
+<p>因此，我们宁可多花点时间，在一些重要的、基础性的、且容易被忽视的地方下点功夫，练好基本功。</p>
+<p>还记得上一篇文章中，提到的一个编程的重要品质：<strong>耐心</strong> 吗？</p>
+<p>因为，我们不是要按部就班地像机器一样工作，而是要对重要的事情知其然，知其所以然，结合自己的主观能动性，创造性地解决问题。</p>
+<p>只要这样，我们才能从容地应对各种情况，处理各种问题，将编程技能学有所用，并将其发挥到极致。</p>
+<p>笔者的水平有限，文章中难免出现各种错误和问题，恳请读者不吝批评、指正。十分感谢！</p>
+<p>比心！</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+			<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.png" alt="太阳雪 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>关注我，获得更多精彩内容</div>
+</div>
+
+        
+		
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022-05-27-program-0/" rel="prev" title="编程，并没有想象的那么难">
+      <i class="fa fa-chevron-left"></i> 编程，并没有想象的那么难
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#运行程序的平台"><span class="nav-number">1.</span> <span class="nav-text">运行程序的平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-Python-编译器"><span class="nav-number">2.</span> <span class="nav-text">安装 Python 编译器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置编译器"><span class="nav-number">3.</span> <span class="nav-text">配置编译器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境变量"><span class="nav-number">3.1.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行"><span class="nav-number">3.2.</span> <span class="nav-text">命令行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行-Python-编译器"><span class="nav-number">3.3.</span> <span class="nav-text">运行 Python 编译器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-编译器的工作模式"><span class="nav-number">4.</span> <span class="nav-text">Python 编译器的工作模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码编辑器"><span class="nav-number">5.</span> <span class="nav-text">代码编辑器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小试牛刀"><span class="nav-number">6.</span> <span class="nav-text">小试牛刀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="太阳雪"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">太阳雪</p>
+  <div class="site-description" itemprop="description">总结 技术 思考 想法</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">太阳雪</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'teRj7yeJj0xpfGKLJ5uFdbIu-gzGzoHsz',
+      appKey     : '3uie0p1nxouCCnkjiXTEBeLd',
+      placeholder: "您的关注是我的动力",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
