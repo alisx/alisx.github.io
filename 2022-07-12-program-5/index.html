@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://www.lixiaofei.cn/images/2022/program_6/01.png">
 <meta property="og:image" content="http://www.lixiaofei.cn/images/2022/program_6/02.png">
 <meta property="article:published_time" content="2022-07-11T22:15:06.000Z">
-<meta property="article:modified_time" content="2022-08-26T02:45:35.066Z">
+<meta property="article:modified_time" content="2023-05-24T01:46:32.078Z">
 <meta property="article:author" content="太阳雪">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://www.lixiaofei.cn/images/2022/program_6/01.png">
@@ -202,7 +202,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-26 10:45:35" itemprop="dateModified" datetime="2022-08-26T10:45:35+08:00">2022-08-26</time>
+                <time title="修改时间：2023-05-24 09:46:32" itemprop="dateModified" datetime="2023-05-24T09:46:32+08:00">2023-05-24</time>
               </span>
 
           
@@ -247,7 +247,8 @@
 <p>如果要作为一个真正有实际用处的程序，还需要很多方面的功能和改善，比如自动读取打卡机上的文件、智能处理应该处理的打卡日志、将统计分析结果自动发送给相关人员、如果发生处理问题，及时上报问题等等。</p>
 <p>这些都可以通过不断地优化，让程序功能更强，更智能。</p>
 <p>为了达到这些目标，或者实现这些功能，我们将逐步展开，步步为营，让自己获得一个完整的软件开发能力体系。</p>
-<h2 id="需求变了"><a href="#需求变了" class="headerlink" title="需求变了"></a>需求变了</h2><p>有很多段子用需求变了来调侃程序员的窘境，确实，当需求不受控制，方向大变时，任何编程技能和手段都会失效，而这样巨大的变化和不确定性，往往是人祸大于天灾，比如项目背景、用户意图理解的不对，或者需求分析不到位，或者设计存在巨大漏洞等等。</p>
+<h2 id="需求变了">需求变了</h2>
+<p>有很多段子用需求变了来调侃程序员的窘境，确实，当需求不受控制，方向大变时，任何编程技能和手段都会失效，而这样巨大的变化和不确定性，往往是人祸大于天灾，比如项目背景、用户意图理解的不对，或者需求分析不到位，或者设计存在巨大漏洞等等。</p>
 <p>如果是正常的合理的变化，就应该积极应对，甚至采用一些技术手段，和理论方法来拥抱变化。因为变化本身，正是推动我们这个世界不断前行的动力，有了变化，才有改进，才有发展，才有进步。</p>
 <p>在上次的研究中，我们假设每天的打卡日志文件已经获得了，只要指定打卡文件的文件名就可以处理了。</p>
 <p>而这次，我们需要让程序能自动从存放众多打卡文件的目录（下称 日志目录）中，找到应该处理的打卡日志文件。</p>
@@ -260,7 +261,8 @@
 </ol>
 <p>无论是哪一种情况，都对我们无关紧要，这次，我们只要知道从日志目录中获取日志文件就可以了。</p>
 <p>那么如何实现让程序自己确定应该处理哪个文件呢？</p>
-<h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><p><strong>面对一个需求，不要急于实现，而是先要仔细地思考和设计解决方案</strong>。</p>
+<h2 id="需求分析">需求分析</h2>
+<p><strong>面对一个需求，不要急于实现，而是先要仔细地思考和设计解决方案</strong>。</p>
 <p>与上次的实现相比，我们不能再将日志文件名，<strong>写死</strong> 在代码里了，因为最新的日志文件名是变化的。</p>
 <blockquote>
 <p><strong>将可变的部分写死在程序代码里，不是个好主意</strong>，这也是很多程序缺乏灵活性甚至不可维护的主要原因之一。</p>
@@ -282,8 +284,10 @@
 <li>找到比这个文件名更大的文件名，如果找到即为需要处理的文件</li>
 </ol>
 <p>这就是满足需求的 <strong>解决方案</strong>。</p>
-<h2 id="实现解决方案"><a href="#实现解决方案" class="headerlink" title="实现解决方案"></a>实现解决方案</h2><p>除了写死之外，如何让程序知道应该处理哪个文件呢？</p>
-<h3 id="为程序提供外部信息"><a href="#为程序提供外部信息" class="headerlink" title="为程序提供外部信息"></a>为程序提供外部信息</h3><p>让程序知道处理到了哪个文件这个信息，属于程序的外部信息，因为和程序的处理逻辑没有太大关系，并且与程序的生命周期也没关系，即这样的信息在程序启动前以及结束后都会存在。</p>
+<h2 id="实现解决方案">实现解决方案</h2>
+<p>除了写死之外，如何让程序知道应该处理哪个文件呢？</p>
+<h3 id="为程序提供外部信息">为程序提供外部信息</h3>
+<p>让程序知道处理到了哪个文件这个信息，属于程序的外部信息，因为和程序的处理逻辑没有太大关系，并且与程序的生命周期也没关系，即这样的信息在程序启动前以及结束后都会存在。</p>
 <p>对于提供给程序的外部信息，一般我们还有两种选择。</p>
 <p><strong>第一种：通过运行参数</strong>：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python main.py 2022-07-12</span><br></pre></td></tr></table></figure>
@@ -306,19 +310,21 @@
 <p>不过对于面向对象的编程语言（Python 算是）来说，有种 <a href="https://baike.baidu.com/item/%E6%8C%81%E4%B9%85%E5%8C%96" target="_blank" rel="noopener" title="持久化技术">持久化技术</a>，可能在程序启动时恢复之前的变量内容，但本质，上也是将信息存储在外部，类似于配置文件。</p>
 <p><strong>不让程序关闭行不行？</strong></p>
 <p>理论上说是可以的，但是想要制造出永不关闭的应用程序，难度是非常大的，因为除了技术本身的复杂度之外，还需要保障计算机不会崩溃，不会断电等等很多外部问题，这一定是我们不愿意去直接解决的。</p>
-<h3 id="读写配置信息"><a href="#读写配置信息" class="headerlink" title="读写配置信息"></a>读写配置信息</h3><p>最简单的配置文件就是文本文件，我们只需要打开文本文件，读取其中的内容就可以。</p>
+<h3 id="读写配置信息">读写配置信息</h3>
+<p>最简单的配置文件就是文本文件，我们只需要打开文本文件，读取其中的内容就可以。</p>
 <p>当程序处理完成，再将处理过的文件名写入其中即可。</p>
 <p>读取文件上一次处理日志文件时我们了解过，而如何写入呢？</p>
 <p>很简单，只要改变一个参数就可以了：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">config = open(<span class="string">'config.txt'</span>, <span class="string">'w'</span>, encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">config.write(<span class="string">'2022-07-20.txt'</span>)</span><br><span class="line">config.close()</span><br></pre></td></tr></table></figure>
 <ul>
-<li>第一句的意思是从当前目录下，打开一个 <code>config.txt</code> 文件，打开模式为 <strong>写入</strong>。请注意与读取文件相比，第二个参数从 <code>r</code> 变成了 <code>w</code>，<code>w</code> 其实就是 <strong>write</strong> 的首字母，含义是覆盖性写入。<br>关于操作文件的 <code>open</code> 方法更多信息请参考：<a href="https://www.runoob.com/python/python-func-open.html" target="_blank" rel="noopener" title="Python open 函数">Python open 函数</a></li>
+<li>第一句的意思是从当前目录下，打开一个 <code>config.txt</code> 文件，打开模式为 <strong>写入</strong>。请注意与读取文件相比，第二个参数从 <code>r</code> 变成了 <code>w</code>，<code>w</code> 其实就是 <strong>write</strong> 的首字母，含义是覆盖性写入。关于操作文件的 <code>open</code> 方法更多信息请参考：<a href="https://www.runoob.com/python/python-func-open.html" target="_blank" rel="noopener" title="Python open 函数">Python open 函数</a></li>
 <li>第二句表示向文件中写入一个字符串，即最后处理的日志文件名。如果要写入一行的话，末尾需要添加特殊字符：换行符 <code>\n</code>，更多关于特殊字符的表示，请参考<a href="https://zhuanlan.zhihu.com/p/481432109" target="_blank" rel="noopener" title="转义字符">转义字符</a></li>
 <li>第三句为关闭文件，这时会将内容写入硬盘上的文件，并保存。当然我们可以用 <code>with</code> 关键字来省去调用 <code>close</code> 方法，请参考<a href="https://mp.weixin.qq.com/s/DAzqzcJd3BiwNgmL9ajrsw" target="_blank" rel="noopener">上一篇文章</a>中的说明</li>
 </ul>
 <p>可以看到只要将 <code>open</code> 方法的第二个参数换 <code>w</code> 就能实现对文本文件的读取了。</p>
 <p>另外，参数 <code>w</code> 还有个作用就是当要写入的文件不存在时，会自动创建这个文件。这就很方便了，因为我们第一次运行时，往往会忘记创建这个配置文件，这样相当于让程序可以 “自理” 了。</p>
-<h3 id="检索文件"><a href="#检索文件" class="headerlink" title="检索文件"></a>检索文件</h3><p>通过配置文件，我们就能得到上次处理到了哪里。下面就需要找到下一个要处理的文件是什么。</p>
+<h3 id="检索文件">检索文件</h3>
+<p>通过配置文件，我们就能得到上次处理到了哪里。下面就需要找到下一个要处理的文件是什么。</p>
 <p>经过前面的需求分析，我们知道下一个文件名是一个比上次处理的文件名大的。</p>
 <p>看到需要比较，我们就能知道需要用到 <strong>分支语句</strong>，<strong>字符串能像数字一样被比较吗？</strong></p>
 <p>看看下面的语句：</p>
@@ -331,19 +337,19 @@
 <p>对于字符串来说，是通过逐个比较每个字符来确定大小的，比如 <code>abc</code> 和 <code>baa</code> 来比较，虽然 <code>baa</code> 的后两位字符比 <code>abc</code> 的小，但是由于 <code>b</code> 比 <code>a</code> 大，所以更大的字符串是 <code>baa</code>。</p>
 <p>想一下电脑上常用的按名称排序功能，其实就是利于字符串的大小进行排序的。</p>
 <blockquote>
-<p>如果你仔细观察会发现一个有趣的现象，如果我们有大于 10 首的播放列表，文件名是数字编码，例如 <code>1.mp3</code>、<code>2.mp3</code>… <code>10.mp3</code>…，我们想从1开始按顺序播放，常常得到的顺序是 <code>1.mp3</code>、<code>10.mp3</code>… <code>2.mp3</code>，现在知道问什么了吧。<br>只要在不足两位数的文件名前补零，比如 <code>01.mp3</code> 就不会排错了。</p>
+<p>如果你仔细观察会发现一个有趣的现象，如果我们有大于 10 首的播放列表，文件名是数字编码，例如 <code>1.mp3</code>、<code>2.mp3</code>… <code>10.mp3</code>…，我们想从1开始按顺序播放，常常得到的顺序是 <code>1.mp3</code>、<code>10.mp3</code>… <code>2.mp3</code>，现在知道问什么了吧。只要在不足两位数的文件名前补零，比如 <code>01.mp3</code> 就不会排错了。</p>
 </blockquote>
 <hr>
 <p>我们还需要解决一个问题，就是如何获取日志目录中有哪些文件名。</p>
 <p>对于文件和目录的操作，操作系统提供了很多方法，这些方法也被各种编程语言封装成了便利的功能。</p>
 <p>在 Python 中，<code>os</code> 这个 <code>库</code>，集成了很多文件和目录的操作方法。</p>
 <blockquote>
-<p><code>os</code> 是一个集成了操作系统各种功能的库，什么是 <strong>库</strong> 呢？<br>简单说就是一系列相关的程序资源(方法、类等)的集合，以方便被其他程序使用。</p>
+<p><code>os</code> 是一个集成了操作系统各种功能的库，什么是 <strong>库</strong> 呢？简单说就是一系列相关的程序资源(方法、类等)的集合，以方便被其他程序使用。</p>
 <p>类似的还有 <strong>包</strong>、<strong>模块</strong>，可以将它们理解成公共方法，在需要用到时将它们引入程序中就可以了。</p>
 <p>更多关于 <strong>库、包、模块</strong> 的知识可参考 <a href="https://www.zhihu.com/question/30082392" target="_blank" rel="noopener" title="Python 模块、库、包的区别">Python 模块、库、包的区别</a></p>
 </blockquote>
 <p>其中 <code>listdir</code> 就可以用例罗列目录中的内容：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">filenames = os.listdir(<span class="string">'logs'</span>)</span><br><span class="line"></span><br><span class="line">print(filenames)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line"></span><br><span class="line">filenames &#x3D; os.listdir(&#39;logs&#39;)</span><br><span class="line"></span><br><span class="line">print(filenames)</span><br></pre></td></tr></table></figure>
 <p><code>listdir</code> 可以接受一个目录路径参数，如果这个路径存在，就会将其中的文件名和目录名，放入一个数组，返回出来。</p>
 <p>通过 <code>print</code> 方法就可能看到目录中的内容（文件名和目录名）。</p>
 <p>对我们来说，我们只需要遍历 <code>listdir</code> 返回的结果，找到合适的文件名就可以了。</p>
@@ -360,13 +366,17 @@
 <li>最后，判断 <code>targetFilename</code>，如果有值，说明已经找到，如果没有，说明还没有更新的文件需要处理</li>
 </ul>
 <p>关于最后一点 <code>targetFilename</code> 的判断很重要，它属于<a href="https://baike.baidu.com/item/%E8%BE%B9%E7%95%8C%E5%80%BC%E5%88%86%E6%9E%90%E6%B3%95" target="_blank" rel="noopener" title="边界值分析">边界值分析</a>的范畴，处理好了边界值文件，当程序作为服务，反复运行时，也不会出错或者做没必要的运算。</p>
-<h2 id="梳理与集成"><a href="#梳理与集成" class="headerlink" title="梳理与集成"></a>梳理与集成</h2><p>现在回顾一下整个过程。</p>
+<h2 id="梳理与集成">梳理与集成</h2>
+<p>现在回顾一下整个过程。</p>
 <ul>
-<li><p>第一步，从打卡日志目录中，获取一个待处理文件名；</p>
+<li>
+<p>第一步，从打卡日志目录中，获取一个待处理文件名；</p>
 </li>
-<li><p>第二步，处理日志文件，将处理结果显示出来；</p>
+<li>
+<p>第二步，处理日志文件，将处理结果显示出来；</p>
 </li>
-<li><p>第三步，记录最后一个已处理文件名；</p>
+<li>
+<p>第三步，记录最后一个已处理文件名；</p>
 </li>
 </ul>
 <p>和上一次的处理相比，多了第一步和第三步。</p>
@@ -376,7 +386,8 @@
 <p>对于整体处理来说，<code>输入</code>是配置文件，<code>输出</code>是打卡统计结果。</p>
 <p>能发现什么？</p>
 <p>我们能看到，无论是整体，还是部分，都是由 <strong>输入</strong>，<strong>处理</strong>，<strong>输出</strong> 三部分组成。</p>
-<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>现在，回顾一下前面讲述过的 <code>函数</code>（<code>方法</code>），对于一个函数来说，也由输入、处理、输出这三部分组成，也就是说 函数就是一个程序处理的集合，或者一个单元。</p>
+<h3 id="函数">函数</h3>
+<p>现在，回顾一下前面讲述过的 <code>函数</code>（<code>方法</code>），对于一个函数来说，也由输入、处理、输出这三部分组成，也就是说 函数就是一个程序处理的集合，或者一个单元。</p>
 <p>对于比较小的处理过程，编写一个函数就够了，比如上一节中，我们统计打卡日志文件的过程，甚至没有定义一个函数，因为处理过程本身就相当于一个函数。</p>
 <p>对于大的复杂的处理过程，可以由不同的函数组合起来，比如我们这次的程序，由三部分组成。</p>
 <p>那么 python 里的函数如何定义呢？先看代码：</p>
@@ -394,7 +405,8 @@
 <li>可以封装过程细节，让代码更简洁，更符合逻辑。</li>
 <li>方便功能实现以及测试，因为函数内部具是一个封闭空间，功能集中，不会影响函数外的环境。</li>
 </ol>
-<h3 id="函数化"><a href="#函数化" class="headerlink" title="函数化"></a>函数化</h3><p>现在我们将各个功能做一个函数化改造。</p>
+<h3 id="函数化">函数化</h3>
+<p>现在我们将各个功能做一个函数化改造。</p>
 <p>第一个是找到待处理文件：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">findTargetFileName</span><span class="params">(configFilename, logdir)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> open(configFilename, <span class="string">'r'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> conf:</span><br><span class="line">        lastfilename = conf.read().strip()</span><br><span class="line"></span><br><span class="line">        filenames = os.listdir(logdir)</span><br><span class="line"></span><br><span class="line">        targetFilename = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> f <span class="keyword">in</span> filenames:</span><br><span class="line">            <span class="keyword">if</span> f &gt; lastfilename:</span><br><span class="line">                targetFilename = f</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> targetFilename</span><br></pre></td></tr></table></figure>
 <ul>
@@ -418,7 +430,8 @@
 <li>主体部分是打开配置文件，将内容写入其中</li>
 </ul>
 <p>到此我们就完成了整体处理过程的各个部分，接下来将这些部分根据业务需求集成起来。</p>
-<h3 id="集成"><a href="#集成" class="headerlink" title="集成"></a>集成</h3><p>根据业务要求，首先获取需要处理的文件，然后做统计处理，最后记录配置文件，这个和我们最初的分析是一致的，于是代码就可以写成：</p>
+<h3 id="集成">集成</h3>
+<p>根据业务要求，首先获取需要处理的文件，然后做统计处理，最后记录配置文件，这个和我们最初的分析是一致的，于是代码就可以写成：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">configfile = <span class="string">'config.txt'</span></span><br><span class="line">logdir = <span class="string">'log'</span></span><br><span class="line"></span><br><span class="line">targetFilename = findTargetFileName(configfile, logdir)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> targetFilename:</span><br><span class="line">    report = genReport(targetFilename)</span><br><span class="line">    print(report)</span><br><span class="line">    setConf(configfile, targetFilename)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'没有需要处理的文件'</span>)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>首先定义了必要的环境信息，比如配置文件的位置，日志目录的位置，虽然是写死在代码里的，但这部分信息不会频繁变化</li>
@@ -428,7 +441,8 @@
 </ul>
 <p>到这一步，我们会发现，我们回到了这个任务的最开始，也就是所谓的业务描述部分。</p>
 <p>这段集成在一起的代码，恰恰就是一个业务的描述，而前面我们做的，只是不断地深入到一个个问题的细节中去，解决一个个具体的问题，而这一切都是为最后的业务描述所服务的。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>现在回顾一下整个过程。</p>
+<h2 id="总结">总结</h2>
+<p>现在回顾一下整个过程。</p>
 <p>首先我们提出了一个新的业务情况，为了应对这种业务情况，我们做了业务分析，和解决方案。</p>
 <p>然后，我们将解决方案分成不同的部分，并解决其中遇到的各种具体问题。</p>
 <p>接着，研究各个组成部分的输入、输出，将它们编写成函数。</p>
@@ -541,7 +555,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">89</span>
+          <span class="site-state-item-count">95</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.lixiaofei.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":true,"storage":true,"lazyload":true,"nav":{"valine":{"order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="title: 突破阻碍， ChatGPT 触手可得 comments: true author: 小飞的李 date: 2023-05-17 12:11:24 tags: categories: OpenAI 的 ChatGPT 如火如荼，掀起了自 2023 年初以来的一场技术狂潮。人们在惊叹人工智能的能力的同时，对为了人工智能时代充满了期待、恐慌和彷徨。无论如何，新的技术出现，往往会带给人类社">
+<meta property="og:type" content="article">
+<meta property="og:title" content="test">
+<meta property="og:url" content="http://www.lixiaofei.cn/test/index.html">
+<meta property="og:site_name" content="管窥程序">
+<meta property="og:description" content="title: 突破阻碍， ChatGPT 触手可得 comments: true author: 小飞的李 date: 2023-05-17 12:11:24 tags: categories: OpenAI 的 ChatGPT 如火如荼，掀起了自 2023 年初以来的一场技术狂潮。人们在惊叹人工智能的能力的同时，对为了人工智能时代充满了期待、恐慌和彷徨。无论如何，新的技术出现，往往会带给人类社">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://img.lixiaofei.cn/image/53d154c5-1721-435b-9885-8647fff89937.png">
+<meta property="og:image" content="http://img.lixiaofei.cn/image/dcbe2bf9-a614-44f5-8adf-21b1206f3147.png">
+<meta property="og:image" content="http://img.lixiaofei.cn/image/ecdcda06-13a5-4311-bbde-15c2daf8ca41.png">
+<meta property="og:image" content="http://img.lixiaofei.cn/image/cd9f7533-b8d6-46bf-bb71-ff509b240504.png">
+<meta property="og:image" content="http://img.lixiaofei.cn/image/9836a35b-64ba-459f-949a-3ef80c406dac.png">
+<meta property="og:image" content="http://img.lixiaofei.cn/image/dc06f575-e8a5-4f0e-a109-8ca120ef7a80.png">
+<meta property="og:image" content="http://img.lixiaofei.cn/image/0e2624b2-b925-4614-bb46-10533b3023ae.png">
+<meta property="og:image" content="http://img.lixiaofei.cn/image/2f799d6a-5060-4789-85bd-fa3883a7793f.png">
+<meta property="og:image" content="http://img.lixiaofei.cn/image/c27721e3-9080-4bf8-9788-309eab3cba73.png">
+<meta property="og:image" content="http://img.lixiaofei.cn/image/e3585b8e-80d4-412e-ac8b-125da994af41.png">
+<meta property="og:image" content="http://img.lixiaofei.cn/image/764c10fe-5ceb-403c-b1fd-b30ee48049bc.png">
+<meta property="og:image" content="http://img.lixiaofei.cn/image/4bc1ae5a-cda2-4930-a7ff-7ef77d3d4a3f.png">
+<meta property="og:image" content="http://img.lixiaofei.cn/image/cbe4941b-f950-4669-bd4f-1c7df5c55b9f.png">
+<meta property="article:published_time" content="2023-05-24T02:39:04.692Z">
+<meta property="article:modified_time" content="2023-05-24T02:39:04.696Z">
+<meta property="article:author" content="太阳雪">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://img.lixiaofei.cn/image/53d154c5-1721-435b-9885-8647fff89937.png">
+
+<link rel="canonical" href="http://www.lixiaofei.cn/test/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>test | 管窥程序</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">管窥程序</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Today is a gift</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/alisx" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.lixiaofei.cn/test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="太阳雪">
+      <meta itemprop="description" content="总结 技术 思考 想法">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="管窥程序">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          test
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-05-24 10:39:04" itemprop="dateCreated datePublished" datetime="2023-05-24T10:39:04+08:00">2023-05-24</time>
+            </span>
+
+          
+            <span id="/test/" class="post-meta-item leancloud_visitors" data-flag-title="test" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/test/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/test/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <hr>
+<h2 id="title-突破阻碍，-chatgpt-触手可得-comments-true-author-小飞的李-date-2023-05-17-121124-tags-categories">title: 突破阻碍， ChatGPT 触手可得
+comments: true
+author: 小飞的李
+date: 2023-05-17 12:11:24
+tags:
+categories:</h2>
+<p>OpenAI 的 ChatGPT 如火如荼，掀起了自 2023 年初以来的一场技术狂潮。人们在惊叹人工智能的能力的同时，对为了人工智能时代充满了期待、恐慌和彷徨。无论如何，新的技术出现，往往会带给人类社会一场革命，纵观历史，我们只有紧跟发展，与新技术共舞，才能找到看清未来，找到出路。</p>
+<p>道路往往是崎岖不平，充满阻碍的，因为种种原因，想要全心拥抱 ChatGPT 并不容易，除了需要具备基本的计算机使用技能之外，还需要跨越内外的重重阻碍。为此出现了很多方式，很多服务，可以让我们或直接或间接的接触到 ChatGPT，但是要么服务不稳定，要么各种乱收费，各种方式层出不穷，良莠不齐，无法让我们平稳地，自由地访问。</p>
+<p>经过一段时间的探索，笔者学到了一种可以直接使用 ChatGPT 的方法，虽然比起很多包装好的傻瓜式的方法有些难度，但为了自由和稳定，值的一试。</p>
+<a id="more"></a>
+
+<h2 id="先决条件">先决条件</h2>
+<ol>
+<li>OpenAI 账号。在这里 <a href="https://platform.openai.com/signup?launch" target="_blank" rel="noopener">申请</a> ，需要<em>魔法</em> ,（回复[<strong>魔法</strong>] 了解更多，如果申请不了，回复[<strong>openai账号</strong>]，已获得更多帮助)</li>
+<li>GitHub 账号。在这里 <a href="https://github.com/signup" target="_blank" rel="noopener">申请</a></li>
+<li>域名。可以在<a href="www.aliyun.com">阿里云</a>、<a href="https://cloud.tencent.com/" target="_blank" rel="noopener">腾讯云</a>、<a href="https://www.namesilo.com/?rid=d82a693eg" target="_blank" rel="noopener">NameSilo</a>、<a href="www.godaddy.com">Goddly</a> 等域名提供商那里购买。国内域名，需要备案，周期较长，如果着急使用推荐用 <a href="https://www.namesilo.com/?rid=d82a693eg" target="_blank" rel="noopener">NameSilo</a></li>
+</ol>
+<blockquote>
+<p>搞不定条件 1，可以就此结束，不用浪费时间了</p>
+<p>搞不定条件 3，无法实现无魔法访问，是自己的情况而定</p>
+</blockquote>
+<h2 id="操作步骤">操作步骤</h2>
+<p>大体流程：</p>
+<ol>
+<li><strong>部署项目</strong><ul>
+<li>项目指的是 <a href="https://github.com/Yidadaa/ChatGPT-Next-Web" target="_blank" rel="noopener">ChatGPT-Next-Web</a>，一个封装了 ChatGPT API 的 Web 程序</li>
+<li>部署到 <a href="vercel.com">Vercel</a> ，一个操作简单、功能强的，可以免费托管 Web 程序的平台</li>
+</ul>
+</li>
+<li><strong>配置域名</strong><ul>
+<li>将自己的域名指向 Vercel 上部署的项目地址，实现不使用魔法，通过自己的域名访问 Web 程序的目的</li>
+</ul>
+</li>
+<li><strong>效果测试</strong></li>
+</ol>
+<h3 id="部署项目">部署项目</h3>
+<p>访问 <a href="https://github.com/Yidadaa/ChatGPT-Next-Web" target="_blank" rel="noopener">ChatGPT-Next-Web</a> 项目，进入页面后，点击页面中间的 <strong>Deploy</strong> 按钮：</p>
+<p><img src="http://img.lixiaofei.cn/image/53d154c5-1721-435b-9885-8647fff89937.png" alt=""></p>
+<p>点击之后会跳转到，Vercel 部署项目的页面。</p>
+<p>如果之前没有注册或者登录 Vercel 会在 Get Started 区域显示让选择一个 Git 提供者对话框：</p>
+<p><img src="http://img.lixiaofei.cn/image/dcbe2bf9-a614-44f5-8adf-21b1206f3147.png" alt=""></p>
+<p>我们选择 GitHub，在弹出的对话框中，进行 GitHub 的授权，通过后，就可以登录到 Vercel 中了。</p>
+<h4 id="创建项目仓库">创建项目仓库</h4>
+<p>这时，需要我们选择一个创建项目的仓库：</p>
+<p><img src="http://img.lixiaofei.cn/image/ecdcda06-13a5-4311-bbde-15c2daf8ca41.png" alt=""></p>
+<p>我们仍然选择 GitHub，之后会出现填写仓库信息的输入框：</p>
+<p><img src="http://img.lixiaofei.cn/image/cd9f7533-b8d6-46bf-bb71-ff509b240504.png" alt=""></p>
+<ol>
+<li><code>Git Scope</code> 中，会显示我们的 GitHub 账号，不用修改</li>
+<li><code>Repository Name</code> 会默认显示 <code>ChatGPT-Next-Web</code>，也可不修改</li>
+<li><code>Create private Git Repository</code> 勾选表示创建一个私有项目，是否私有随意</li>
+<li>点击 <code>Create</code> 按钮创建项目仓库，片刻即可完成</li>
+</ol>
+<p>此是在我们的 GitHub 中，就会有一个 <code>ChatGPT-Next-Web</code> 项目，它是由 Vercel 从 <a href="https://github.com/Yidadaa/ChatGPT-Next-Web" target="_blank" rel="noopener">Yidadaa 的项目</a> 中复制而来的。</p>
+<h4 id="配置项目信息">配置项目信息</h4>
+<p>项目仓库创建完成后，就会将焦点跳转到项目配置，这个项目只需要配置两个环境变量值：</p>
+<p><img src="http://img.lixiaofei.cn/image/9836a35b-64ba-459f-949a-3ef80c406dac.png" alt=""></p>
+<ol>
+<li><code>OPENAI_API_KEY</code> 为 chatGPT 的接口密钥，有了它才能通过接口的方式与之交互。在<a href="https://platform.openai.com/account/api-keys" target="_blank" rel="noopener">这里创建</a>；将创建的 API_KEY 值复制，粘贴到这里；</li>
+<li><code>CODE</code> 是将来使用 Web 程序的密码，可以设置多组，用逗号隔开，例如：<code>xxxx,yyyy,zzzz</code>，即用 <code>xxxx</code>、<code>yyyy</code> 或 <code>zzzz</code> 都可以使用；</li>
+<li>配置完成后，点击 <code>Deploy</code> 按钮，进行部署，稍等片刻即可部署完成。</li>
+</ol>
+<p>完成部署后，就可以在 Vercel 的首页看到部署好的项目了，而且能看到给项目分配的地址：</p>
+<p><img src="http://img.lixiaofei.cn/image/dc06f575-e8a5-4f0e-a109-8ca120ef7a80.png" alt=""></p>
+<p>点击就能打开我们的 Web 程序：</p>
+<p><img src="http://img.lixiaofei.cn/image/0e2624b2-b925-4614-bb46-10533b3023ae.png" alt=""></p>
+<ol>
+<li>这里是设置，点击，在弹出的对话框中，填入我们在部署时设置的 <code>CODE</code>，关闭对话框即可</li>
+<li>这里可以给建立的对话改名</li>
+<li>这里是聊天记录</li>
+<li>在这里输入我们的问题</li>
+<li>点击发送</li>
+<li>这里可以将聊天记录导出为 Markdown 格式的文本文件</li>
+</ol>
+<p>其他功能，请自行探索。</p>
+<p>如果不想再定制域名折腾，就可以在此结束了，祝你在 AI 世界里玩的愉快！</p>
+<h3 id="配置域名">配置域名</h3>
+<p>为了方便访问，最主要的是为了不用 <em>魔法</em>，随时时地与 ChatGPT 交互，我们需要为其绑定一个自己的域名。</p>
+<p>在 Vercel 中，点击我们的项目名称，进入项目页；</p>
+<p>在页面上部的 <code>Settings</code> 标签按钮，进入项目设置页；</p>
+<p>点击左侧列表菜单中的 <code>Domains</code> 按钮，进入域名设置页；</p>
+<h4 id="设置域名">设置域名</h4>
+<p><img src="http://img.lixiaofei.cn/image/2f799d6a-5060-4789-85bd-fa3883a7793f.png" alt=""></p>
+<ol>
+<li>这里是我们刚才预览时使用的地址</li>
+<li>在这里填写我们 <strong>自己的域名</strong>，比如我的是 <code>ieasyinfo.cn</code> (此域名仅作操作演示，不提供 AI 服务 )</li>
+<li>点击 <code>Add</code> 按钮添加域名</li>
+</ol>
+<p>弹出添加域名对话框：</p>
+<p><img src="http://img.lixiaofei.cn/image/c27721e3-9080-4bf8-9788-309eab3cba73.png" alt=""></p>
+<ol>
+<li>选择推荐的方式，这样访问时无论输不输入 www 都可以正常访问</li>
+<li>点击 <code>Add</code> 按钮，完成添加</li>
+</ol>
+<p>在域名配置页面，可以看到，多了两个域名，一个是没有二级域名的，一个二级域名是 www 的。</p>
+<h4 id="设置解析">设置解析</h4>
+<p>此是需要我们在域名管理后台，给域名设置特定的解析，解析的值，按照域名下方显示的那样：</p>
+<img src="http://img.lixiaofei.cn/image/e3585b8e-80d4-412e-ac8b-125da994af41.png"  />
+
+<p>配置完成后，稍等片刻，即就能看到验证通过的状态：</p>
+<img src="http://img.lixiaofei.cn/image/764c10fe-5ceb-403c-b1fd-b30ee48049bc.png"  />
+
+<p>接着再配置 www 的域名：</p>
+<img src="http://img.lixiaofei.cn/image/4bc1ae5a-cda2-4930-a7ff-7ef77d3d4a3f.png" style="zoom:50%;" />
+
+<p>配置完成后，就可以通过自己域名访问了：</p>
+<img src="http://img.lixiaofei.cn/image/cbe4941b-f950-4669-bd4f-1c7df5c55b9f.png"  />
+
+<h4 id="额外设置">额外设置</h4>
+<p>给域名设置完解析后，可以还是无法访问，这是因为新域名所指向的地址还没有同步到我们域名使用的 DNS 服务器，等待10~30分钟就可以正常访问了。</p>
+<p>如果等不及，可以在域名管理中，改变域名的 DNS 服务器，将其换成 Vercel 的DNS 服务器地址：</p>
+<ul>
+<li>ns1.vercel-dns.com</li>
+<li>ns2.vercel-dns.com</li>
+</ul>
+<p>保存后，片刻就可以正常访问了。</p>
+<h3 id="效果测试">效果测试</h3>
+<p>到此，我们就可以和 ChatGPT 亲密接触了，而且不用再使用魔法了，也就可以将这个工具分享给亲人和朋友了。</p>
+<p>如果没有魔法无法访问，可能是：</p>
+<ol>
+<li>配置的域名解析有问题，需要细致检查</li>
+<li>DNS 没有同步，耐心等待</li>
+<li>域名被禁止访问，可以考虑更换其他域名；</li>
+<li>Vercel 通过的 IP 被禁止访问，只能等待新的 IP 了；</li>
+</ol>
+<h2 id="总结">总结</h2>
+<p>特别感谢大神 <a href="https://github.com/Yidadaa" target="_blank" rel="noopener">Yidadaa</a>，为我们带来的 ChatGPT 项目，正是他的无私奉献，使得我们可以一键部署 ChatGPT，再次感谢。</p>
+<p>Vercel 作为一个网站托管平台，值得推荐，不仅可以用于 ChatGPT 项目，而且还可以用它托管其他项目，比如自己的博客等等，特别是它提供的个性域名绑定服务，不仅让我们可以轻松访问网站，还能绕过魔法，看得更远。</p>
+<p>这里为了简便，介绍的创建 Web 项目的方式，是从 <a href="https://github.com/Yidadaa/ChatGPT-Next-Web" target="_blank" rel="noopener">ChatGPT-Next-Web</a> 直接派生的，省去了自己手动创建分岔(fork)的繁琐，但是也失去了与原本项目的同步机制，也就是新的特性将无法更新，如果不追新，这种方式比较适合。</p>
+<p>如果想要与主项目同步，就需要在 GitHub 中手动创建项目分岔，并建立公布工作流，最后 Vercel 中建立更新机制，有兴趣的读者可以尝试一下。如有机会，笔者可能会写一篇相关介绍性的文章。</p>
+<p>AI 时代的变化更加剧烈，不能说是瞬息万变，也已经是日新月异了，因此随着时间推移，本文说讨论的方法、方式会落后甚至变成错误，如有问题请读者及时反馈，不胜感激。</p>
+<p>笔者的水平有限，文章中难免出现各种错误和问题，恳请读者不吝批评、指正。十分感谢！</p>
+<p>比心！</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+			<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.png" alt="太阳雪 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>关注我，获得更多精彩内容</div>
+</div>
+
+        
+		
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023-05-20-typora-wechat/" rel="prev" title="不会公众号外链转脚注？chatGPT 来帮忙">
+      <i class="fa fa-chevron-left"></i> 不会公众号外链转脚注？chatGPT 来帮忙
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/github/" rel="next" title="github">
+      github <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#title-突破阻碍，-chatgpt-触手可得-comments-true-author-小飞的李-date-2023-05-17-121124-tags-categories"><span class="nav-number">1.</span> <span class="nav-text">title: 突破阻碍， ChatGPT 触手可得
+comments: true
+author: 小飞的李
+date: 2023-05-17 12:11:24
+tags:
+categories:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#先决条件"><span class="nav-number">2.</span> <span class="nav-text">先决条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作步骤"><span class="nav-number">3.</span> <span class="nav-text">操作步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#部署项目"><span class="nav-number">3.1.</span> <span class="nav-text">部署项目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建项目仓库"><span class="nav-number">3.1.1.</span> <span class="nav-text">创建项目仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置项目信息"><span class="nav-number">3.1.2.</span> <span class="nav-text">配置项目信息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置域名"><span class="nav-number">3.2.</span> <span class="nav-text">配置域名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设置域名"><span class="nav-number">3.2.1.</span> <span class="nav-text">设置域名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置解析"><span class="nav-number">3.2.2.</span> <span class="nav-text">设置解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#额外设置"><span class="nav-number">3.2.3.</span> <span class="nav-text">额外设置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#效果测试"><span class="nav-number">3.3.</span> <span class="nav-text">效果测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="太阳雪"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">太阳雪</p>
+  <div class="site-description" itemprop="description">总结 技术 思考 想法</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">太阳雪</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'teRj7yeJj0xpfGKLJ5uFdbIu-gzGzoHsz',
+      appKey     : '3uie0p1nxouCCnkjiXTEBeLd',
+      placeholder: "您的关注是我的动力",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
